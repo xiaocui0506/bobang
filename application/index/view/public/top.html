@@ -1,0 +1,59 @@
+<header>
+    <div class="dingbu">
+        <div class="dingbu1">
+            <div class="dingbu1-1">
+                <span>新乡市</span>
+                <span>【<a href="#">切换城市</a>】</span>
+                <ul>
+                    <li><a href="#">设为主页</a></li>
+                    <li><a href="#">加入收藏</a></li>
+                    <li><a href="#">公众号</a></li>
+                </ul>
+            </div>
+            <div class="dingbu1-2">
+                <span><img src="__IND__/images/index_03.jpg" alt=""></span>
+
+                <ul>
+                    <li><a href="{:url('login/login')}">会员登录</a></li>
+                    <li><a href="{:url('login/reg')}">免费注册</a></li>
+                    <li><a href="#">忘记密码</a></li>
+                    <li><a href="#">消息中心</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="dingbu2">
+        <a href="#">
+            <img src="__IND__/images/index_07.jpg" alt="">
+        </a>
+        {if condition="!strpos($_SERVER['REDIRECT_URL'], 'login')" }
+        <div class="dingbu2-1">
+            <input type="text">
+            <a href="">全国搜</a>
+            <a href="">本省搜</a>
+            <a href="">本市搜</a>
+        </div>
+        {else/}
+        <div class="dingbu2-2" style="float: right;margin-top: 60px;font-size: 14px;margin-right: 28px;">已有账号，<a href="{:url('login/login')}">请登录&gt;</a></div>
+        {/if}
+    </div>
+    {if condition="!strpos($_SERVER['REDIRECT_URL'], 'reg') && !strpos($_SERVER['REDIRECT_URL'], 'login')"}
+        <div class="dingbu3">
+            <div>
+                <ul>
+                    <li {if condition="!strpos($_SERVER['REDIRECT_URL'], 'index')"} class="yynav" {/if}><a href="/">网站首页</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'tendering')"} class="yynav" {/if}><a href="{:url('tendering/index')}">企业招标</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'tobuy')"} class="yynav" {/if}><a href="{:url('tobuy/index')}">会员求购</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'expo')"} class="yynav" {/if}><a href="{:url('expo/index')}">专业会展</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'jobs')"} class="yynav" {/if}><a href="{:url('jobs/index')}">商业会展</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'recruit')"} class="yynav" {/if}><a href="{:url('recruit/index')}">企业招聘</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'jobs')"} class="yynav" {/if}><a href="{:url('jobs/index')}">会员求职</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'unused')"} class="yynav" {/if}><a href="{:url('unused/index')}">闲置转让</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'index')"} class="yynav" {/if}><a href="##">邮箱登录</a></li>
+                    <li {if condition="strpos($_SERVER['REDIRECT_URL'], 'index')"} class="yynav" {/if}><a href="##">快递查询</a></li>
+                </ul>
+            </div>
+        </div>
+    {/if}
+</header>

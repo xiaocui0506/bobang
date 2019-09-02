@@ -1,0 +1,31 @@
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li >
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6eb;</i>
+                    <cite>主页</cite>
+                    <i class="iconfont nav_right">&#xe6a7;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li><a _href="{:url('index/welcome')}"><i class="iconfont">&#xe6a7;</i><cite>控制台</cite></a></li>
+                    <li><a _href="{:url('index/website')}"><i class="iconfont">&#xe6a7;</i><cite>网站信息</cite></a></li>
+                </ul>
+            </li>
+            <volist name="nav" id="v">
+                <li >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a2;</i>
+                        <cite>{$v.name}</cite>
+                        <i class="iconfont nav_right">&#xe6a7;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <volist name="v['navTwo']" id="vs">
+                            <li><a _href="/admin/{$vs.name}/index"><i class="iconfont">&#xe6a7;</i><cite>{$vs.title}</cite></a></li>
+                        </volist>
+                    </ul>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>

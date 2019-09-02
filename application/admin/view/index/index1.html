@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$title}</title>
+    <!-- Fav  Icon Link -->
+    <link rel="shortcut icon" type="image/png" href="__ADM__images/fav.png">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="__ADM__css/bootstrap.min.css">
+    <!-- themify icons CSS -->
+    <link rel="stylesheet" href="__ADM__css/themify-icons.css">
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="__ADM__css/animate.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="__ADM__css/styles.css">
+    <link rel="stylesheet" href="__ADM__css/red.css" id="style_theme">
+    <link rel="stylesheet" href="__ADM__css/responsive.css">
+    <!-- morris charts -->
+    <link rel="stylesheet" href="__ADM__charts/css/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="__ADM__css/jquery-jvectormap.css">
+
+    <script src="__ADM__js/modernizr.min.js"></script>
+</head>
+
+<body>
+<!-- Pre Loader -->
+<div class="loading">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+<!--/Pre Loader -->
+<!-- Color Changer -->
+<div class="theme-settings" id="switcher">
+		<span class="theme-click">
+			<img src="__ADM__images/color-pallete.png" alt="color pallete">
+		</span>
+    <span class="theme-color theme-default theme-active" data-color="green"></span>
+    <span class="theme-color theme-blue" data-color="blue"></span>
+    <span class="theme-color theme-red" data-color="red"></span>
+    <p>(Or) Your Color</p>
+</div>
+<!-- /Color Changer -->
+<div class="wrapper">
+    <!-- Sidebar -->
+    <include file="public/left"/>
+    <!-- /Sidebar -->
+    <!-- Page Content -->
+    <div id="content">
+        <!-- Top Navigation -->
+        <include file="public/header"/>
+        <!-- /Top Navigation -->
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{:url('/')}">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <!-- /Breadcrumb -->
+        <!-- Main Content -->
+<!--        <div class="container-fluid home">-->
+<!--            &lt;!&ndash; Page Title &ndash;&gt;-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-12">-->
+<!--                    <h3 class="block-title">Quick Statistics</h3>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /Page Title &ndash;&gt;-->
+
+<!--            <div class="row">-->
+<!--                &lt;!&ndash; Widget Item &ndash;&gt;-->
+<!--                <div class="col-md-3">-->
+<!--                    <div class="widget-area lorvens-box-shadow color-red">-->
+<!--                        <div class="widget-left">-->
+<!--                            <span class="ti-money"></span>-->
+<!--                        </div>-->
+<!--                        <div class="widget-right">-->
+<!--                            <h4 class="wiget-title">Open Payments</h4>-->
+<!--                            <span class="numeric color-red">$8348</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /Widget Item &ndash;&gt;-->
+<!--                &lt;!&ndash; Widget Item &ndash;&gt;-->
+<!--                <div class="col-md-3">-->
+<!--                    <div class="widget-area lorvens-box-shadow color-blue">-->
+<!--                        <div class="widget-left">-->
+<!--                            <span class="ti-user"></span>-->
+<!--                        </div>-->
+<!--                        <div class="widget-right">-->
+<!--                            <h4 class="wiget-title">New Users</h4>-->
+<!--                            <span class="numeric color-blue">258</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /Widget Item &ndash;&gt;-->
+<!--                &lt;!&ndash; Widget Item &ndash;&gt;-->
+<!--                <div class="col-md-3">-->
+<!--                    <div class="widget-area lorvens-box-shadow color-green">-->
+<!--                        <div class="widget-left">-->
+<!--                            <span class="ti-bar-chart"></span>-->
+<!--                        </div>-->
+<!--                        <div class="widget-right">-->
+<!--                            <h4 class="wiget-title">Avg Revenue</h4>-->
+<!--                            <span class="numeric color-green">$6585</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /Widget Item &ndash;&gt;-->
+<!--                &lt;!&ndash; Widget Item &ndash;&gt;-->
+<!--           -->
+<!--                &lt;!&ndash; /Widget Item &ndash;&gt;-->
+<!--            </div>-->
+<!--            -->
+
+<!--            -->
+<!--            <div class="row">-->
+
+<!--                &lt;!&ndash; Widget Item &ndash;&gt;-->
+<!--                <div class="col-sm-12">-->
+<!--                    <div class="widget-area-2 lorvens-box-shadow">-->
+<!--                        <h3 class="widget-title">Maps</h3>-->
+<!--                        <div id="world-map-maker" class="big-world-mill"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /Widget Item &ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- /Main Content -->
+        <!-- /Page Title -->
+        <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+                <!--<div class="widget-area-2 lorvens-box-shadow">-->
+                    <!--&lt;!&ndash; Form Item &ndash;&gt;-->
+                    <!--<h3 class="widget-title">基本信息</h3>-->
+
+                    <!--<div class="lorvens-widget">-->
+                        <!--<form action="{:url('/Isave')}" method="post">-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="title">公司名称</label>-->
+                                <!--<input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="公司名称" <notempty name="$res['title']">value='{$res.title}'</notempty>  >-->
+<!--&lt;!&ndash;                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="address">公司地址</label>-->
+                                <!--<input type="text" class="form-control" id="address" name="address" placeholder="公司地址" <notempty name="$res['address']">value='{$res.address}'</notempty>>-->
+                            <!--</div>-->
+
+                            <!--<div class="form-group">-->
+                                <!--<label for="type">公司类型</label>-->
+                                <!--<input type="text" class="form-control" id="type" name="type" placeholder="公司类型；如：民营" <notempty name="$res['type']">value='{$res.type}'</notempty>>-->
+                            <!--</div>-->
+
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="type">Logo</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="image" class="form-control"  name="img" >&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+
+                            <!--<div class="form-group">-->
+                                <!--<label for="exampleFormControlTextarea1">备注</label>-->
+                                <!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remaks"><notempty name="$res['remaks']">{$res.remaks}</notempty></textarea>-->
+                            <!--</div>-->
+
+                            <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /Form Item &ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        欢迎  欢迎.....
+    </div>
+    <!-- /Page Content -->
+</div>
+<!-- Back to Top -->
+<a id="back-to-top" href="#" class="back-to-top">
+    <span class="ti-angle-up"></span>
+</a>
+<!-- /Back to Top -->
+<!-- Jquery Library-->
+<script src="__ADM__js/jquery-3.2.1.min.js"></script>
+<!-- Popper Library-->
+<script src="__ADM__js/popper.min.js"></script>
+<!-- Bootstrap Library-->
+<script src="__ADM__js/bootstrap.min.js"></script>
+<!-- morris charts -->
+<script src="__ADM__charts/js/raphael-min.js"></script>
+<script src="__ADM__charts/js/morris.min.js"></script>
+<script src="__ADM__js/custom-morris.js"></script>
+<!-- jvectormap -->
+<script src="__ADM__js/jquery-jvectormap.min.js"></script>
+<script src="__ADM__js/jquery-jvectormap-world-mill.js"></script>
+<script src="__ADM__js/custom-vector.js"></script>
+<!-- Custom Script-->
+<script src="__ADM__js/custom.js"></script>
+</body>
+
+</html>

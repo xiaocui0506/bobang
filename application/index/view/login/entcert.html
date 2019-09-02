@@ -1,0 +1,128 @@
+{extend name="public/header" /}
+{block name="content"}
+{include file="public/top" /}
+<link rel="stylesheet" href="__IND__/css/HuiYuan.css">
+<style>
+    .outer select{
+        width:150px;
+        margin-right:10px;
+    }
+    .HuiYuan1-1{
+        width: 650px;
+    }
+    .HuiYuan1-1{
+        height:auto;
+    }
+    .HuiYuan1-1{
+        height:auto;
+    }
+    .HuiYuan1-1 textarea{
+        width: 70%;
+        height:110px;
+        resize:none;
+    }
+</style>
+<div class="HuiYuan">
+    <div class="HuiYuan1">
+        <div class="HuiYuan1-1">
+            <div class="HuiYuan1-1-1">
+                <h4>企业会员注册</h4>
+            </div>
+            <form>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司名称</span>
+                    <input type="text" class="hyinp1">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">统一社会信用代码</span>
+                    <input type="text" class="hyinp1">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司类型</span>
+                    <input type="radio" name="radio2">
+                    <span>制造型企业</span>
+                    <input type="radio" name="radio2">
+                    <span>商贸型公司</span>
+                    <input type="radio" name="radio2">
+                    <span>服务型公司</span>
+                </div>
+                <div class="tpimg">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">营业执照</span>
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="hy1">
+                    <p>（审核资料不公开，放心商城）</p>
+                    <input type="file" class="iip1">
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">注册地</span>
+                    <select name="province" id="province1" class="inp2">
+                        <option value="请选择">省</option>
+                    </select>
+                    <select name="city" id="city1" class="inp2">
+                        <option value="请选择">市</option>
+                    </select>
+                    <select name="town" id="town1" class="inp2">
+                        <option value="请选择">区</option>
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">详细地址</span>
+                    <input type="text" class="hyinp1" placeholder="自填写,不要再写入省市县信息">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">固定电话</span>
+                    <input type="text" class="hyinp3" style="margin-right: 10px;">
+                    <input type="text" class="inp2" style="margin-right: 10px;">
+                    <span style="width:58px;">400电话</span>
+                    <input type="text" class="hyinp3" style="margin-right: 10px;">
+
+                </div>
+                <div>
+                    <span>公司官网</span>
+                    <input type="text" class="hyinp2" placeholder="">
+                </div>
+                <div>
+                    <span>电子邮箱</span>
+                    <input type="email" class="hyinp2" placeholder="">
+                </div>
+                <div>
+                    <span>第三方担保交易网站</span>
+                    <textarea>
+
+						</textarea>
+                </div>
+                <div>
+                    <span><!--这个span站位的别删--></span>
+                    <input type="checkbox" style="margin-right:10px;">
+                    <p style="color:#7a7a7a;display: inline-block; margin-top: 7px;">
+                        我已阅读，并同意博帮网
+                        <a href="#">用户协议</a>和
+                        <a href="#">隐私策略</a>
+                    </p>
+                </div>
+                <div class="tijiao">
+                    <input type="submit" value="下一步 填写您的个人信息">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".hy1").click(function(){
+        $(".iip1").click();
+    })
+    $(".hy2").click(function(){
+        $(".iip2").click();
+    })
+    $(".hy3").click(function(){
+        $(".iip3").click();
+    })
+</script>
+{/block}
+

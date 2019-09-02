@@ -1,0 +1,195 @@
+{extend name="public/header" /}
+{block name="content"}
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .outer{
+        position: relative;
+        margin:20px auto;
+        width: 200px;
+        height: 30px;
+        line-height: 28px;
+        border:1px solid #ccc;
+        background: #ccc9c9;
+    }
+    .outer span,.filter-box,.inner{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .outer span{
+        display: block;
+        padding:0  0 0 36px;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        text-align: center;
+    }
+    .filter-box{
+        width: 0;
+        height: 100%;
+        background: green;
+        z-index: 9;
+    }
+    .outer.act span{
+        padding:0 36px 0 0;
+    }
+    .inner{
+        width: 36px;
+        height: 38px;
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        font-family: "宋体";
+        z-index: 10;
+        font-weight: bold;
+        color: #929292;
+    }
+    .outer.act .inner{
+        color: green;
+    }
+    .outer.act span{
+        z-index: 99;
+    }
+</style>
+<link rel="stylesheet" href="__IND__/css/HuiYuan.css">
+{include file="public/top" /}
+<div class="HuiYuan">
+    <div class="HuiYuan1">
+        <div class="HuiYuan1-1">
+            <div style="text-align: center;font-size: 26px;margin-left: 92px;">欢迎注册博帮网！</div>
+            <form action="" id="FormData">
+                <div>
+                    <span></span>
+                    <input type="text" class="hyinp1" placeholder="设置会员名" name="user_name">
+                </div>
+                <div>
+                    <span></span>
+                    <input type="password" class="hyinp1"  placeholder="设置你的登录密码" name="password">
+                </div>
+                <div>
+                    <span></span>
+                    <input type="password" class="hyinp1" placeholder="请再次输入你的密码" name="o_password">
+                </div>
+                <div>
+                    <span></span>
+                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile">
+                </div>
+                <div class="outer" style="width: 70%;margin-left: 126px;height: 40px;">
+                    <div class="filter-box"></div>
+                    <span>
+                        滑动解锁
+                    </span>
+                    <div class="inner">&gt;&gt;</div>
+                    <input type="hidden" name="yanz" id="yanz" value="0">
+                </div>
+                <div>
+                    <span><!--这个span站位的别删--></span>
+                    <input type="checkbox" style="margin-right:10px;">
+                    <p style="color:#7a7a7a;display: inline-block; margin-top: 7px;">
+                        我已阅读，并同意博帮网
+                        <a href="#">用户协议</a>和
+                        <a href="#">隐私策略</a>
+                    </p>
+                </div>
+                <div class="tijiao">
+                    <input type="button" value="确认认证" id="btu">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".hy1").click(function(){
+        $(".iip1").click();
+    })
+    $(".hy2").click(function(){
+        $(".iip2").click();
+    })
+    $(".hy3").click(function(){
+        $(".iip3").click();
+    })
+    $(function(){
+        $(".inner").mousedown(function(e){
+            var el = $(".inner"),os = el.offset(),dx,$span=$(".outer>span"),$filter=$(".filter-box"),_differ=$(".outer").width()-el.width();
+            $(document).mousemove(function(e){
+                dx = e.pageX - os.left;
+                if(dx<0){
+                    dx=0;
+                }else if(dx>_differ){
+                    dx=_differ;
+                }
+                $filter.css('width',dx);
+                el.css("left",dx);
+            });
+            $(document).mouseup(function(e){
+                $(document).off('mousemove');
+                $(document).off('mouseup');
+                dx = e.pageX - os.left;
+                if(dx<_differ){
+                    dx=0;
+                    $span.html("滑动解锁");
+                }else if(dx>=_differ){
+                    dx=_differ;
+                    $(".outer").addClass("act");
+                    $span.html("验证通过！");
+                    $('#yanz').val(1);
+                    el.html('&radic;');
+                }
+                $filter.css('width',dx);
+                el.css("left",dx);
+
+            })
+        })
+    })
+
+    /* 数据提交*/
+    $('#btu').click(function () {
+        if (!$("input[type='checkbox']").is(':checked')) {
+            layer.msg('请确认协议和隐私');
+        }
+        if ($('#yanz').val() != 1){
+            layer.msg('请拉动验证条进行验证..');
+        }
+        $.ajax({
+            url:"{:url('login/reg_s')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg, {
+                        time: 0 //不自动关闭
+                        ,btn: ['去登录','不登录']
+                        ,yes: function(index){
+                            window.location.href = "{:url('login/login')}";
+                        }
+                    });
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+
+    });
+</script>
+{/block}

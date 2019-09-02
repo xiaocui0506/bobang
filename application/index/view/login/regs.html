@@ -1,0 +1,219 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/HuiYuan.css">
+<link rel="stylesheet" href="__IND__/css/jquery.my-modal.1.1.css">
+<link rel="stylesheet" href="__IND__/css/verify.css">
+
+    <style>
+        .HuiYuan1{
+            position:relative;
+        }
+        .HuiYuan1-1>form>div {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 45px;
+        }
+        .HuiYuan1-1 {
+            width:400px;
+        }
+        .HuiYuan1-2 {
+            width:300px;
+            height:300px;
+            position: absolute;
+            top: 92px;
+            right: 78px;
+            padding: 10px;
+            font-size:14px;
+            color:#838486;
+        }
+        .HuiYuan1-2>div{
+            margin-top:30px;
+        }
+        .m-middle11{
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .m-middle11 span{
+            font-size:23px;
+            color:#ea090d;
+            line-height:40px;
+            float: left;
+        }
+        .m-middle11 img{
+            margin-top:5px;
+            float: left;
+            margin-right:5px;
+        }
+        .m-middle11 p{
+            display:block;
+            float: left;
+            width: 100%;
+            text-align: center;
+            line-height:80px;
+        }
+        .m-modal-dialog{
+            width:700px;
+        }
+        .m-middle {
+            padding:80px;
+        }
+        .asd2{
+            text-align: center;
+        }
+        .asd2 a{
+            display:inline-block;
+            padding:4px 8px;
+            background:#57a4f6;
+            margin:10px 0px;
+            font-size:14px;
+            color:#fff;
+
+        }
+    </style>
+{include file="public/top" /}
+<div class="HuiYuan">
+    <div class="HuiYuan1">
+        <div class="HuiYuan1-1">
+            <h4 style="text-align:center;font-size:26px;line-height:80px;"  >欢迎注册博帮网！</h4>
+            <form>
+                <div>
+                    <input type="text" class="hyinp1" placeholder="设置会员名" name="user_name">
+                </div>
+                <div>
+                    <input type="password" class="hyinp1"  placeholder="设置你的登录密码" name="password">
+                </div>
+                <div>
+                    <input type="password" class="hyinp1" placeholder="请再次输入你的密码" name="o_password">
+                </div>
+                <div>
+                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile">
+                </div>
+                <div id="mpanel1" style="margin-top:20px;"></div>
+                <input type="hidden" name="yanz" id="yanz" value="0">
+                <div style="margin-top:20px;">
+                    <input type="checkbox" style="margin-right:10px;">
+                    <p style="color:#7a7a7a; margin-top: 7px; font-size:14px;">
+                        <a href="#" style="font-size:14px;">《博帮网网站服务条款》</a>和
+                        <a href="#" style="font-size:14px;">《法律声明和隐私权条款》</a>
+                    </p>
+                </div>
+                <div style="margin-top:20px;">
+                    <a class="hyinp1 btn1" style="display: block;  background:#5ca7f8;color:#fff;height:40px;line-height:40px; text-align: center;" id="btn">同意条款并注册</a>
+                </div>
+            </form>
+        </div>
+        <div class="HuiYuan1-2">
+            <div>
+                <p>*5-25个字符，推荐使用中文</p>
+                <p>*请勿使用包含身份证/银行卡等隐私信息，一旦设置成功无法更改</p>
+            </div>
+            <div>
+                <p>*6-20个字符，密码不能和会员名相同</p>
+                <p>*只能包含字母，数字以及标点符号（除空格）</p>
+                <p>*字母，数字以及标点符号至少包含2种</p>
+            </div>
+            <div>
+                <p>*请再次输入你的密码</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="m-modal">
+    <div class="m-modal-dialog">
+        <div class="m-top">
+            <span class="m-modal-close">&times;</span>
+        </div>
+        <div class="m-middle asd1" style="display: none;">
+            <div class="m-middle11">
+                <img src="__IND__/images/jinggao_03.png" alt="">
+                <span>注册失败 原因后台反回</span>
+                <p>手机号码被冒用<a href="#">[我要申诉]</a></p>
+            </div>
+        </div>
+        <div class="m-middle asd2">
+            <div><img src="__IND__/images/gongxi_03.jpg" alt=""></div>
+            <div>恭喜您，注册成功</div>
+            <div><a href="{:url('login/entcert')}">继续认证</a> <a href="##">稍后再说</a></div>
+            <div>
+                <p><img src="__IND__/images/gongxi_07.png" alt="">认证前请先备好您的证件：企业基本</p>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/jquery-3.3.1.min.js"></script>
+<script src="__IND__/js/verify.js"></script>
+<script src="__IND__/js/jquery.my-modal.1.1.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".hy1").click(function(){
+        $(".iip1").click();
+    })
+    $(".hy2").click(function(){
+        $(".iip2").click();
+    })
+    $(".hy3").click(function(){
+        $(".iip3").click();
+    })
+    $('#mpanel1').slideVerify({
+        type : 1,		//类型
+        vOffset : 5,	//误差量，根据需求自行调整
+        barSize : {
+            width : '99%',
+            height : '40px',
+        },
+        ready : function() {
+        },
+        success : function() {
+            $('#yanz').val(1);
+            //......后续操作
+        },
+        error : function() {
+            //	alert('验证失败！');
+        }
+
+    });
+
+
+</script>
+<script>
+    var m1 = new MyModal.modal(function() {
+        alert("你点击了确定");
+    });
+
+    /* 数据提交*/
+    // $('#btn').click(function () {
+    //     if (!$("input[type='checkbox']").is(':checked')) {
+    //         layer.msg('请确认协议和隐私');
+    //     }
+    //     if ($('#yanz').val() != 1){
+    //         layer.msg('请拉动验证条进行验证..');
+    //     }
+    //     $.ajax({
+    //         url:"{:url('login/reg_s')}",
+    //         type:'post',
+    //         dataType:'json',
+    //         data:$("#FormData").serialize(),
+    //         success:function(result){
+    //             //回调函数
+    //             if (result.code == 1){
+    //                 m1.show();
+    //             } else {
+    //                 layer.msg(result.msg);
+    //             }
+    //         }
+    //     });
+    //
+    // });
+
+    $('.btn1').on("click", function() {
+        m1.show();
+    });
+</script>
+{/block}

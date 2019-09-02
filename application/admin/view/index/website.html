@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-{$title}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="__ADM__/css/font.css">
+    <link rel="stylesheet" href="__ADM__/css/xadmin.css">
+    <script src="__ADM__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__ADM__/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="__ADM__/js/xadmin.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__ADM__/lib/ueditor/1.4.3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__ADM__/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .abc{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="x-nav">
+
+    <a class="layui-btn layui-btn-primary layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:38px">ဂ</i></a>
+</div>
+<div class="x-body">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label for="title" class="layui-form-label">
+                <span class="x-red">*</span>网站名称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="title" name="title" required lay-verify="required"
+                       autocomplete="off" class="layui-input" value="{$vo.title}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="title" class="layui-form-label">
+                <span class="x-red">*</span>LOGO
+            </label>
+            <div class="layui-upload-drag" id="test10">
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
+            </div>
+            <div class="layui-upload-drag" id="img_s1"  >
+                <img src="<notempty name="$vo['img']">/public/uploads/{$vo['img']}</notempty>" alt="" id="img_s" style="width: 137px;height: 118px;margin-bottom: 55px;">
+            </div>
+            <div id="abcd" style="display: none"></div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="title" class="layui-form-label">
+                <span class="x-red">*</span>背景图
+            </label>
+            <div class="layui-upload-drag" id="test11">
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
+            </div>
+            <div class="layui-upload-drag" id="img_s11"  >
+                <img src="<notempty name="$vo['backimg']">/public/uploads/{$vo['backimg']}</notempty>" alt="" id="img_s1" style="width: 137px;height: 118px;margin-bottom: 55px;">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="links" class="layui-form-label">
+                <span class="x-red">*</span>友情链接
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="links" name="links" required lay-verify="required"
+                       autocomplete="off" class="layui-input" value="{$vo.links}" placeholder="多个请用英文下逗号隔开">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="record" class="layui-form-label">
+                <span class="x-red">*</span>备案号
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="record" name="record" required lay-verify="required"
+                       autocomplete="off" class="layui-input" value="{$vo.record}" placeholder="官方备案号">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="phont" class="layui-form-label">
+                <span class="x-red">*</span>联系方式
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="phont" name="phont" required lay-verify="required"
+                       autocomplete="off" class="layui-input" value="{$vo.phont}" placeholder="联系方式">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item layui-form-text">
+            <label for="desc" class="layui-form-label">
+                公司简介
+            </label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" id="desc" name="desc" class="layui-textarea">{$vo.desc}</textarea>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <button  class="layui-btn" lay-filter="add" lay-submit="">
+                提交
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+    layui.use(['form','layer'], function(){
+        $ = layui.jquery;
+        var form = layui.form
+            ,layer = layui.layer;
+
+        //监听提交
+        form.on('submit(add)', function(data){
+            //发异步，把数据提交给php
+            $.post("{:url('index/adds')}",data.field,function (msg) {
+                if (msg.code == 1){
+                    layer.msg(msg.msg,function(){
+                        location.reload()
+                    });
+                }else{
+                    layer.msg(msg.msg,{time:2000});
+                }
+            });
+
+            return false;
+        });
+
+
+    });
+
+
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+        //拖拽上传
+        upload.render({
+            elem: '#test10'
+            ,url: "{:url('index/addimg')}?id="+1+'&t=1'
+            ,done: function(res){
+                if (res.code == 1){
+                    var imgurl = '/public/uploads/'+ res.data;
+                    $('#img_s').attr('src',imgurl);
+                    $('#abcd').html(' <input type="hidden" name="img" value="'+ res.data+'">');
+                }
+            }
+        });
+
+        upload.render({
+            elem: '#test11'
+            ,url: "{:url('index/addimg')}?id="+1+'&t=2'
+            ,done: function(res){
+                if (res.code == 1){
+                    var imgurl = '/public/uploads/'+ res.data;
+                    $('#img_s1').attr('src',imgurl);
+                    $('#abcd').append('<input type="hidden" name="backimg" value="'+ res.data+'">');
+                }
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

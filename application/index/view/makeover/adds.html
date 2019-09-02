@@ -1,0 +1,238 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    <div class="zhuTiBot">
+        <span>行业市场：</span>
+        <ul>
+            <li><a href="#">建筑与工程建设</a></li>
+            <li><a href="#">工业材料与产品</a></li>
+            <li><a href="#">机械装备与设备</a></li>
+            <li><a href="#">轻工文体织造业</a></li>
+            <li><a href="#">高新科技与产业</a></li>
+            <li><a href="#">数码电子与电器</a></li>
+            <li><a href="#">地产家居装饰业</a></li>
+            <li><a href="#">商务与生活服务</a></li>
+            <li><a href="#">农林牧渔副食品</a></li>
+            <li><a href="#">卫生健康与医械</a></li>
+        </ul>
+    </div>
+    <div class="zhuTiZhong">
+        <h4>公司转让发布信息</h4>
+        <p>填写信息越完整，越容易被发现</p>
+        <div class="zhuTiform">
+            <form action="" method="" id="FormData" enctype="multipart/form-data">
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">转让标题</span>
+                    <input type="text" class="inp1" name="title" >
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司类型</span>
+                    <select class="inp2" name="cor_type">
+                        {volist name="cor_type" id="v"}
+                        <option value ="{$key}">{$v}</option>
+                        {/volist}
+
+                    </select>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司性质</span>
+                    <select class="inp2" name="cor_nature">
+                        {volist name="cor_nature" id="v"}
+                        <option value ="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">转让地点</span>
+                    <select name="province" id="province" class="inp2">
+<!--                        <option value="请选择">省</option>-->
+                    </select>
+                    <select name="city" id="city" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="town" id="town" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                    <input type="text" placeholder="自填详细地址..." name="make_address_xq">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">转让方式</span>
+                    <select class="inp2" name="make_mode">
+                        {volist name="make_mode" id="v"}
+                        <option value ="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+                    <span>转让金额</span>
+                    <input type="text" placeholder="自填金额..." name="make_price">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">成立时间</span>
+                    <select class="inp2" name="est_date_year">
+                        {for start="2001" end="2020"}
+                        <option value ="{$i}">{$i}年</option>
+                        {/for}
+
+                    </select>
+                    <select class="inp3" name="est_date_m">
+                        {for start="1" end="13"}
+                        <option value ="{$i}">{$i}月</option>
+                        {/for}
+                    </select>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">注册资本</span>
+                    <input type="text" placeholder="自填" name="reg_capital">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司规模</span>
+                    <input type="text" placeholder="自填" name="cor_scale">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">经营范围</span>
+                    <input type="text" class="inp1" name="scope">
+                </div>
+
+
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送行业</span>
+                    <select class="inp1" name="push_indu">
+                        {volist name='navall' id='v'}
+                        <option value ="{$v.id}">{$v.title}</option>
+                        {volist name='v.one' id='v'}
+                        <option value ="{$v.id}">---二级：{$v.title}</option>
+                        {volist name='v.two' id='v'}
+                        <option value ="{$v.id}">------三级：{$v.title}</option>
+                        {volist name='v.three' id='v'}
+                        <option value ="{$v.id}">---------四级：{$v.title}</option>
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                    </select>
+                </div>
+
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送地点</span>
+                    <select name="province1" id="province1" class="inp2">
+<!--                        <option value="0">省</option>-->
+                    </select>
+                    <select name="city1" id="city1" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="town1" id="town1" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送时长</span>
+                    <select class="inp2" name="push_time">
+                        {volist name="release_time" id="v"}
+                        <option value ="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系姓名</span>
+                    <input type="text" class="inp3" name="contacts">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系电话</span>
+                    <input type="text" class="inp2" name="phone">
+                    <span>座机</span>
+<!--                    <input type="text" class="inp4" placeholder="区号" name="landline">-->
+                    <input type="text" class="inp2" placeholder="号码" name="landline_t">
+                </div>
+                <div id="feedback" style="display: none"></div>
+                <div class="tpimg">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">公司照片</span>
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg1">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg2">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg3">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg4">
+                    <input type="file"  class="tp1" id="up-img-file" onchange="upimg(this,1)">
+<!--                    <input type="file" class="tp1" multiple="multiple" id="inputfile">-->
+                    <input type="file" class="tp2" multiple="multiple" onchange="upimg(this,2)">
+                    <input type="file" class="tp3" multiple="multiple" onchange="upimg(this,3)">
+                    <input type="file" class="tp4" multiple="multiple" onchange="upimg(this,4)">
+                </div>
+
+                <div>
+                    <span>描述位置</span>
+                    <textarea placeholder="如企业概括,客户资源,转让要求等" name="abstract"></textarea>
+                </div>
+                <div class="formbut">
+<!--                    <input type="submit" value="保存草稿" class="formbut1">-->
+                    <input type="button" value="确认发布" class="formbut2" id="btn" >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tp1").click();
+    })
+    $(".tpimg2").click(function(){
+        $(".tp2").click();
+    })
+    $(".tpimg3").click(function(){
+        $(".tp3").click();
+    })
+    $(".tpimg4").click(function(){
+        $(".tp4").click();
+    })
+
+    /*图片上传*/
+        //响应文件添加成功事件
+    function upimg(obj,t)
+    {
+        if( obj.value == "" ) {
+            return;
+        }
+        var formdata = new FormData();
+        //<input type="file" name="img" value="" />
+        formdata.append("img" , $(obj)[0].files[0]);//获取文件法二
+        console.log(formdata);
+        $.ajax({
+            type : 'post',
+            url : "{:url('Makeover/imgs')}", //接口
+            data : formdata,
+            cache : false,
+            processData : false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+            contentType : false, // 不设置Content-type请求头
+            success : function(response){
+                if (response.code == 1){
+                    $html = '<input type="hidden" name="img[]" value="'+response.data.url+'">';
+                    $('#feedback').append($html);
+                  $('.tpimg'+t).attr('src',response.data.urs);
+                }
+
+            },
+            error : function(){ }
+        });
+    }
+
+
+    $('#btn').click(function () {
+        $.ajax({
+            url:"{:url('Makeover/add')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg);
+                    location.reload();
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+    });
+</script>
+{/block}

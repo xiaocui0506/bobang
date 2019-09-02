@@ -1,0 +1,70 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/login.css">
+{include file="public/top" /}
+<div class="login">
+    <div class="login1">
+        <div class="login1-1">
+            <div class="login1-1-1">
+                <div class="login1-2" style="display: block;">
+                    <p>账号登录</p>
+                    <form id="FormData" method="post">
+                        <div class="login1-2-1"><input type="text" name="user_name"></div>
+                        <div class="login1-2-2"><input type="password" name="password"></div>
+                        <input type="submit" value="登录" id="btu">
+                    </form>
+                    <div class="addpass">
+                        <ul>
+                            <li><a href="#">忘记密码</a></li>
+                            <li><a href="#">忘记会员</a></li>
+                            <li><a href="{:url('login/reg')}">免费注册</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="login1-2">
+                    22
+                </div>
+            </div>
+            <div class="login1-3">
+                <div style="display: none;">
+                    <img src="img/username_icon.png" alt="">
+                </div>
+                <div>
+                    <img src="img/weixin_icon.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".login1-3>div").click(function(){
+        $(this).hide().siblings().show();
+        var index=$(this).index();
+        $(".login1-1-1>div").hide().eq($(this).index()).show();
+    })
+
+    /* 数据提交*/
+    $('#btu').click(function () {
+        $.ajax({
+            url:"{:url('login/login_s')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    window.location.href = "{:url('/index')}";
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+
+    });
+</script>
+{/block}
+
