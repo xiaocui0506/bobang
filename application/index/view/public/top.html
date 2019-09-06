@@ -34,7 +34,11 @@
             <a href="">本省搜</a>
             <a href="">本市搜</a>
         </div>
-        {else/}
+        {elseif condition="strpos($_SERVER['REDIRECT_URL'], 'entcert')" /}
+        <div class="dingbu2-2" style="float: right;margin-top: 60px;font-size: 14px;margin-right: 28px;"><a href="{:url('login/percert')}">个人注册审核&gt;</a></div>
+        {elseif condition="strpos($_SERVER['REDIRECT_URL'], 'percert')" /}
+        <div class="dingbu2-2" style="float: right;margin-top: 60px;font-size: 14px;margin-right: 28px;"><a href="{:url('login/entcert')}">企业注册审核&gt;</a></div>
+        {else}
         <div class="dingbu2-2" style="float: right;margin-top: 60px;font-size: 14px;margin-right: 28px;">已有账号，<a href="{:url('login/login')}">请登录&gt;</a></div>
         {/if}
     </div>

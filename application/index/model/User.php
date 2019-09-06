@@ -31,7 +31,7 @@ class User extends Model
 //      if ($sms != $post_data['pcode']) jsonResponse(-1, '', '短信验证码不正确');
         $res = $this->where(['user_name' => $post_data['user_name']])->find();
         if ($res) {
-          if ($res->data['password'] != password_hash_tp($post_data['password'])) jsonResponse(-1, '', '密码错误');
+          if ($res['password'] != password_hash_tp($post_data['password'])) {jsonResponse(-1, '', '密码错误');}
 
           session('user_id',$res['id']);
 
@@ -81,8 +81,8 @@ class User extends Model
           $post_data['login_time'] = time();
           $post_data['create_time'] = time();
           $bool = $this->allowField(true)->save($post_data);
-          if ($bool)jsonResponse(1, $this->id, '注册成功');
-          else jsonResponse(-1, '', '注册失败');
+          if ($bool){jsonResponse(1, $this->id, '注册成功');session('user_id',$this->id);}
+          else {jsonResponse(-1, '', '注册失败');}
       } else {
         jsonResponse(-1, '', $validate->getError());
       }

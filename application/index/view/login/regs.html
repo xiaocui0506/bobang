@@ -76,7 +76,7 @@
     <div class="HuiYuan1">
         <div class="HuiYuan1-1">
             <h4 style="text-align:center;font-size:26px;line-height:80px;"  >欢迎注册博帮网！</h4>
-            <form>
+            <form id="FormData">
                 <div>
                     <input type="text" class="hyinp1" placeholder="设置会员名" name="user_name">
                 </div>
@@ -99,7 +99,7 @@
                     </p>
                 </div>
                 <div style="margin-top:20px;">
-                    <a class="hyinp1 btn1" style="display: block;  background:#5ca7f8;color:#fff;height:40px;line-height:40px; text-align: center;" id="btn">同意条款并注册</a>
+                    <a class="hyinp1 btn1" style="display: block;  background:#5ca7f8;color:#fff;height:40px;line-height:40px; text-align: center;cursor: pointer" id="btn">同意条款并注册</a>
                 </div>
             </form>
         </div>
@@ -188,32 +188,32 @@
     });
 
     /* 数据提交*/
-    // $('#btn').click(function () {
-    //     if (!$("input[type='checkbox']").is(':checked')) {
-    //         layer.msg('请确认协议和隐私');
-    //     }
-    //     if ($('#yanz').val() != 1){
-    //         layer.msg('请拉动验证条进行验证..');
-    //     }
-    //     $.ajax({
-    //         url:"{:url('login/reg_s')}",
-    //         type:'post',
-    //         dataType:'json',
-    //         data:$("#FormData").serialize(),
-    //         success:function(result){
-    //             //回调函数
-    //             if (result.code == 1){
-    //                 m1.show();
-    //             } else {
-    //                 layer.msg(result.msg);
-    //             }
-    //         }
-    //     });
-    //
-    // });
+    $('#btn').click(function () {
+        if ($("input[type='checkbox']").is(':checked') === false) {
+            layer.msg('请确认协议和隐私');return;
+        }
+        if ($('#yanz').val() != 1){
+            layer.msg('请拉动验证条进行验证..');return;
+        }
+        $.ajax({
+            url:"{:url('login/reg_s')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    m1.show();
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
 
-    $('.btn1').on("click", function() {
-        m1.show();
     });
+
+    // $('.btn1').on("click", function() {
+    //     m1.show();
+    // });
 </script>
 {/block}

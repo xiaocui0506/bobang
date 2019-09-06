@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\index\model\Member;
 use app\index\model\User;
 use think\Cache;
 use think\Controller;
@@ -47,6 +48,14 @@ class Login extends Controller
   public function percert(){
     return $this->fetch();
   }
+
+  public function peradd(){
+    if ($this->request->isPost()){
+      $m = new Member;
+      return $m->add();
+    }
+  }
+
   /*企业认证*/
   public function entcert(){
     return $this->fetch();

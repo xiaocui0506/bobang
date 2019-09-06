@@ -22,10 +22,10 @@ class Makeover extends Common
     /*发布时长*/
     $release_time = config('release_time');
 
-    $navall = Cache::get('nav_type');
+    $navall = \cache('nav_type');
     if (!$navall){
-      Cache::set('nav_type',NavAll(),360);
-      $navall = Cache::get('nav_type');
+      cache('nav_type',NavAll(),360);
+      $navall = cache('nav_type');
     }
     return $this->fetch('',['cor_type'=>$cor_type,'cor_nature'=>$cor_nature,'make_mode'=>$make_mode,'release_time'=>$release_time,'navall'=>$navall]);
   }
@@ -38,7 +38,7 @@ class Makeover extends Common
   public function imgs(){
     $file = $this->request->file('img');
     $abc = uploads($file);
-    $q_url = '/public/tmp/uploads/'.$abc;
+    $q_url = '/public/uploads/'.$abc;
     $arr = ['url'=>$abc,'urs'=>$q_url];
     jsonResponse(1,$arr,'成功');
   }
