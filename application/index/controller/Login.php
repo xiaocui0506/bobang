@@ -64,7 +64,6 @@ class Login extends Controller
   public function entadd(){
     $m = new Member();
     return $m->entadd();
-
   }
 
 

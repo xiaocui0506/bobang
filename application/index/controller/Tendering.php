@@ -8,10 +8,22 @@ use app\index\model\Tendering as T;
 
 class Tendering extends Common
 {
-  /*  招标页面 */
+  /*  招标页面 列表 */
   public function index(){
 
-    return $this->fetch();
+    /* 企业招标列表信息*/
+    $t = new T();
+    $tend = $t->where(['status'=>1,'isdel'=>1])->select();
+
+      var_dump($tend);
+
+    return $this->fetch('list');
+  }
+
+  /*  招标页面 列表 */
+  public function lists(){
+
+    return $this->fetch('index');
   }
 
   /* 招标 添加数据*/

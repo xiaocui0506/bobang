@@ -32,7 +32,7 @@ class Recruit extends Model
 
       ]);
       if ($validate->check($post_data)) {
-        $post_data['user_id'] = session("?user_id")?session("user_id"):0;
+        $post_data['user_id'] = session("?user_id")?session("user_id"):1;
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
         $res = $this->save($post_data);

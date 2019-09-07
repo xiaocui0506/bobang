@@ -15,9 +15,20 @@ class Member extends Safe
     $percert = $m->where($map)->paginate(20);
     $this -> view -> assign('page',$percert -> render());
     $this -> view -> assign('count',$percert -> total());
-   return $this->fetch('',['percert'=>$percert]);
+    return $this->fetch('',['percert'=>$percert]);
 
   }
+
+
+  /*  企业会员注册 */
+    public function entindex(){
+      $m = new M();
+      $map = ['isdel'=>1,'type'=>2];
+      $entcert = $m->where($map)->paginate(20);
+      $this -> view -> assign('page',$entcert -> render());
+      $this -> view -> assign('count',$entcert -> total());
+      return $this->fetch('',['entcert'=>$entcert]);
+    }
 
 
   /*修改状态*/

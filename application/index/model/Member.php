@@ -51,7 +51,34 @@ class Member extends Model
   /*  企业会员认证  */
   public function entadd(){
     $post_data = input('post.');
-    return $post_data;
+    try{
+      $validate = new \think\Validate;
+      $validate->rule([
+        'w_title|公司名称' => 'require|chsDash|max:100',
+        'idcard|统一社会信用代码' => 'require|max:30',
+        'logo|营业执照' => 'require',
+        'province|省份' => 'require',
+        'city|市级' => 'require|number',
+        'town|区县' => 'require',
+        'address|详细地址' => 'require',
+        'phont|固定电话' => 'require',
+      ]);
+      if ($validate->check($post_data)) {
+        $post_data['user_id'] = session("?user_id")?session("user_id"):0;
+        $post_data['create_time'] = time();
+        $post_data['update_time'] = time();
+        $post_data['type'] = 2;
+        $res = $this->allowField(true)->save($post_data);
+        if ($res)
+          jsonResponse(1,$this->id,'成功');
+        else
+          jsonResponse(-1,'','失败');
+      } else {
+        jsonResponse(-1, '', $validate->getError());
+      }
+    }catch (\Exception $e){
+      return jsonResponse(-1,'',$e->getMessage());
+    }
   }
 
 }

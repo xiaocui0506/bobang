@@ -31,7 +31,7 @@ class Tendering extends Model
         'push_indu|推送行业' => 'require',
       ]);
       if ($validate->check($post_data)) {
-        $post_data['user_id'] = session("?user_id")?session("user_id"):0;
+        $post_data['user_id'] = session("?user_id")?session("user_id"):1;
         $post_data['create_time'] = time();
         $post_data['see_level'] = !isset($post_data['see_level'])?$post_data['see_level']:1;
         $res = $this->save($post_data);

@@ -28,7 +28,7 @@
             <div class="HuiYuan1-1-1">
                 <h4>企业会员注册</h4>
             </div>
-            <form>
+            <form id="FormData">
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">公司名称</span>
                     <input type="text" class="hyinp1" name="w_title">
@@ -75,7 +75,7 @@
 <!--                    <input type="text" class="hyinp3" style="margin-right: 10px;">-->
                     <input type="text" class="inp2" style="margin-right: 10px;" name="phont">
                     <span style="width:58px;">400电话</span>
-                    <input type="text" class="hyinp3" style="margin-right: 10px;" name="qq">
+                    <input type="text" class="inp2" style="margin-right: 10px;" name="qq">
 
                 </div>
                 <div>
@@ -160,7 +160,6 @@
             dataType:'json',
             data:$("#FormData").serialize(),
             success:function(result){
-                console.log(result);return false;
                 //回调函数
                 if (result.code == 1){
                     layer.msg(result.msg,function () {
