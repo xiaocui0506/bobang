@@ -60,6 +60,12 @@ class Login extends Controller
   public function entcert(){
     return $this->fetch();
   }
+  /*添加企业认证*/
+  public function entadd(){
+    $m = new Member();
+    return $m->entadd();
+
+  }
 
 
 

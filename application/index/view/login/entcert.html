@@ -31,62 +31,64 @@
             <form>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">公司名称</span>
-                    <input type="text" class="hyinp1">
+                    <input type="text" class="hyinp1" name="w_title">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">统一社会信用代码</span>
-                    <input type="text" class="hyinp1">
+                    <input type="text" class="hyinp1" name="idcard">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">公司类型</span>
-                    <input type="radio" name="radio2">
+                    <input type="radio" name="sex" value="1">
                     <span>制造型企业</span>
-                    <input type="radio" name="radio2">
+                    <input type="radio" name="sex" value="2">
                     <span>商贸型公司</span>
-                    <input type="radio" name="radio2">
+                    <input type="radio" name="sex" value="3">
                     <span>服务型公司</span>
                 </div>
+                <div id="feedback" style="display: none"></div>
                 <div class="tpimg">
                     <span><img src="__IND__/images/bitian_03.png" alt="">营业执照</span>
-                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="hy1">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg1 hy1 ">
                     <p>（审核资料不公开，放心上传）</p>
-                    <input type="file" class="iip1">
+                    <input type="file"  class="tp1 iip1" id="up-img-file" onchange="upimg(this,1,'logo')">
                 </div>
+
                 <div class="outer">
                     <span><img src="__IND__/images/bitian_03.png" alt="">注册地</span>
                     <select name="province" id="province1" class="inp2">
-                        <option value="请选择">省</option>
+                        <option value="0">省</option>
                     </select>
                     <select name="city" id="city1" class="inp2">
-                        <option value="请选择">市</option>
+                        <option value="0">市</option>
                     </select>
                     <select name="town" id="town1" class="inp2">
-                        <option value="请选择">区</option>
+                        <option value="0">区</option>
                     </select>
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">详细地址</span>
-                    <input type="text" class="hyinp1" placeholder="自填写,不要再写入省市县信息">
+                    <input type="text" class="hyinp1" placeholder="自填写,不要再写入省市县信息" name="address">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">固定电话</span>
-                    <input type="text" class="hyinp3" style="margin-right: 10px;">
-                    <input type="text" class="inp2" style="margin-right: 10px;">
+<!--                    <input type="text" class="hyinp3" style="margin-right: 10px;">-->
+                    <input type="text" class="inp2" style="margin-right: 10px;" name="phont">
                     <span style="width:58px;">400电话</span>
-                    <input type="text" class="hyinp3" style="margin-right: 10px;">
+                    <input type="text" class="hyinp3" style="margin-right: 10px;" name="qq">
 
                 </div>
                 <div>
                     <span>公司官网</span>
-                    <input type="text" class="hyinp2" placeholder="">
+                    <input type="text" class="hyinp2" placeholder="" name="rel_name">
                 </div>
                 <div>
                     <span>电子邮箱</span>
-                    <input type="email" class="hyinp2" placeholder="">
+                    <input type="email" class="hyinp2" placeholder="" name="email">
                 </div>
                 <div>
                     <span>第三方担保交易网站</span>
-                    <textarea>
+                    <textarea name="indu">
 
 						</textarea>
                 </div>
@@ -100,7 +102,7 @@
                     </p>
                 </div>
                 <div class="tijiao">
-                    <input type="submit" value="下一步 填写您的个人信息">
+                    <input type="button" value="下一步 填写您的个人信息" id="btn">
                 </div>
             </form>
         </div>
@@ -116,13 +118,63 @@
     });
     $(".hy1").click(function(){
         $(".iip1").click();
-    })
-    $(".hy2").click(function(){
-        $(".iip2").click();
-    })
-    $(".hy3").click(function(){
-        $(".iip3").click();
-    })
+    });
+
+    /*图片上传*/
+    //响应文件添加成功事件
+    function upimg(obj,t,s)
+    {
+        if( obj.value == "" ) {
+            return;
+        }
+        var formdata = new FormData();
+        //<input type="file" name="img" value="" />
+        formdata.append("img" , $(obj)[0].files[0]);//获取文件法二
+        $.ajax({
+            type : 'post',
+            url : "{:url('Makeover/imgs')}", //接口
+            data : formdata,
+            cache : false,
+            processData : false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+            contentType : false, // 不设置Content-type请求头
+            success : function(response){
+                if (response.code == 1){
+                    $html = '<input type="hidden" name="'+ s +'" value="'+response.data.url+'">';
+                    $('#feedback').append($html);
+                    $('.hy'+t).attr('src',response.data.urs);
+                }
+
+            },
+            error : function(){ }
+        });
+    }
+
+
+    $('#btn').click(function () {
+        if (!$("input[type='checkbox']").is(':checked')) {
+            layer.msg('请确认协议和隐私');
+        }
+        $.ajax({
+            url:"{:url('Login/entadd')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                console.log(result);return false;
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg,function () {
+                        location.reload();
+                    });
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+    });
+
+
+
 </script>
 {/block}
 

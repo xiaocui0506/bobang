@@ -59,13 +59,13 @@
                 <div class="outer">
                     <span><img src="__IND__/images/bitian_03.png" alt="">注册地</span>
                     <select name="province" id="province1" class="inp2">
-                        <option value="请选择">省</option>
+                        <option value="0">省</option>
                     </select>
                     <select name="city" id="city1" class="inp2">
-                        <option value="请选择">市</option>
+                        <option value="0">市</option>
                     </select>
                     <select name="town" id="town1" class="inp2">
-                        <option value="请选择">区</option>
+                        <option value="0">区</option>
                     </select>
                 </div>
                 <div>
@@ -172,11 +172,11 @@
             dataType:'json',
             data:$("#FormData").serialize(),
             success:function(result){
-                console.log(result);return false;
                 //回调函数
                 if (result.code == 1){
-                    layer.msg(result.msg);
-                    location.reload();
+                    layer.msg(result.msg,function () {
+                        location.reload();
+                    })
                 } else {
                     layer.msg(result.msg);
                 }

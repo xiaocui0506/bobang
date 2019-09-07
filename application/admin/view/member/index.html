@@ -105,12 +105,12 @@
     /*用户-停用*/
     function member_stop(id,st){
         layer.confirm('确认需要修改状态吗？',function(index){
-
             $.post("{:url('member/forbid')}",{id:id,st:st},function(msg){
                 if (msg.code == 1){
-                    layer.msg(msg.msg,{icon:1,time:1000},function () {
+                    layer.msg(msg.msg,function () {
                         location.replace(location.href);
                     });
+
                 }else{
                     layer.msg(msg.msg);
                 }
@@ -123,10 +123,9 @@
     function member_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
             //发异步删除数据
-
             $.post("{:url('member/del')}",{id:id},function (msg) {
                 if (msg.code == 1){
-                    layer.msg(msg.msg,{icon:1,time:1000},function () {
+                    layer.msg(msg.msg,function () {
                         location.replace(location.href);
                     });
                 } else{

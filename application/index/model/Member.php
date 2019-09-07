@@ -46,4 +46,12 @@ class Member extends Model
       return jsonResponse(-1,'',$e->getMessage());
     }
   }
+
+
+  /*  企业会员认证  */
+  public function entadd(){
+    $post_data = input('post.');
+    return $post_data;
+  }
+
 }

@@ -39,5 +39,23 @@ class Member extends Safe
     }
   }
 
+  /* 删除用户数据*/
+  public function del(){
+    if ($this->request->isPost()){
+      try{
+      $id = input('post.id/d');
+      $m = new M();
+      $bool = $m->save(['isdel'=>0],['id'=>$id]);
+      if ($bool){
+        jsonResponse(1,'','成功');
+      }else{
+        jsonResponse(-1,'','失败');
+      }
+    }catch (\Exception $e){
+        jsonResponse(-1,'',$e->getMessage());
+        }
+    }
+  }
+
 
 }
