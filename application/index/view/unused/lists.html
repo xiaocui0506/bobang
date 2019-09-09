@@ -2,26 +2,22 @@
 {block name="content"}
 <link rel="stylesheet" href="__IND__/css/gongsi.css">
 <link rel="stylesheet" href="__IND__/css/quiGou.css">
+<link rel="stylesheet" href="__IND__/css/animate.min.css">
+<style>
+    .gallery-thumbs img{
+        width: 100%;
+    }
+    .swiper-slide-active img{
+        width: 100%;
+    }
+
+</style>
 {include file="public/top" /}
 <div class="zhuTi">
     <div class="zhuTiTop">
         <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
     </div>
-    <div class="zhuTiBot">
-        <span>行业市场：</span>
-        <ul>
-            <li><a href="#">建筑与工程建设</a></li>
-            <li><a href="#">工业材料与产品</a></li>
-            <li><a href="#">机械装备与设备</a></li>
-            <li><a href="#">轻工文体织造业</a></li>
-            <li><a href="#">高新科技与产业</a></li>
-            <li><a href="#">数码电子与电器</a></li>
-            <li><a href="#">地产家居装饰业</a></li>
-            <li><a href="#">商务与生活服务</a></li>
-            <li><a href="#">农林牧渔副食品</a></li>
-            <li><a href="#">卫生健康与医械</a></li>
-        </ul>
-    </div>
+    {include file="public/itemize" /}
     <div class="qiuGou">
         <div class="qiuGouLeft">
             <h4>广州三泰机械工程有限公司</h4>
@@ -32,13 +28,13 @@
                 <ul class="imgRight">
                     <li>
                         <span>认证方式</span>
-                        <img src="img/ss2.jpg" alt="">
-                        <img src="img/ss3.jpg" alt="">
-                        <img src="img/ss1.jpg" alt="">
-                        <img src="img/ss4.jpg" alt="">
-                        <img src="img/ss5.jpg" alt="">
+                        <img src="__IND__/img/ss2.jpg" alt="">
+                        <img src="__IND__/img/ss3.jpg" alt="">
+                        <img src="__IND__/img/ss1.jpg" alt="">
+                        <img src="__IND__/img/ss4.jpg" alt="">
+                        <img src="__IND__/img/ss5.jpg" alt="">
                     </li>
-                    <li><span>联系人</span><p>王三三</p><img src="img/ss6.jpg" alt="" style="width: 23px;height: 24px;"></li>
+                    <li><span>联系人</span><p>王三三</p><img src="__IND__/img/ss6.jpg" alt="" style="width: 23px;height: 24px;"></li>
                     <li><span>手机号</span><a href="">点击查看</a></li>
                 </ul>
             </div>
@@ -50,22 +46,22 @@
                 <li><span>邮箱</span><p>123456@163.com</p></li>
             </ul>
             <div class="qg">
-                <a href="#"><img src="img/xx1.png" alt="">收藏商家</a>
-                <a href="#"><img src="img/xx2.png" alt="">发送消息</a>
-                <a href="#"><img src="img/xx3.png" alt="">QQ交谈</a>
+                <a href="#"><img src="__IND__/img/xx1.png" alt="">收藏商家</a>
+                <a href="#"><img src="__IND__/img/xx2.png" alt="">发送消息</a>
+                <a href="#"><img src="__IND__/img/xx3.png" alt="">QQ交谈</a>
             </div>
             <p>联系时，请说在博帮网看到我的，谢谢您！</p>
             <div class="lefttit">
                 <h4>网站注册信息</h4>
                 <ul class="lefttit1">
                     <li><span>手机勋章 :</span>
-                        <img src="img/t1.jpg" alt="">
-                        <img src="img/t2.jpg" alt="">
-                        <img src="img/t3.jpg" alt="">
-                        <img src="img/t4.jpg" alt="">
+                        <img src="__IND__/img/t1.jpg" alt="">
+                        <img src="__IND__/img/t2.jpg" alt="">
+                        <img src="__IND__/img/t3.jpg" alt="">
+                        <img src="__IND__/img/t4.jpg" alt="">
                     </li>
                     <li><span>会员等级 :</span>
-                        <img src="img/vip5.jpg" alt="">
+                        <img src="__IND__/img/vip5.jpg" alt="">
                     </li>
                     <li><span>注册日期 :</span><p>2019年5月26日 15:36</p></li>
                     <li><span>最后登录日期  :</span><p>2019年5月26日 15:36</p></li>
@@ -100,7 +96,7 @@
                 <ul>
                     <li>
                         已被浏览<br>
-                        <span>{$tend.preview}</span>次
+                        <span>{$unused.perview}</span>次
                     </li>
                     <li>
                         收藏分享<br>
@@ -112,84 +108,84 @@
                     </li>
                 </ul>
             </div>
-            <div class="TiMu">
-                <h4>{$tend.bidding_name}</h4>
-<!--                <ul>-->
-<!--                    <li>招标产品名称</li>-->
-<!--                    <li>招标类型</li>-->
-<!--                    <li>型号规范</li>-->
-<!--                    <li>数量</li>-->
-<!--                    <li>单位</li>-->
-<!--                    <li>预算价</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机</li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机</li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机   </li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-                <div style="margin-left: 7%;">
-                {:htmlspecialchars_decode($tend['bidding_pro'])}
-                </div>
+            <div class="TiMu1">
+                <h4>{$unused.unus_title}</h4>
+                <ul>
+                    <li><span>闲置类型</span>{php}echo GetConfigName('unusedType',$unused['unus_type']){/php}</li>
+                    <li><span>型号规格</span>{$unused.norms}</li>
+                    <li><span>处理数量</span>{$unused.number}套</li>
+                    <li><span>生产日期</span>{$unused.factory_date}</li>
+                </ul>
+                <ul>
+                    <li><span>生产厂家</span>{$unused.generator}</li>
+                    <li><span>新旧程度</span>{php}echo GetConfigName('degree',$unused['degree']){/php}</li>
+                    <li><span>是否在用</span>{$unused.isthere ? '是' : '否' }</li>
+                    <li><span>转让价格</span>{$unused.tf_price}元</li>
+                </ul>
             </div>
-            <div class="qiugouyy">
-                <div><p>招标截止时间</p><span> {$tend.bidding_deadline|date='Y-m-d H:i:s'}  </span>（剩{$days}天）</div>
-                <div><p>求购方地址</p><span>广东省广州市黄埔区开发到大道8号广州三泰机械工程有限公司二楼201招标办公</span></div>
-                <div><p>联系人：</p><span>{$tend.contacts}</span> <p>手机：</p> <span>{$tend.phone}</span>{if condition="$tend['landline']"}<p>电话：</p><span>{$tend.landline}</span>{/if}</div>
-            </div>
-            <div class="qiugouyy1">
-                <div>
-                    <a href="#">
-                        <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
-                    </a>
-                    <p>111</p>
+            <div style="padding:20px;">
+                <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-                <div>
-                    <a href="#">
-                        <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
-                    </a>
-                    <p>111</p>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="__IND__/images/index_11.jpg" >
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <a href="#">
-                        <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
-                    </a>
-                    <p>111</p>
-                </div>
-                <div>
-                    <a href="#">
-                        <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
-                    </a>
-                    <p>111</p>
-                </div>
-
             </div>
             <div class="qiugouyy2">
                 <div class="qiugouyy2-1">
-                    招标正文
+                    展会描述
                 </div>
                 <div class="qiugouyy2-2"></div>
             </div>
             <div class="qiugouyy3">
-                <p>{$tend.bidding_text}</p>
+                <p>{$unused.abstract}</p>
                 <span>[注：付费查看只能看到招标方的发布信息和联系方式，不含购买标书价格]</span>
             </div>
             <div class="qiugouyy4">
@@ -290,12 +286,30 @@
 </div>
 {/block}
 {block name="script"}
-<!--<script src="js/area.js"></script>-->
-<!--<script src="js/select.js"></script>-->
-<!--<script>-->
-<!--    $(".dingbu3 li").click(function(){-->
-<!--        $(this).addClass("yynav").siblings("li").removeClass("yynav");-->
-<!--    });-->
-<!--</script>-->
-<!--</html>-->
+<script src="__IND__/js/swiper.animate1.0.3.min.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+</script>
+<script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        }
+    });
+</script>
+
 {/block}

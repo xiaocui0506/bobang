@@ -16,10 +16,10 @@
     <div class="FwjsSg">
         <div class="FwjsSgleft">
             <div class="FwjsSg1" style="width: 100%"></div>
-            {volist name='tend' id='v'}
+            {volist name='tobuy' id='v'}
             <div class="FwjsSg3" style="width: 100%">
-                <h4>{$v.bidding_name}</h4>
-                <a href="{:url('tendering/lists',['id'=>$v['id']])}"><p>{$v.bidding_text}.....[详情]</p></a>
+                <h4>{$v.title}</h4>
+                <a href="{:url('tobuy/lists',['id'=>$v['id']])}"><p>{$v.abstract}.....[详情]</p></a>
                 <p>发布方：<span style="color:#3f48cc;">广州三泰机械工程有限公司</span><img src="__IND__/images/vvs.jpg" alt=""></p>
             </div>
             {/volist}

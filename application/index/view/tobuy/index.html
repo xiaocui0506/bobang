@@ -7,21 +7,7 @@
     <div class="zhuTiTop">
         <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
     </div>
-    <div class="zhuTiBot">
-        <span>行业市场：</span>
-        <ul>
-            <li><a href="#">建筑与工程建设</a></li>
-            <li><a href="#">工业材料与产品</a></li>
-            <li><a href="#">机械装备与设备</a></li>
-            <li><a href="#">轻工文体织造业</a></li>
-            <li><a href="#">高新科技与产业</a></li>
-            <li><a href="#">数码电子与电器</a></li>
-            <li><a href="#">地产家居装饰业</a></li>
-            <li><a href="#">商务与生活服务</a></li>
-            <li><a href="#">农林牧渔副食品</a></li>
-            <li><a href="#">卫生健康与医械</a></li>
-        </ul>
-    </div>
+    {include file="public/itemize" /}
     <div class="qiuGou">
         <div class="qiuGouLeft">
             <h4>广州三泰机械工程有限公司</h4>
@@ -100,7 +86,7 @@
                 <ul>
                     <li>
                         已被浏览<br>
-                        <span>874</span>次
+                        <span>{$tobuy.perview}</span>次
                     </li>
                     <li>
                         收藏分享<br>
@@ -113,44 +99,14 @@
                 </ul>
             </div>
             <div class="TiMu">
-                <h4>造船门机/发电机全国 求购</h4>
-                <ul>
-                    <li>招标产品名称</li>
-                    <li>招标类型</li>
-                    <li>型号规范</li>
-                    <li>数量</li>
-                    <li>单位</li>
-                    <li>预算价</li>
-                </ul>
-                <ul>
-                    <li>造船厂用100+100+800/100t门式起重机</li>
-                    <li>货物招标</li>
-                    <li>YYEES100+100+800/100t</li>
-                    <li>1</li>
-                    <li>套</li>
-                    <li>200万</li>
-                </ul>
-                <ul>
-                    <li>造船厂用100+100+800/100t门式起重机</li>
-                    <li>货物招标</li>
-                    <li>YYEES100+100+800/100t</li>
-                    <li>1</li>
-                    <li>套</li>
-                    <li>200万</li>
-                </ul>
-                <ul>
-                    <li>造船厂用100+100+800/100t门式起重机   </li>
-                    <li>货物招标</li>
-                    <li>YYEES100+100+800/100t</li>
-                    <li>1</li>
-                    <li>套</li>
-                    <li>200万</li>
-                </ul>
+                <h4>{$tobuy.title}</h4>
+
+                    {:htmlspecialchars_decode($tobuy['pro_name'])}
             </div>
             <div class="qiugouyy">
-                <div><p>求购截止时间</p><span> 2019-08-10 08:30  </span>（剩15天）</div>
+                <div><p>求购截止时间</p><span> {$tobuy['push_time']}  </span>（剩{$days}天）</div>
                 <div><p>求购方地址</p><span>广东省广州市黄埔区开发到大道8号广州三泰机械工程有限公司二楼201招标办公</span></div>
-                <div><p>联系人：</p><span>王三三</span><p>电话：</p><span>020-89441861</span> <p>手机：</p> <span>13903069498</span></div>
+                <div><p>联系人：</p><span>{$tobuy.contacts}</span> <p>手机：</p> <span>{$tobuy.phone}</span>{if condition="$tobuy['landline']"}<p>电话：</p><span>{$tobuy.landline}</span>{/if}</div>
             </div>
             <div class="qiugouyy1">
                 <div>
@@ -186,8 +142,7 @@
                 <div class="qiugouyy2-2"></div>
             </div>
             <div class="qiugouyy3">
-                <p>本人因另有发展，现将位于广州市珠海区以中型制衣厂整体转让（在营），公司现在员工300余人，总占地面积2000平方米建筑面积1000平，年产值1.2亿元，产品畅销全国，出口东南亚和非洲，品牌商标3套，主要设备有什么？等等，欢迎有实力的单位和个人前来考察洽，联系人：张先生，手机13903000987</p>
-                <p>本人因另有发展，现将位于广州市珠海区以中型制衣厂整体转让（在营），公司现在员工300余人，总占地面积2000平方米建筑面积1000平，年产值1.2亿元，产品畅销全国，出口东南亚和非洲，品牌商标3套，主要设备有什么？等等，欢迎有实力的单位和个人前来考察洽，联系人：张先生，手机13903000987</p>
+                <p>{$tobuy.abstract}</p>
                 <span>[注：付费查看只能看到招标方的发布信息和联系方式，不含购买标书价格]</span>
             </div>
             <div class="qiugouyy4">

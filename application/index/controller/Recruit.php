@@ -4,15 +4,21 @@
  * */
 namespace app\index\controller;
 
-use think\Controller;
+use app\index\controller\Common;
 
 use app\index\model\Recruit as R;
 
-class Recruit extends Controller
+class Recruit extends Common
 {
     //
   public function index(){
-    var_dump(111);
+
+    $r = new R();
+    $rec = $r->where(['status'=>1,'isdel'=>1])->select();
+
+    $this->assign('rec' , $rec);
+
+    return $this->fetch();
   }
 
   public function add(){

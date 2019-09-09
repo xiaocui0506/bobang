@@ -4,14 +4,26 @@
  */
 namespace app\index\controller;
 
-use think\Controller;
+use app\index\controller\Common;
 
 use app\index\model\Expo as E;
-class Expo extends Controller
+class Expo extends Common
 {
     //
     public function index(){
-      var_dump(111);
+
+      $e = new E();
+      $expo = $e->where(['status'=>1,'isdel'=>1])->select();
+
+      $this->assign('expo' , $expo);
+
+      return $this->fetch();
+    }
+
+
+    public function lists(){
+
+      return $this->fetch();
     }
 
     public function add(){
