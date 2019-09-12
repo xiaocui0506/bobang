@@ -13,7 +13,7 @@ class Expo extends Common
     public function index(){
 
       $e = new E();
-      $expo = $e->where(['status'=>1,'isdel'=>1])->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
+      $expo = $e->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
       $this->assign('expo' , $expo);
       $this->assign('page' , $expo->render());
@@ -22,7 +22,25 @@ class Expo extends Common
     }
 
 
-    public function lists(){
+    public function lists($id){
+      $e = new E();
+      $e->where(['id'=>$id])->setInc('preview');
+      $expo = $e->where(['id'=>$id])->find();
+      $expo['photo'] = explode(',',$expo['photo']);
+      $this->assign('ex' , $expo);
+      return $this->fetch();
+    }
+
+    public function adds(){
+
+      $navall = \cache('nav_type');
+      if (!$navall){
+        cache('nav_type',NavAll(),360);
+        $navall = cache('nav_type');
+      }
+      $this->assign('navall', $navall); // 推送行业
+
+      $this->assign('expoType', config('expoType')); // 推送行业
 
       return $this->fetch();
     }

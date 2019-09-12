@@ -64,6 +64,10 @@
                     <input type="text" class="inp1" name="title">
                 </div>
                 <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">所属部门</span>
+                    <input type="text" class="inp1" placeholder="部门" name="depart">
+                </div>
+                <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">职位名称</span>
                     <input type="text" class="inp1" name="pos_name">
                 </div>
@@ -115,7 +119,11 @@
                 </div>
 <!--                <span>职位描述</span>-->
                 <div>
-                    职位描述： <textarea placeholder="如企业概括,客户资源,转让要求等" id="editor" name="describe"></textarea>
+                    <span>职位简介</span>
+                    <textarea placeholder="职位简介" name="brief"></textarea>
+                </div>
+                <div>
+                    职位描述： <textarea placeholder="" id="editor" name="describe"></textarea>
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">技能标签</span>
@@ -126,7 +134,7 @@
                     <ul class="zwlx11">
 
                         {volist name='bright' id='v'}
-                        <li data-id="{$key}"><input type="hidden" id="bright_{$key}" name="bright[]" value="0">{$v}</li>
+                        <li data-id="{$key}"><input type="hidden" id="bright_{$key}" name="bright[]" value="">{$v}</li>
                         {/volist}
                     </ul>
                 </div>
@@ -170,10 +178,6 @@
                     <span><img src="__IND__/images/bitian_03.png" alt="">发布时长</span>
                     <input type="text" class="inp1" placeholder="发布时长" name="push_time">
                 </div>
-<!--                <div>-->
-<!--                    <span><img src="__IND__/images/bitian_03.png" alt="">所属部门</span>-->
-<!--                    <input type="text" class="inp1" placeholder="部门">-->
-<!--                </div>-->
 
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">联系姓名</span>

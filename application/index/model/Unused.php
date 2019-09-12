@@ -20,12 +20,19 @@ class Unused extends Model
   public function add(){
     $post_data = input('post.');
     try{
+      if (!array_key_exists('img',$post_data)){
+        $post_data['photo'] = '';
+      }else{
+        $post_data['photo'] = implode(',',$post_data['img']);
+      }
       $validate = new \think\Validate;
       $validate->rule([
         'unus_title|闲置标题' => 'require|chsDash|max:100',
         'unus_type|闲置类别' => 'require|between:1,7',
-        'pro_address|处理地址' => 'require',
-        'pro_address_xq|处理地址详情' => 'require',
+        'pro_addr_p|处理地址' => 'require',
+        'pro_addr_c|处理地址' => 'require',
+        'pro_addr_t|处理地址' => 'require',
+        'pro_addr_xq|处理地址详情' => 'require',
         'generator|生成厂家' => 'require',
         'goods_name|货品名称' => 'require',
         'number|数量单位' => 'require',
@@ -34,14 +41,16 @@ class Unused extends Model
         'contacts|联系人' => 'require',
         'phone|手机号' => 'require|/^[1]([3-9])[0-9]{9}$/',
         'push_indu|推送行业' => 'require',
-        'push_address|推送地区 ' => 'require',
+        'push_addr_p|推送地区 ' => 'require',
+        'push_addr_c|推送地区 ' => 'require',
+        'push_addr_t|推送地区 ' => 'require',
         'push_time|推送时长' => 'require|between:1,6',
       ]);
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):0;
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
-        $res = $this->save($post_data);
+        $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');
         else

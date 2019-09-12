@@ -14,7 +14,6 @@ class Recruit extends Model
 
   public function add(){
     $post_data = input('post.');
-    return $post_data;
     try{
       $validate = new \think\Validate;
       $validate->rule([
@@ -23,12 +22,17 @@ class Recruit extends Model
         'work_na|工作性质' => 'require',
         'number_peo|招聘人数' => 'require|number',
         'salary|月薪范围' => 'require|number',
-        'work_addr|工作地址' => 'require',
+        'work_addr_p|工作地址' => 'require',
+        'work_addr_c|工作地址' => 'require',
+        'work_addr_t|工作地址' => 'require',
         'work_addr_xq|工作地址详情' => 'require',
+        'brief|职位介绍' => 'require',
         'contacts|联系人' => 'require',
         'phone|手机号' => 'require|/^[1]([3-9])[0-9]{9}$/',
         'push_indu|推送行业' => 'require',
-        'push_addr|推送地区' => 'require',
+        'push_addr_p|推送地区' => 'require',
+        'push_addr_t|推送地区' => 'require',
+        'push_addr_c|推送地区' => 'require',
         'push_time|推送时长' => 'require|between:1,6',
 
       ]);
@@ -36,7 +40,8 @@ class Recruit extends Model
         $post_data['user_id'] = session("?user_id")?session("user_id"):1;
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
-        $res = $this->save($post_data);
+        $post_data['bright'] = implode(',',array_filter($post_data['bright']));
+        $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');
         else

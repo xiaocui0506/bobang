@@ -152,3 +152,24 @@ if (!function_exists('GetFieldRemove')) {
     return implode(',',$a);
   }
 }
+
+
+/**
+  * 获取亮点
+  * string $b  用户选择的亮点id
+ **/
+if (!function_exists('Bright')){
+  function Bright($b){
+    $bright = config('bright');
+    $b = explode(',',$b);
+    $arr = [];
+    foreach ($bright as $k=>$v){
+      foreach ($b as $vs){
+        if ($vs == $k){
+          $arr[] = $v;
+        }
+      }
+    }
+    return $arr;
+  }
+}

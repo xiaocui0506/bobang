@@ -15,7 +15,7 @@ class Recruit extends Common
   public function index(){
 
     $r = new R();
-    $rec = $r->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(10,false,['type'=> '\base\share\Page','var_page' => 'p']);
+    $rec = $r->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(8,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
     $this->assign('rec' , $rec);
     $this->assign('page' , $rec->render());
@@ -25,10 +25,12 @@ class Recruit extends Common
 
   /*招聘详情*/
   public function lists($id){
-
     $r = new R();
     $r->where(['id'=>$id])->setInc('perview');
     $res = $r->where(['id'=>$id])->find();
+    if ($res['bright']){
+      $res['bright'] = Bright($res['bright']);
+    }
     $this->assign('res' , $res);
     return $this->fetch();
   }

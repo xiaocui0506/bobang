@@ -19,7 +19,7 @@
             {volist name='rec' id='v'}
             <div class="FwjsSg3" style="width: 100%">
                 <h4>{$v.title}</h4>
-                <a href="{:url('recruit/lists',['id'=>$v['id']])}"><p>{$v.describe}.....[详情]</p></a>
+                <a href="{:url('recruit/lists',['id'=>$v['id']])}"><p>{:htmlspecialchars_decode($v['brief'])}</p></a>
                 <p>发布方：<span style="color:#3f48cc;">广州三泰机械工程有限公司</span><img src="__IND__/images/vvs.jpg" alt=""></p>
             </div>
             {/volist}

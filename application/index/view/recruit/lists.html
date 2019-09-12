@@ -102,26 +102,24 @@
             <div class="hese">
                 <h4>{$res.title} <span>{php}echo GetConfigName('salary',$res['salary']){/php}</span><a href="#">企业主页</a></h4>
                 <ul class="fuli">
-                    <li><a href="">五险一金</a></li>
-                    <li><a href="">年底双薪</a></li>
-                    <li><a href="">年终分红</a></li>
-                    <li><a href="">周末双休</a></li>
-                    <li><a href="">绩效奖金</a></li>
+                    {volist name='res.bright' id='v'}
+                    <li><a href="">{$v}</a></li>
+                    {/volist}
                 </ul>
                 <ul class="fuli1">
-                    <li>招聘部门 <span>总公司</span></li>
-                    <li>工作地区 <span>郑州</span></li>
-                    <li>学历要求 <span>不限</span></li>
+                    <li>招聘部门： <span>{$res.depart}</span></li>
+                    <li>工作地区： <span>{php}echo GetRegionName($res['work_addr_p'].','.$res['work_addr_c'].','.$res['work_addr_t']){/php}</span></li>
+                    <li>学历要求： <span>{php}echo GetConfigName('education',$res['educ']){/php}</span></li>
                 </ul>
                 <ul class="fuli1">
-                    <li>招聘人数 <span>6人</span></li>
-                    <li>工作性质 <span>全职</span></li>
-                    <li>性别要求 <span>不限</span></li>
+                    <li>招聘人数： <span>{$res.number_peo}人</span></li>
+                    <li>工作性质： <span>{php}echo GetConfigName('work_na',$res['work_na']){/php}</span></li>
+                    <li>性别要求： <span>不限</span></li>
                 </ul>
                 <ul class="fuli1">
-                    <li>截止日期 <span>2019/7/10</span></li>
-                    <li>工作经验 <span>应届毕业生</span></li>
-                    <li>年龄要求 <span>不限</span></li>
+                    <li>截止日期： <span>2019/7/10</span></li>
+                    <li>工作经验： <span>{php}echo GetConfigName('hands',$res['exper']){/php}</span></li>
+                    <li>年龄要求： <span>{$res.age}</span></li>
                 </ul>
                 <div class="toudi">
                     <a href="#"><img src="__IND__/images/huiji_03.jpg" alt="">投递简历</a>
@@ -129,12 +127,13 @@
             </div>
             <div class="miaoshu">
                 <h4><img src="__IND__/images/xinxi_07.jpg" alt="">职位描述</h4>
-                <ul>
-                    <li>1.有上进心，踏实，向上，具有团队精神</li>
-                    <li>2.有上进心，踏实，向上，具有团队精神</li>
-                    <li>3.有上进心，踏实，向上，具有团队精神</li>
-                    <li>4.有上进心，踏实，向上，具有团队精神</li>
-                </ul>
+<!--                <ul>-->
+<!--                    <li>1.有上进心，踏实，向上，具有团队精神</li>-->
+<!--                    <li>2.有上进心，踏实，向上，具有团队精神</li>-->
+<!--                    <li>3.有上进心，踏实，向上，具有团队精神</li>-->
+<!--                    <li>4.有上进心，踏实，向上，具有团队精神</li>-->
+<!--                </ul>-->
+                {:htmlspecialchars_decode($res['describe'])}
                 <div class="toudi1">
                     <a href="#"><img src="__IND__/images/huiji_03.jpg" alt="">投递简历</a>
                 </div>

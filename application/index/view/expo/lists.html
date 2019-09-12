@@ -96,7 +96,7 @@
                 <ul>
                     <li>
                         已被浏览<br>
-                        <span>{$unused.perview}</span>次
+                        <span>{$ex.preview}</span>次
                     </li>
                     <li>
                         收藏分享<br>
@@ -109,24 +109,24 @@
                 </ul>
             </div>
             <div class="TiMu1">
-                <h4>{$unused.unus_title}</h4>
+                <h4>{$ex.expo_title}</h4>
                 <ul>
-                    <li><span>闲置类型</span>{php}echo GetConfigName('unusedType',$unused['unus_type']){/php}</li>
-                    <li><span>型号规格</span>{$unused.norms}</li>
-                    <li><span>处理数量</span>{$unused.number}套</li>
-                    <li><span>生产日期</span>{$unused.factory_date}</li>
+                    <li><span>展会类型</span>{php}echo GetConfigName('expoType',$ex['expo_type']){/php}</li>
+                    <li><span>主办单位</span>{$ex.sponsor}</li>
+                    <li><span>举办城市</span>{php}echo GetRegionName($ex['expo_addr_p'].','.$ex['expo_addr_c'].','.$ex['expo_addr_t']){/php}</li>
+                    <li><span>联系人</span>{$ex.contacts}<span>座机</span>{$ex.landline}</li>
                 </ul>
                 <ul>
-                    <li><span>生产厂家</span>{$unused.generator}</li>
-                    <li><span>新旧程度</span>{php}echo GetConfigName('degree',$unused['degree']){/php}</li>
-                    <li><span>是否在用</span>{$unused.isthere ? '是' : '否' }</li>
-                    <li><span>转让价格</span>{$unused.tf_price}元</li>
+                    <li><span>展会时间</span>{$ex.expo_date_s}</li>
+                    <li><span>有效期至</span>{$ex.expo_date_e}</li>
+                    <li><span>举办展馆</span>{$ex.expo_addr_xq}</li>
+                    <li><span>手机</span>{$ex.phone}</li>
                 </ul>
             </div>
             <div style="padding:20px;">
                 <div class="swiper-container gallery-top">
                     <div class="swiper-wrapper">
-                        {volist name='unused.photo' id='v'}
+                        {volist name='ex.photo' id='v'}
                         <div class="swiper-slide">
                             <img src="/public/uploads/{$v}" >
                         </div>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="swiper-container gallery-thumbs">
                     <div class="swiper-wrapper">
-                        {volist name='unused.photo' id='v'}
+                        {volist name='ex.photo' id='v'}
                         <div class="swiper-slide">
                             <img src="/public/uploads/{$v}" >
                         </div>
@@ -153,7 +153,7 @@
                 <div class="qiugouyy2-2"></div>
             </div>
             <div class="qiugouyy3">
-                <p>{$unused.abstract}</p>
+                <p>{$ex.abstract}</p>
                 <span>[注：付费查看只能看到招标方的发布信息和联系方式，不含购买标书价格]</span>
             </div>
             <div class="qiugouyy4">
@@ -254,6 +254,7 @@
 </div>
 {/block}
 {block name="script"}
+<script src="__IND__/js/jquery-3.3.1.min.js"></script>
 <script src="__IND__/js/swiper.animate1.0.3.min.js"></script>
 <script>
     $(".dingbu3 li").click(function(){
@@ -279,5 +280,4 @@
         }
     });
 </script>
-
 {/block}

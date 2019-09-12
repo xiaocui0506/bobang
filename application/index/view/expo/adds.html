@@ -1,0 +1,197 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong">
+        <h4>专业展会发布信息</h4>
+        <p>填写信息越完整，越容易被发现</p>
+        <div class="zhuTiform">
+            <form action="" method="post" id="FormData">
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">展会标题</span>
+                    <input type="text" class="inp1" name="expo_title">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">展会类型</span>
+                    <select class="inp2" name="expo_type">
+                        {volist name='expoType' id='v'}
+                        <option value ="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">主办单位</span>
+                    <input type="text" class="inp1" name="sponsor">
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">展会地点</span>
+                    <select name="expo_addr_p" id="province" class="inp2">
+                        <option value="0">省</option>
+                    </select>
+                    <select name="expo_addr_c" id="city" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="expo_addr_t" id="town" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                    <input type="text" placeholder="自填详细地址..." name="expo_addr_xq">
+                </div>
+
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">展会时间</span>
+                    <input type="date" name="expo_date_s">
+                    <span>至</span>
+                    <input type="date" name="expo_date_e">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">举办届数</span>
+                    <input type="text" name="hold_num">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">举办周期</span>
+                    <input type="text" name="hold_date" >
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送地区</span>
+                    <select name="push_addr_p" id="province1" class="inp2">
+                        <option value="0">省</option>
+                    </select>
+                    <select name="push_addr_c" id="city1" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="push_addr_t" id="town1" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送行业</span>
+                    <select class="inp1" name="push_indu">
+                        {volist name='navall' id='v'}
+                        <option value ="{$v.id}">{$v.title}</option>
+                        {volist name='v.one' id='v'}
+                        <option value ="{$v.id}">---二级：{$v.title}</option>
+                        {volist name='v.two' id='v'}
+                        <option value ="{$v.id}">------三级：{$v.title}</option>
+                        {volist name='v.three' id='v'}
+                        <option value ="{$v.id}">---------四级：{$v.title}</option>
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送时长</span>
+                    <input type="text" class="inp2" name="push_time">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系姓名</span>
+                    <input type="text" class="inp3" name="contacts">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系电话</span>
+                    <input type="text" class="inp2" name="phone">
+                    <span>座机</span>
+                    <input type="text" class="inp2" placeholder="号码" name="landline">
+                </div>
+                <div id="feedback" style="display: none"></div>
+                <div class="tpimg">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">相关照片</span>
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg1">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg2">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg3">
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg4">
+                    <input type="file"  class="tp1" multiple="multiple" onchange="upimg(this,1)">
+                    <input type="file" class="tp2" multiple="multiple" onchange="upimg(this,2)">
+                    <input type="file" class="tp3" multiple="multiple" onchange="upimg(this,3)">
+                    <input type="file" class="tp4" multiple="multiple" onchange="upimg(this,4)">
+                </div>
+                <div>
+                    <span>会议概括</span>
+                    <textarea placeholder="如企业概括,客户资源,转让要求等" name="abstract"></textarea>
+                </div>
+                <div class="formbut">
+                    <input type="button" value="确认发布" class="formbut2" id="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tp1").click();
+    })
+    $(".tpimg2").click(function(){
+        $(".tp2").click();
+    })
+    $(".tpimg3").click(function(){
+        $(".tp3").click();
+    })
+    $(".tpimg4").click(function(){
+        $(".tp4").click();
+    })
+
+    /*图片上传*/
+    //响应文件添加成功事件
+    function upimg(obj,t)
+    {
+        if( obj.value == "" ) {
+            return;
+        }
+        var formdata = new FormData();
+        formdata.append("img" , $(obj)[0].files[0]);//获取文件法二
+        // console.log(formdata);
+        $.ajax({
+            type : 'post',
+            url : "{:url('Makeover/imgs')}", //接口
+            data : formdata,
+            cache : false,
+            processData : false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+            contentType : false, // 不设置Content-type请求头
+            success : function(response){
+                if (response.code == 1){
+                    $html = '<input type="hidden" name="img[]" value="'+response.data.url+'">';
+                    $('#feedback').append($html);
+                    $('.tpimg'+t).attr('src',response.data.urs);
+                }
+
+            },
+            error : function(){ }
+        });
+    }
+
+
+    /*用户提交数据*/
+    $('#btn').click(function () {
+        $.ajax({
+            url:"{:url('Expo/add')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg+',等待审核',{
+                        time:2000,
+                        end:function () {
+                            location.reload();
+                        }
+                    });
+
+                } else {
+                    layer.msg(result.msg,{time:2000});
+                }
+
+            }
+        });
+    })
+</script>
+{/block}
