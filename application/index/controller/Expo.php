@@ -13,9 +13,10 @@ class Expo extends Common
     public function index(){
 
       $e = new E();
-      $expo = $e->where(['status'=>1,'isdel'=>1])->select();
+      $expo = $e->where(['status'=>1,'isdel'=>1])->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
       $this->assign('expo' , $expo);
+      $this->assign('page' , $expo->render());
 
       return $this->fetch();
     }

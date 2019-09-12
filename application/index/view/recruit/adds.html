@@ -1,0 +1,292 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+    <style>
+        .zhuTiform ul{
+            float: left;
+        }
+        .zwlx>li,.zwlx11 li{
+            float: left;
+            width: 155px;
+            height: 36px;
+            line-height:36px;
+            text-align: center;
+            color:#939393;
+            border:1px solid #d5dade;
+            font-size:14px;
+            margin-right:23px;
+            border-radius:3px;
+        }
+        .zwlx1{
+            background:url(__IND__/images/zpfb_03.jpg) no-repeat right bottom;
+            border:1px solid #1f9bf5 !important;
+            color:#1f9bf5 !important;
+        }
+        .zwlx1-2{
+            background:url(__IND__/images/zpfb_03.jpg) no-repeat right bottom;
+            border:1px solid #1f9bf5 !important;
+            color:#1f9bf5 !important;
+        }
+        .zwlx11 li{
+            margin-top:20px;
+            width: 150px;
+        }
+        .zhuTiform11{
+            color:#9ed2fb;
+            float: right !important;
+        }
+        .zhuTiform>form>div>p{
+            font-size:12px;
+            color:#b2b2b2;
+        }
+        .tuig input{
+            width: 16px !important;
+            height: 16px;
+            margin-top:10px;
+        }
+    </style>
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong">
+        <h4>请填写招聘信息</h4>
+        <p>招聘信息越完整，越容易让公司认识你</p>
+        <div class="zhuTiform">
+            <div class="zhuTiform1">
+                职位信息
+            </div>
+            <form action="" method="post" id="FormData">
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">招聘标题</span>
+                    <input type="text" class="inp1" name="title">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">职位名称</span>
+                    <input type="text" class="inp1" name="pos_name">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">工作性质</span>
+                    <ul class="zwlx">
+                        <input type="hidden" id="work_na" name="work_na" value="1">
+                        {volist name='work_na' id='v'}
+                        <li data-id="{$key}" {if condition="$key == 1"}class="zwlx1"{/if}>{$v}</li>
+                       {/volist}
+                    </ul>
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">工作地点</span>
+                    <select name="work_addr_p" id="province" class="inp2">
+                        <option value="0">省</option>
+                    </select>
+                    <select name="work_addr_c" id="city" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="work_addr_t" id="town" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                    <input type="text" placeholder="详细地址自填" name="work_addr_xq">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">月薪范围</span>
+                    <select class="inp2" name="salary">
+                        {volist name='sala' id='v'}
+                         <option value="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">学 &nbsp; &nbsp;&nbsp;&nbsp;   历</span>
+                    <select class="inp2" name="educ">
+                        {volist name='education' id='v'}
+                        <option value="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+
+                    <span><img src="__IND__/images/bitian_03.png" alt="">工作年限</span>
+                    <select class="inp2" name="exper">
+                        {volist name='hands' id='v'}
+                        <option value="{$key}">{$v}</option>
+                        {/volist}
+                    </select>
+
+                    <span><img src="__IND__/images/bitian_03.png" alt="">年龄</span>
+                    <input type="number" class="inp2" name="age" οnkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                </div>
+<!--                <span>职位描述</span>-->
+                <div>
+                    职位描述： <textarea placeholder="如企业概括,客户资源,转让要求等" id="editor" name="describe"></textarea>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">技能标签</span>
+                    <input type="text" class="inp1">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">职位亮点（最多选8个）</span>
+                    <ul class="zwlx11">
+
+                        {volist name='bright' id='v'}
+                        <li data-id="{$key}"><input type="hidden" id="bright_{$key}" name="bright[]" value="0">{$v}</li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="outer">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送地区</span>
+                    <select name="push_addr_p" id="province3" class="inp2">
+                        <option value="0">省</option>
+                    </select>
+                    <select name="push_addr_c" id="city3" class="inp2">
+                        <option value="0">市</option>
+                    </select>
+                    <select name="push_addr_t" id="town3" class="inp2">
+                        <option value="0">区</option>
+                    </select>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">推送行业</span>
+                    <select class="inp1" name="push_indu">
+                        {volist name='navall' id='v'}
+                        <option value ="{$v.id}">{$v.title}</option>
+                        {volist name='v.one' id='v'}
+                        <option value ="{$v.id}">---二级：{$v.title}</option>
+                        {volist name='v.two' id='v'}
+                        <option value ="{$v.id}">------三级：{$v.title}</option>
+                        {volist name='v.three' id='v'}
+                        <option value ="{$v.id}">---------四级：{$v.title}</option>
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                        {/volist}
+                    </select>
+                </div>
+                <div class="zhuTiform1">
+                    职位设置
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">招聘人数</span>
+                    <input type="text" class="inp1" placeholder="招聘人数" name="number_peo">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">发布时长</span>
+                    <input type="text" class="inp1" placeholder="发布时长" name="push_time">
+                </div>
+<!--                <div>-->
+<!--                    <span><img src="__IND__/images/bitian_03.png" alt="">所属部门</span>-->
+<!--                    <input type="text" class="inp1" placeholder="部门">-->
+<!--                </div>-->
+
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系姓名</span>
+                    <input type="text" class="inp3" name="contacts">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">联系电话</span>
+                    <input type="text" class="inp2" name="phone">
+                    <span>座机</span>
+                    <!--                    <input type="text" class="inp4" placeholder="区号" name="landline">-->
+                    <input type="text" class="inp2" placeholder="号码" name="landline">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">发送简历到邮箱</span>
+                    <input type="email" class="inp5" name="email">
+                </div>
+<!--                <div class="zhuTiform1" style="width: 120px;">-->
+<!--                    高级设置  <span class="zhuTiform11">收起</span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span>简历过滤器</span>-->
+<!--                    <p>该设置不公开展示，只接受满足条件的简历。<a href="#">立即设置</a></p>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span>职位排序</span>-->
+<!--                    <input type="text" class="inp5">-->
+<!--                </div>-->
+<!--                <div class="tuig">-->
+<!--                    <span>职位推广</span>-->
+<!--                    <input type="checkbox">-->
+<!--                    参加职位推广-->
+<!--                </div>-->
+                <div class="formbut">
+<!--                    <input type="submit" value="保存草稿" class="formbut1">-->
+                    <input type="button" value="确认发布" class="formbut2" id="btn">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script src="__IND__/lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script src="__IND__/lib/ueditor/1.4.3/ueditor.all.js"></script>
+
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".zwlx li").click(function(){
+        $(this).addClass("zwlx1").siblings("li").removeClass("zwlx1");
+        var s =$('.zwlx1').attr('data-id');
+        $('#work_na').val(s);
+
+    });
+    $(".tpimg1").click(function(){
+        $(".tpimg11").click();
+    })
+    var ue = UE.getEditor( 'editor', {
+
+        autoHeightEnabled: true,
+
+        autoFloatEnabled: true,
+
+        initialFrameWidth: 1000,
+
+        initialFrameHeight:300
+
+    });
+
+</script>
+<script>
+    $(function(){
+        $(".zwlx11 li").click(function(){
+            var i=$(".zwlx1-2").length;
+            // console.log(i)
+            var s = $(this).attr('data-id');
+            if($(this).hasClass("zwlx1-2")){
+                $(this).removeClass("zwlx1-2");
+                $('#bright_'+s).val('');
+            }else if(i>7){
+                $(this).removeClass("zwlx1-2");
+                $('#bright_'+s).val('');
+            }else{
+                $(this).addClass("zwlx1-2");
+
+               $('#bright_'+s).val(s);
+            }
+
+
+        });
+    });
+
+
+    /* 提交数据*/
+    $('#btn').click(function () {
+        $.ajax({
+            url:"{:url('Recruit/add')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                console.log(result);return false;
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg);
+                    location.reload();
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+    })
+</script>
+{/block}

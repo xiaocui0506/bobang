@@ -11,6 +11,8 @@
 
 // 应用公共文件
 
+use think\Db;
+
 function jsonResponse($code = 0, $data = [], $msg = '')
 {
   $return = jsonResponseReturn($code, $data, $msg);
@@ -132,5 +134,21 @@ if (!function_exists('uploads')) {
         return $file->getError();
       }
     }
+  }
+}
+
+/**
+ * 去除不需要查询的字段
+ * @$tablename 表名
+ * @param  array  $arr  不需要的字段
+ *
+ */
+if (!function_exists('GetFieldRemove')) {
+  function GetFieldRemove($tablename,$arr)
+  {
+    $tableInfo = Db::getTableInfo($tablename);
+    $array = array_merge($tableInfo['fields'],$arr);
+    $a = array_diff($array,$arr);
+    return implode(',',$a);
   }
 }

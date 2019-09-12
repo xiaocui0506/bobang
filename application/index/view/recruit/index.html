@@ -15,13 +15,19 @@
     </div>
     <div class="FwjsSg">
         <div class="FwjsSgleft">
-            <div class="FwjsSg1" style="width: 100%"></div>
+            <div class="FwjsSg1" style="width: 100%"><a href="{:url('recruit/adds')}">添加</a></div>
             {volist name='rec' id='v'}
             <div class="FwjsSg3" style="width: 100%">
                 <h4>{$v.title}</h4>
+                <a href="{:url('recruit/lists',['id'=>$v['id']])}"><p>{$v.describe}.....[详情]</p></a>
                 <p>发布方：<span style="color:#3f48cc;">广州三泰机械工程有限公司</span><img src="__IND__/images/vvs.jpg" alt=""></p>
             </div>
             {/volist}
+        </div>
+        <div class="page">
+            <div>
+                {$page|raw}
+            </div>
         </div>
     </div>
     <div class="Wgangao">

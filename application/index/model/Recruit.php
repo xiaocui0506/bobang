@@ -14,6 +14,7 @@ class Recruit extends Model
 
   public function add(){
     $post_data = input('post.');
+    return $post_data;
     try{
       $validate = new \think\Validate;
       $validate->rule([
