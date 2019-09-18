@@ -2,6 +2,27 @@
 {block name="content"}
 <link rel="stylesheet" href="__IND__/css/index.css">
 <link rel="stylesheet" href="__IND__/css/animate.min.css">
+<script src="__IND__/js/swiper.animate1.0.3.min.js"></script>
+<style>
+    .renav11>div{
+        position: relative;
+    }
+    .ass span{
+        color:#ed1f29;
+        float: left;
+        line-height:26px;
+        font-size:14px !important;
+    }
+    .ass li{
+        float: left;
+        line-height:26px;
+        padding:0px 5px;
+    }
+    .ass li>a{
+        font-size:14px !important;
+        color:#666666;
+    }
+</style>
 {include file="public/top" /}
 <div class="wztjin">
     <span>网站推荐：</span>
@@ -27,256 +48,334 @@
     </div>
     <span style="float: right;margin-right:10px;color:#ed1f29;" class="geduo">更多推荐 <img src="__IND__/img/jiantou.jpg" alt=""style="margin-left: 10px;"></span>
     <div class="xiala" style="display: none;">
-        <!-- 更多网络地址 -->
+        <div style="width:95%;padding:0px 2.5%;" class="ass">
+            <span>权威网站推荐:</span>
+            <ul>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+            </ul>
+        </div>
+        <div style="width:95%;padding:0px 2.5%;" class="ass">
+            <span>视频网站推荐:</span>
+            <ul>
+                <li><a href="#">优酷网</a></li>
+                <li><a href="#">土豆网</a></li>
+                <li><a href="#">火山视频网</a></li>
+                <li><a href="#">抖音网</a></li>
+            </ul>
+        </div>
+        <div style="width:95%;padding:0px 2.5%;" class="ass">
+            <span>权威网站推荐:</span>
+            <ul>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+                <li><a href="#">新华网</a></li>
+                <li><a href="#">央视网</a></li>
+                <li><a href="#">中国在线</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 {include file="public/login" /}
 <div class="renav">
     <ul>
-        <li class="lsnav"><a href="#f1"><span>1F</span>建筑与工程建设</a></li>
-        <li><a href="#f2"><span>2F</span>工业材料与产品</a></li>
-        <li><a href="#f3"><span>3F</span>机械装备与设备</a></li>
-        <li><a href="#f4"><span>4F</span>轻工文体织造业</a></li>
-        <li><a href="#f5"><span>5F</span>高新科技与产业</a></li>
-        <li><a href="#f6"><span>6F</span>数码电子与电器</a></li>
-        <li><a href="#f7"><span>7F</span>地产家居装饰业</a></li>
-        <li><a href="#f8"><span>8F</span>商务与生活服务</a></li>
-        <li><a href="#f9"><span>9F</span>农林牧渔副食品</a></li>
-        <li><a href="#10"><span>10F</span>卫生健康与医械</a></li>
+        <li class="lsnav" data-id="0"><a href="#"data-id="0"><span>1F</span>建筑与工程建设</a></li>
+        <li data-id="1"><a href="#" data-id="1"><span>2F</span>工业材料与产品</a></li>
+        <li data-id="2"><a href="#"><span>3F</span>机械装备与设备</a></li>
+        <li><a href="#"><span>4F</span>轻工文体织造业</a></li>
+        <li><a href="#"><span>5F</span>高新科技与产业</a></li>
+        <li><a href="#"><span>6F</span>数码电子与电器</a></li>
+        <li><a href="#"><span>7F</span>地产家居装饰业</a></li>
+        <li><a href="#"><span>8F</span>商务与生活服务</a></li>
+        <li><a href="#"><span>9F</span>农林牧渔副食品</a></li>
+        <li><a href="#"><span>10F</span>卫生健康与医械</a></li>
     </ul>
 </div>
-<div class="f1" name="f1">
-    <div class="F1LeftNav">
-        <div class="F1LeftNav1">
-            <span>1F</span>
-            建筑与工程建设
+<div class="renav11">
+    <div class="f1" name="f1">
+        <div class="F1LeftNav">
+            <div class="F1LeftNav1">
+                <span>1F</span>
+                建筑与工程建设
+            </div>
+            <ul>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+            </ul>
         </div>
-        <ul>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-        </ul>
-    </div>
-    <div class="F1Right">
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-    </div>
-</div>
-<div class="f1" name="f2" id="f2">
-    <div class="F1LeftNav">
-        <div class="F1LeftNav1">
-            <span>2F</span>
-            建筑与工程建设
+        <div class="F1Right">
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
         </div>
-        <ul>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-        </ul>
     </div>
-    <div class="F1Right">
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-    </div>
-</div>
-<div class="f1" name="f3" id="f3">
-    <div class="F1LeftNav">
-        <div class="F1LeftNav1">
-            <span>3F</span>
-            建筑与工程建设
+    <div class="f1" name="f2" id="f2">
+        <div class="F1LeftNav">
+            <div class="F1LeftNav1">
+                <span>2F</span>
+                建筑与工程建设
+            </div>
+            <ul>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+            </ul>
         </div>
-        <ul>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">市政建设工程施工</a></li>
-            <li><a href="">水利工程建设施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">道路交通施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-            <li><a href="">房屋建筑施工</a></li>
-        </ul>
+        <div class="F1Right">
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+        </div>
     </div>
-    <div class="F1Right">
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
-        <figure>
-            <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
-            <figcaption>河南三一集团建设有限公司</figcaption>
-        </figure>
+    <div class="f1" name="f3" id="f3">
+        <div class="F1LeftNav">
+            <div class="F1LeftNav1">
+                <span>3F</span>
+                建筑与工程建设
+            </div>
+            <ul>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">市政建设工程施工</a></li>
+                <li><a href="">水利工程建设施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">道路交通施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+                <li><a href="">房屋建筑施工</a></li>
+            </ul>
+        </div>
+        <div class="F1Right">
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+            <figure>
+                <a href="#"><img src="__IND__/images/index_28.jpg" alt=""></a>
+                <figcaption>河南三一集团建设有限公司</figcaption>
+            </figure>
+        </div>
     </div>
 </div>
 {/block}
@@ -285,8 +384,20 @@
     $(".dingbu3 li").click(function(){
         $(this).addClass("yynav").siblings("li").removeClass("yynav");
     });
+    var arr_postion=['717','1297','1877','2457','3037','3617','4197','4777','5357','5937'];
+    oneClick = 0;
     $(".renav li").click(function(){
         $(this).addClass("lsnav").siblings("li").removeClass("lsnav");
+        var index=$(this).index();
+        var ll=$('.renav11').scrollTop();
+        var index_index=$(this).attr('data-id');
+        var top=arr_postion[index_index];
+        if(oneClick == 0){
+            oneClick = 1;
+            $('html,body').animate({ scrollTop: top -100+"px"}, 500)
+        }else{
+            $('html,body').animate({ scrollTop: top -50+"px"}, 500)
+        }
     });
     $(".geduo").click(function(){
         $(".xiala").toggle();
@@ -295,9 +406,9 @@
         var index=$(this).index();
         $(".xuanze>div").css("display","none").eq($(this).index()).show();
     });
-
-    $('.xuanze>div').mouseout(function(){
-        $('.xuanze>div').hide();
+    $('.zongfenlei_two').mouseout(function(){
+        // alert(123);
+        $('.zongfenlei').hide();
     })
     $(window).scroll(function(){
         if($(window).scrollTop()>702){
@@ -306,9 +417,35 @@
             $(".renav").css({"position":"static", "margin-left":"auto","margin-top":"14px"});
         }
     });
-
+    $(window).scroll(function(){
+        if($(window).scrollTop()>717){
+            $(".renav li").eq(0).addClass("lsnav").siblings("li").removeClass("lsnav");
+        }else{
+            $(".renav li").eq(0).removeClass("lsnav");
+        }
+    });
+    $(window).scroll(function(){
+        if($(window).scrollTop()>1297){
+            $(".renav li").eq(1).addClass("lsnav").siblings("li").removeClass("lsnav");
+        }else{
+            $(".renav li").eq(1).removeClass("lsnav");
+        }
+    });
+    $(window).scroll(function(){
+        if($(window).scrollTop()>1877){
+            $(".renav li").eq(2).addClass("lsnav").siblings("li").removeClass("lsnav");
+        }else{
+            $(".renav li").eq(2).removeClass("lsnav");
+        }
+    });
+    $(window).scroll(function(){
+        if($(window).scrollTop()>2457){
+            $(".renav li").eq(3).addClass("lsnav").siblings("li").removeClass("lsnav");
+        }else{
+            $(".renav li").eq(3).removeClass("lsnav");
+        }
+    });
 </script>
-<script src="__IND__/js/swiper.animate1.0.3.min.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
         spaceBetween: 30,
@@ -321,11 +458,10 @@
             el: '.swiper-pagination',
             clickable: true,
         },
-        navigation: {
+        navigation:{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
     });
 </script>
-
 {/block}

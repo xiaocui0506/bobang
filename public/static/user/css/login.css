@@ -1,0 +1,99 @@
+.login{
+	width:100%;
+	height:507px;
+	background:url(../images/login_02.jpg) no-repeat;
+	background-size:100% 100%;
+}
+.login1{
+	width:1200px;
+	margin:0 auto;
+}
+.login1-1{
+	width: 400px;
+	height: 362px;
+	float: right;
+	margin-top:46px;
+	margin-right:97px;
+	background:#fff;
+	border-radius:10px;
+	position: relative;
+	overflow: hidden;
+}
+.login1-2{
+	width:100%;
+	/* height:362px; */
+	display: none;
+}
+.login1-2>form>input{
+	width: 352px;
+	height: 40px;
+	background:#db261d;
+	text-align: center;
+	line-height:40px;
+	color:#fff;
+	outline: none;
+	border: none;
+	margin:19px 24px;
+	border-radius:6px;
+	
+}
+.login1-3{
+	width:70px;
+	height:70px;
+	position: absolute;
+	right:0;
+	top:0;
+	z-index: 99;
+}
+.login1-3 img{
+	width: 100%;
+}
+.login1-2 p{
+	text-align: center;
+	margin-top: 66px;
+	font-weight:600;
+	font-size:16px;
+}
+.login1-2-1,.login1-2-2{
+	width:352px;
+	height:40px;
+	margin-left:24px;
+	border:1px solid #cccccc;
+	margin-top:30px;
+}
+.login1-2-1{
+	background:url(../img/nane.jpg) no-repeat;
+	background-position: left;
+}
+.login1-2-2{
+	background:url(../img/mima.jpg) no-repeat;
+	background-position: left;
+}
+.login1-2-1 input,.login1-2-2 input{
+	width: 260px;
+	height: 40px;
+	outline: none;
+	border:none;
+	margin-left:44px;
+}
+.login1-2-1>span{
+	display: block;
+	width: 48px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	float:right;
+}
+.addpass{
+	display:flex;
+    justify-content: center;
+    align-items:center; 
+}
+.addpass li{
+	float: left;
+	padding: 0px 8px;
+}
+.addpass li>a{
+	color:#666666;
+	font-size:12px;
+}

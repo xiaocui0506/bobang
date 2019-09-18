@@ -1,0 +1,57 @@
+
+/*===================
+Color : BLUE 
+*==================*/
+.lorvens-bg {
+	background: #1183E1;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1183E1, #5330A0);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1183E1, #5330A0);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.pagination .page-link {
+	color: #1183E1;
+}
+
+.pagination .page-item.active .page-link {
+	background-color: #1183E1;
+	border-color: #1183E1;
+}
+.btn-primary {
+    background-color: #1183E1;
+    border-color: #1183E1;
+}
+.btn-primary:hover {
+    background-color: rgba(17,131,225,.8);
+    border-color: rgba(17,131,225,.8);
+}
+.text-round {
+	background: #1183E1;
+}
+.btn-outline-primary {
+    color: #1183E1;
+    border-color: #1183E1;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	background: #1183E1;
+}
+.btn-hero-primary{
+	background: #1183E1;
+	border-color: #1183E1;
+}
+.media h5{
+	color: #1183E1;
+}
+#faq2 .block-header{
+	background-color: #1183E1;
+}
+#faq1 .block-header {
+    color: #1183E1;
+}
+.widget-title{
+	color: #1183E1;
+}
+.pricing-h2{
+	color: #1183E1;
+}

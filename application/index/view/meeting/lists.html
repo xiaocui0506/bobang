@@ -1,0 +1,283 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<link rel="stylesheet" href="__IND__/css/quiGou.css">
+<link rel="stylesheet" href="__IND__/css/animate.min.css">
+<style>
+    .gallery-thumbs img{
+        width: 100%;
+    }
+    .swiper-slide-active img{
+        width: 100%;
+    }
+
+</style>
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="qiuGou">
+        <div class="qiuGouLeft">
+            <h4>广州三泰机械工程有限公司</h4>
+            <div class="qiuGouLogo">
+                <a href="">
+                    <img src="__IND__/images/touxiang.jpg" alt="">
+                </a>
+                <ul class="imgRight">
+                    <li>
+                        <span>认证方式</span>
+                        <img src="__IND__/img/ss2.jpg" alt="">
+                        <img src="__IND__/img/ss3.jpg" alt="">
+                        <img src="__IND__/img/ss1.jpg" alt="">
+                        <img src="__IND__/img/ss4.jpg" alt="">
+                        <img src="__IND__/img/ss5.jpg" alt="">
+                    </li>
+                    <li><span>联系人</span><p>王三三</p><img src="__IND__/img/ss6.jpg" alt="" style="width: 23px;height: 24px;"></li>
+                    <li><span>手机号</span><a href="">点击查看</a></li>
+                </ul>
+            </div>
+            <ul class="imgRight">
+                <li><span>注册地 </span><p>内蒙古齐齐哈尔市阿拉雷善左旗</p></li>
+                <li><span>具体地址</span><p>阿拉善左旗大道阿拉阿业大厦B栋16层201</p></li>
+                <li><span>电话号码</span><p>020-89441861， 400-8119265</p></li>
+                <li><span>网址</span><p>www.gzsantai.cn</p></li>
+                <li><span>邮箱</span><p>123456@163.com</p></li>
+            </ul>
+            <div class="qg">
+                <a href="#"><img src="__IND__/img/xx1.png" alt="">收藏商家</a>
+                <a href="#"><img src="__IND__/img/xx2.png" alt="">发送消息</a>
+                <a href="#"><img src="__IND__/img/xx3.png" alt="">QQ交谈</a>
+            </div>
+            <p>联系时，请说在博帮网看到我的，谢谢您！</p>
+            <div class="lefttit">
+                <h4>网站注册信息</h4>
+                <ul class="lefttit1">
+                    <li><span>手机勋章 :</span>
+                        <img src="__IND__/img/t1.jpg" alt="">
+                        <img src="__IND__/img/t2.jpg" alt="">
+                        <img src="__IND__/img/t3.jpg" alt="">
+                        <img src="__IND__/img/t4.jpg" alt="">
+                    </li>
+                    <li><span>会员等级 :</span>
+                        <img src="__IND__/img/vip5.jpg" alt="">
+                    </li>
+                    <li><span>注册日期 :</span><p>2019年5月26日 15:36</p></li>
+                    <li><span>最后登录日期  :</span><p>2019年5月26日 15:36</p></li>
+                    <li><span>访问量 :</span><p>1286人次</p></li>
+                    <li><span>粉丝数量 :</span><p>128689</p></li>
+                </ul>
+            </div>
+            <div class="lefttitZhong">
+                <h4>商家发布的信息</h4>
+                <ul class="leftfabu">
+                    <li><span>发布的招标：</span><p>[1]</p></li>
+                    <li><span>发布的求购：</span><p>[0]</p></li>
+                    <li><span>发布的会展：</span><p>[300]</p></li>
+                    <li><span>发布的会议：</span><p>[3]</p></li>
+                    <li><span>发布的招聘：</span><p>[10]</p></li>
+                    <li><span>发布的求职：</span><p>[20]</p></li>
+                    <li><span>发布的转让：</span><p>[20]</p></li>
+                </ul>
+            </div>
+            <div class="lefttitZhong">
+                <h4>可担保第三方交易平台</h4>
+                <div>
+                    <p> <span>淘宝网：</span>https://item.taobao.com=572646493428&ali_refid=a3_430584_1006:1124309737:N:YeizLO%2FCvRb0Ahw4Q2%2Bnuw%3D%3D:7eb4724ce3763300eed2cc78e5e2c81f&ali_trackid=1_7eb4724ce3763300eed2cc78e5e2c81f&spm=a219r.lm5704.14.1#detail</p>
+                </div>
+            </div>
+        </div>
+        <div class="qiuGouRight">
+            <div class="BioTi">
+                <p>您当前的位置：招标求购> 广州三泰机械工程有限公司</p>
+            </div>
+            <div class="LiuLan">
+                <ul>
+                    <li>
+                        已被浏览<br>
+                        <span>{$me.preview}</span>次
+                    </li>
+                    <li>
+                        收藏分享<br>
+                        <span>4</span>次
+                    </li>
+                    <li>
+                        累计留言<br>
+                        <span>1</span>天
+                    </li>
+                </ul>
+            </div>
+            <div class="TiMu1">
+                <h4>{$me.meet_title}</h4>
+                <ul>
+                    <li><span>会议类型</span>{php}echo GetConfigName('meetType',$me['meet_type']){/php}</li>
+                    <li><span>主办单位</span>{$me.sponsor}</li>
+                    <li><span>举办城市</span>{php}echo GetRegionName($me['meet_addr_p'].','.$me['meet_addr_c'].','.$me['meet_addr_t']){/php}</li>
+                    <li><span>联系人</span>{$me.contacts}<span>座机</span>{$me.landline}</li>
+                </ul>
+                <ul>
+                    <li><span>会议时间</span>{$me.meet_date_s}</li>
+                    <li><span>有效期至</span>{$me.meet_date_e}</li>
+                    <li><span>举办展馆</span>{$me.meet_addr_xq}</li>
+                    <li><span>手机</span>{$me.phone}</li>
+                </ul>
+            </div>
+            <div style="padding:20px;">
+                <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                        {volist name='me.photo' id='v'}
+                        <div class="swiper-slide">
+                            <img src="/public/uploads/{$v}" >
+                        </div>
+                        {/volist}
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {volist name='me.photo' id='v'}
+                        <div class="swiper-slide">
+                            <img src="/public/uploads/{$v}" >
+                        </div>
+                        {/volist}
+                    </div>
+                </div>
+            </div>
+            <div class="qiugouyy2">
+                <div class="qiugouyy2-1">
+                    展会描述
+                </div>
+                <div class="qiugouyy2-2"></div>
+            </div>
+            <div class="qiugouyy3">
+                <p>{$me.abstract}</p>
+                <span>[注：付费查看只能看到招标方的发布信息和联系方式，不含购买标书价格]</span>
+            </div>
+            <div class="qiugouyy4">
+                <h4>评论专区</h4><span>文明上网理性发言,请遵守新闻评论服务协议</span>
+            </div>
+            <div class="qiugouyy5">
+                <form action="" method="">
+						<textarea rows="" cols="">
+
+						</textarea>
+                    <input type="submit" value="确认发送">
+                    <label>
+                        <input type="checkbox">仅我和发布方可见
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mianze">
+    <p><span>免责声明：</span>本页面展示的公司信息、产品信息、联系方式等相关信息均有对应的商家和会员自行发布，信息的真实性、合法性、准确性由所属会员完全负责，博帮网对此不承担任何保证责任。</p>
+    <p><span>友情提示：</span>建议供需双方在履约前务必核实对方的履约能力以及产品质量，标注过低的价格有可能是虚假信息，请谨慎对待慎防欺诈行为</p>
+</div>
+<div class="tuwengg">
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+    <figure>
+        <a href=""><img src="__IND__/images/index_28.jpg" alt=""></a>
+        <figcaption>
+            <a href="">三泰工程建设</a>
+        </figcaption>
+    </figure>
+
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/jquery-3.3.1.min.js"></script>
+<script src="__IND__/js/swiper.animate1.0.3.min.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+</script>
+<script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        }
+    });
+</script>
+{/block}

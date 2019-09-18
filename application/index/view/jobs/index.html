@@ -1,10 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<style>
+    .FwjsSgleft {
+        float: left;
+        width: 100%;
+        /* overflow: hidden; */
+    }
+</style>
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    <div class="FwjsSg">
+        <div class="FwjsSgleft">
+            <div class="FwjsSg1" style="width: 100%"><a href="{:url('Jobs/adds')}">添加</a></div>
+            {volist name='jobs' id='v'}
+            <div class="FwjsSg3" style="width: 100%">
+                <h4>{$v.job_title}</h4>
+                <a href="{:url('Jobs/lists',['id'=>$v['id']])}"><p>{$v.self_intr}.....[详情]</p></a>
+                <p>发布方：<span style="color:#3f48cc;">广州三泰机械工程有限公司</span><img src="__IND__/images/vvs.jpg" alt=""></p>
+            </div>
+            {/volist}
+        </div>
+        <div class="page">
+            <div>
+                {$page|raw}
+            </div>
+        </div>
+    </div>
+    <div class="Wgangao">
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+        <figure>
+            <a href="#"><img src="__IND__/images/index_30.jpg" alt=""></a>
+            <figcaption>
+                三泰工程建设
+            </figcaption>
+        </figure>
+    </div>
 
-</body>
-</html>
+</div>
+{/block}
+{block name="script"}
+
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tpimg11").click();
+    })
+    $(".Ggduo").click(function(){
+        $(".Ggduo-1").toggle();
+    });
+    $(".Ggduo1").click(function(){
+        $(".Ggduo-2").toggle();
+    })
+    $(".aa2 li").click(function(){
+        $(this).addClass("lan").siblings("li").removeClass("lan");
+    });
+    $(".aa1 li").click(function(){
+        $(this).addClass("lan").siblings("li").removeClass("lan");
+    });
+</script>
+{/block}

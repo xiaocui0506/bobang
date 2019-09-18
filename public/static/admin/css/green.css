@@ -1,0 +1,60 @@
+/*===================
+Color : GREEN 
+*==================*/
+
+.lorvens-bg {
+	background: #5DC560;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #5DC560, rgb(6, 129, 47));
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #5DC560, rgb(6, 129, 47));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.lorvens-text-color{
+	color: #5DC560;
+}
+.pagination .page-link {
+	color: #5DC560;
+}
+
+.pagination .page-item.active .page-link {
+	background-color: #5DC560;
+	border-color: #5DC560;
+}
+.btn-primary {
+    background-color: #5DC560;
+    border-color: #5DC560;
+}
+.btn-primary:hover {
+    background-color: rgba(93,197,96,.8);
+    border-color: rgba(93,197,96,.8);
+}
+.text-round {
+	background: #5DC560;
+}
+.btn-outline-primary {
+    color: #5DC560;
+    border-color: #5DC560;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	background: #5DC560;
+}
+.btn-hero-primary{
+	background: #5DC560;
+	border-color: #5DC560;
+}
+.media h5{
+	color: #5DC560;
+}
+#faq2 .block-header{
+	background-color: #5DC560;
+}
+#faq1 .block-header {
+    color: #5DC560;
+}
+.widget-title{
+	color: #5DC560;
+}
+.pricing-h2{
+	color: #5DC560;
+}

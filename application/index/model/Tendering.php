@@ -22,19 +22,24 @@ class Tendering extends Model
         'bidding_pro|招标产品' => 'require',
         'enroll_deadline|报名截止时间' => 'require',
         'bidding_deadline|投标截止时间' => 'require',
-        'bidding_address|标书获取地点' => 'require',
-        'bidding_address_xq|标书获取地点详情' => 'require',
+        'bidding_addr_p|标书获取地点' => 'require',
+        'bidding_addr_c|标书获取地点' => 'require',
+        'bidding_addr_t|标书获取地点' => 'require',
+        'bidding_addr_xq|标书获取地点详情' => 'require',
         'contacts|联系人' => 'require',
         'phone|手机号' => 'require|/^[1]([3-9])[0-9]{9}$/',
         'bidding_text|招标正文' => 'require',
-        'push_area|推送地区' => 'require',
+        'push_addr_p|推送地区' => 'require',
+        'push_addr_c|推送地区' => 'require',
+        'push_addr_t|推送地区' => 'require',
         'push_indu|推送行业' => 'require',
       ]);
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):1;
         $post_data['create_time'] = time();
+        $post_data['bidding_pro'] = json_encode($post_data['bidding_pro']);
         $post_data['see_level'] = !isset($post_data['see_level'])?$post_data['see_level']:1;
-        $res = $this->save($post_data);
+        $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');
         else

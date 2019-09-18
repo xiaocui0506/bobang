@@ -1,0 +1,93 @@
+.HuiYuan{
+	width: 100%;
+	height: 952px;
+	background:url(../images/huiyuanxixi_02.jpg) no-repeat 100% 100%;
+	padding-top: 36px;
+}
+.HuiYuan1{
+	width: 1200px;
+	margin: 0 auto;
+	height: 900px;
+	background:#fff;
+}
+.HuiYuan1-1{
+	width: 554px;
+	height:828px;
+	margin: 0 auto;
+	padding: 10px 0px;
+	overflow: hidden;
+}
+.HuiYuan1-1-1{
+	width: 100%;
+	text-align: center;
+	line-height:60px;
+	color:#227ad3;
+	font-size: 24px;
+}
+.HuiYuan1-1>form>div{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.HuiYuan1-1>form>div>span{
+	display: inline-block;
+	width: 106px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	overflow: hidden;
+	font-size: 14px;text-align: right;
+	margin-right: 24px;
+}
+.HuiYuan1-1>form>div>span>img{
+	margin-right:5px;
+}
+.HuiYuan1-1>form>div>input{
+	height: 35px;
+	border:1px solid #c7ccd5;
+	padding-left: 10px;
+	float: left;
+}
+.HuiYuan1-1>form>div>select{
+	height: 37px;
+	border:1px solid #c7ccd5;
+	float: left;
+}
+.hyinp1{
+	width: 382px;
+}
+.hyinp2{
+	width: 304px;
+}
+.hyinp3{
+	width: 77px;
+}
+..hyinp4{
+	width: 150px;
+}
+.tpimg>p{
+	display:inline-block;
+	float: left;
+	font-size:14px;
+	line-height:60px;
+	color:#ed1c24;
+}
+.tpimg>img{
+	width: 65px;height: 64px;
+	float: left;
+	margin-right:10px;
+}
+.iip1,.iip2,.iip3{
+	display: none;
+}
+.tijiao{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}
+.tijiao>input{
+	width:260px;
+	height:40px;
+	color:#fff;
+	background:#e24449;
+}

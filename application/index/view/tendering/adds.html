@@ -1,0 +1,235 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<link rel="stylesheet" href="__IND__/css/zhbifabu.css">
+<style>
+    .abc{
+        width: 1079px;height: 64px;margin-top: 10px;border: 1px solid #dddddd;
+    }
+</style>
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong">
+        <p style="color:#ff2222;">重要提示：您的联系方式将从认证信息中自动提取并和您发布的信息同页展示，请勿在无关的栏目填写联系方式；发布的图片和内容禁止出现网址，谢谢配合</p>
+        <form action="" method="post" id="FormData">
+        <div class="zhuTiform">
+            <div class="zhuTiform1">
+                招标项目标题
+            </div>
+            <div class="wyyzb">
+                <img src="__IND__/images/bitian_03.png" ><input type="text" name="bidding_name">
+            </div>
+            <div class="zhuTiform1">
+                招标项目标题
+            </div>
+            <div id="wyycp">
+                <div class="wyycp">
+                    <ul>
+                        <li style="width:292px;">产品名称</li>
+                        <li style="width: 163px;">招标类型</li>
+                        <li style="width: 163px;">型号规格</li>
+                        <li style="width: 110px;">数量</li>
+                        <li style="width: 110px;">单位</li>
+                        <li style="width: 110px;">预算价格</li>
+                    </ul>
+                </div>
+                <div id="abcs">
+                    <div class="wyycp abc">
+                        <input type="text" style="width:282px;" name="bidding_pro[]">
+                        <select style="width: 153px;" name="bidding_pro[]">
+                            {volist name='tendtype' id='v'}
+                            <option value ="{$key}">{$v}</option>
+                            {/volist}
+                        </select>
+                        <input type="text" style="width: 153px;" name="bidding_pro[]">
+                        <input type="text" style="width: 100px;" name="bidding_pro[]">
+                        <input type="text" style="width: 100px;" name="bidding_pro[]">
+                        <input type="text" style="width: 100px;" name="bidding_pro[]">
+                    </div>
+                </div>
+                <div id="wyycp1">
+                </div>
+            </div>
+
+            <div class="but" id="but">
+                <p>+添加产品 <span>(最多添加4项)</span></p>
+            </div>
+            <div class="zhuTiform1">
+                报名/投标时间/开标地点
+            </div>
+            <div class="wyybm">
+                <ul>
+                    <li>
+							<span>
+								<img src="__IND__/images/bitian_03.png" alt="">报名截止时间
+							</span>
+                        <input type="date" name="enroll_deadline">
+                    </li>
+                    <li><span><img src="__IND__/images/bitian_03.png" alt="">投标截止时间</span><input type="date" name="bidding_deadline"></li>
+                    <li>
+                        <span><img src="__IND__/images/bitian_03.png" alt="">标书获取地点</span>
+                        <select name="bidding_addr_p" id="province" class="inp2">
+                            <option value="0">省</option>
+                        </select>
+                        <select name="bidding_addr_c" id="city" class="inp2">
+                            <option value="0">市</option>
+                        </select>
+                        <select name="bidding_addr_t" id="town" class="inp2">
+                            <option value="0">区</option>
+                        </select>
+                        <input type="text" name="bidding_addr_xq">
+                    </li>
+                </ul>
+            </div>
+            <div class="zhuTiform1">
+                联系方式
+            </div>
+            <div class="wyybm">
+                <ul>
+                    <li>
+							<span>
+								<img src="__IND__/images/bitian_03.png" alt="">联系人
+							</span>
+                        <input type="text" name="contacts">
+                    </li>
+                    <li>
+                        <span><img src="__IND__/images/bitian_03.png" alt="" >座机</span>
+                        <input type="text" placeholder="号码" name="landline">
+                    </li>
+                    <li>
+							<span>
+								<img src="__IND__/images/bitian_03.png" alt="">手机
+							</span>
+                        <input type="text" name="phone">
+                    </li>
+                </ul>
+            </div>
+            <div class="zhuTiform1">
+                招标正文
+            </div>
+            <div class="wyybm">
+				  <textarea rows="" cols="" style="margin: 0;" name="bidding_text">
+
+				  </textarea>
+                <ul>
+                    <li>
+                        <span><img src="__IND__/images/bitian_03.png" alt="">标书获取地点</span>
+                        <select name="push_addr_p" id="province1" class="inp2">
+                            <option value="0">省</option>
+                        </select>
+                        <select name="push_addr_c" id="city1" class="inp2">
+                            <option value="0">市</option>
+                        </select>
+                        <select name="push_addr_t" id="town1" class="inp2">
+                            <option value="0">区</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span><img src="__IND__/images/bitian_03.png" alt="">推送行业</span>
+                        <select type="text" style="width:584px;" name="push_indu">
+                            {volist name='navall' id='v'}
+                            <option value ="{$v.id}">{$v.title}</option>
+                            {volist name='v.one' id='v'}
+                            <option value ="{$v.id}">---二级：{$v.title}</option>
+                            {volist name='v.two' id='v'}
+                            <option value ="{$v.id}">------三级：{$v.title}</option>
+                            {volist name='v.three' id='v'}
+                            <option value ="{$v.id}">---------四级：{$v.title}</option>
+                            {/volist}
+                            {/volist}
+                            {/volist}
+                            {/volist}
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="zhuTiform1">
+                查看权限 <span style="margin-left: 150px;color:#3f8aee;">【付费查看协议】</span>
+                <label style="float: right;height:20px; line-height:20px;margin-right:300px;"><input type="checkbox" style="height:22px;"> 我同意并遵守《付费协议》规则和约定</label>
+            </div>
+            <div class="wyydx">
+                <label>
+                    <input type="radio" name="see_level" value="1" checked>
+                    完全公开
+                </label>
+                <label>
+                    <input type="radio" name="see_level" value="2">
+                    仅会员可见
+                </label>
+                <label>
+                    <input type="radio" name="see_level" value="3">
+                    仅VIP会员可见
+                </label>
+                <label>
+                    <input type="radio" name="see_level" value="4">
+                    付费查看
+                </label>
+                <label style="color:#999;">
+                    注：付费查看只能看到招标方的发布信息和联系方式，不含购买标书价格（如有）
+                </label>
+            </div>
+            <div class="formbut" style="margin-top:30px;">
+                <input type="button" value="确认发布" class="formbut2" id="btn">
+            </div>
+
+        </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__IND__/js/area.js"></script>
+<script src="__IND__/js/select.js"></script>
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tpimg11").click();
+    });
+    var copy=  document.getElementById('but');
+    var copy_container =document.getElementById('wyycp1');
+    var container =document.getElementById('abcs');
+    var index_index =0;
+    copy.onclick=function(){
+        var container_html = container.innerHTML;
+        if (index_index <3) {
+            copy_container.innerHTML=copy_container.innerHTML+container_html;
+        } else{
+            alert('最多四个!');
+            return  false;
+        }
+        index_index++;
+    }
+
+    /*用户提交数据*/
+    $('#btn').click(function () {
+        $.ajax({
+            url:"{:url('Tendering/add')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg+',等待审核',{
+                        time:2000,
+                        end:function () {
+                            location.reload();
+                        }
+                    });
+
+                } else {
+                    layer.msg(result.msg,{time:2000});
+                }
+
+            }
+        });
+    })
+
+</script>
+{/block}

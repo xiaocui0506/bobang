@@ -4,7 +4,7 @@
 namespace app\index\controller;
 
 use think\Cache;
-use think\Controller;
+use app\index\controller\Common;
 
 use app\index\model\Jobs as J;
 
@@ -12,9 +12,12 @@ class Jobs extends Common
 {
     //
   public function index(){
-    echo date("Y-m-d",1566547200);
-//    echo date("Y-m-d",1566608977);
-    echo date("Y-m-d",1567756800);
+    $j = new J();
+    $jobs = $j->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
+
+    $this->assign('jobs' , $jobs);
+    $this->assign('page' , $jobs->render());
+
     return $this->fetch();
   }
 
@@ -26,10 +29,10 @@ class Jobs extends Common
     $salary = config('salary'); //期望工资
     $release_time = config('release_time'); //发布时长
 
-    $navall = Cache::get('nav_type');
+    $navall = \cache('nav_type');
     if (!$navall){
-       Cache::set('nav_type',NavAll(),360);
-      $navall = Cache::get('nav_type');
+      cache('nav_type',NavAll(),360);
+      $navall = cache('nav_type');
     }
     return $this->fetch('',['education'=>$education,'hands'=>$hands,'salary'=>$salary,'release_time'=>$release_time,'navall'=>$navall]);
   }

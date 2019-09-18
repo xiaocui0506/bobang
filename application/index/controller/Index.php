@@ -16,6 +16,12 @@ class Index extends Common
     }
 
 
+    public function adds(){
+
+      return $this->fetch();
+    }
+
+
     /**
      * 短信验证
      */

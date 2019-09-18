@@ -1,0 +1,44 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<link rel="stylesheet" href="__IND__/css/zhbifabu.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong" style="padding:10px 5px;width:1188px;">
+        <p style="color:#ff2222;font-size:12px;">
+            <!-- <span style="display:inline-block;width:20px;height:20px;border-radius:50%;line-height:20px;color:#333;background:#f4f841;text-align: center;">!</span> -->
+            发布信息请遵守国家法律和社会功德，禁止发布反动，色情，暴力，毒品，枪支，
+            赌博等文字或图片，不得发布夸大与不实的宣传和带有煽动性的言论和信息，违反规定封号或删除信息，<a href="">【发布须知】</a>
+        </p>
+        <div style="width:100%;line-height:100px;text-align: center;">
+            <h4 style="font-size:26px;">请选择你要发布的信息类型</h4>
+        </div>
+        <div  style="display: flex;justify-content: center;
+			align-items:center;height:300px;">
+            <a href="#" style="padding:5px 36px;color:#999;">商品发布</a>
+            <a href="{:url('tendering/adds')}" style="padding:5px 36px;color:#999;">发布招标</a>
+            <a href="#" style="padding:5px 36px;color:#999;">发布求购</a>
+            <a href="{:url('expo/adds')}" style="padding:5px 36px;color:#999;">发布展会</a>
+            <a href="#" style="padding:5px 36px;color:#999;">发布会议</a>
+            <a href="{:url('recruit/adds')}" style="padding:5px 36px;color:#999;">发布招聘</a>
+            <a href="{:url('jobs/adds')}" style="padding:5px 36px;color:#999;">发布求职</a>
+        </div>
+
+
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tpimg11").click();
+    });
+</script>
+{/block}

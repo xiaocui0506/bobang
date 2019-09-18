@@ -7,21 +7,7 @@
     <div class="zhuTiTop">
         <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
     </div>
-    <div class="zhuTiBot">
-        <span>行业市场：</span>
-        <ul>
-            <li><a href="#">建筑与工程建设</a></li>
-            <li><a href="#">工业材料与产品</a></li>
-            <li><a href="#">机械装备与设备</a></li>
-            <li><a href="#">轻工文体织造业</a></li>
-            <li><a href="#">高新科技与产业</a></li>
-            <li><a href="#">数码电子与电器</a></li>
-            <li><a href="#">地产家居装饰业</a></li>
-            <li><a href="#">商务与生活服务</a></li>
-            <li><a href="#">农林牧渔副食品</a></li>
-            <li><a href="#">卫生健康与医械</a></li>
-        </ul>
-    </div>
+    {include file="public/itemize" /}
     <div class="qiuGou">
         <div class="qiuGouLeft">
             <h4>广州三泰机械工程有限公司</h4>
@@ -114,45 +100,28 @@
             </div>
             <div class="TiMu">
                 <h4>{$tend.bidding_name}</h4>
-<!--                <ul>-->
-<!--                    <li>招标产品名称</li>-->
-<!--                    <li>招标类型</li>-->
-<!--                    <li>型号规范</li>-->
-<!--                    <li>数量</li>-->
-<!--                    <li>单位</li>-->
-<!--                    <li>预算价</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机</li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机</li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-<!--                <ul>-->
-<!--                    <li>造船厂用100+100+800/100t门式起重机   </li>-->
-<!--                    <li>货物招标</li>-->
-<!--                    <li>YYEES100+100+800/100t</li>-->
-<!--                    <li>1</li>-->
-<!--                    <li>套</li>-->
-<!--                    <li>200万</li>-->
-<!--                </ul>-->
-                <div style="margin-left: 7%;">
-                {:htmlspecialchars_decode($tend['bidding_pro'])}
-                </div>
+                <ul>
+                    <li>招标产品名称</li>
+                    <li>招标类型</li>
+                    <li>型号规范</li>
+                    <li>数量</li>
+                    <li>单位</li>
+                    <li>预算价</li>
+                </ul>
+                {volist name='tend.bidding_pro' id='v'}
+                <ul>
+                    <li>{$v[0]}</li>
+                    <li>{php}echo GetConfigName('tendtype',$v[1]){/php}</li>
+                    <li>{$v[2]}</li>
+                    <li>{$v[3]}</li>
+                    <li>{$v[4]}</li>
+                    <li>{$v[5]}</li>
+                </ul>
+                {/volist}
             </div>
             <div class="qiugouyy">
                 <div><p>招标截止时间</p><span> {$tend.bidding_deadline|date='Y-m-d H:i:s'}  </span>（剩{$days}天）</div>
-                <div><p>求购方地址</p><span>广东省广州市黄埔区开发到大道8号广州三泰机械工程有限公司二楼201招标办公</span></div>
+                <div><p>标书获取地点</p><span>{php}echo GetRegionName($tend['bidding_addr_p'].','.$tend['bidding_addr_c'].','.$tend['bidding_addr_t']){/php}-{$tend['bidding_addr_xq']}</span></div>
                 <div><p>联系人：</p><span>{$tend.contacts}</span> <p>手机：</p> <span>{$tend.phone}</span>{if condition="$tend['landline']"}<p>电话：</p><span>{$tend.landline}</span>{/if}</div>
             </div>
             <div class="qiugouyy1">
