@@ -46,7 +46,7 @@ if (!function_exists('GetUserId')) {
 if(!function_exists('NavAll')){
 
   function NavAll(){
-    $navall = db('admin_navs')->where(['status'=>1,'group_id'=>1])->field('id,group_id,title,url')->select();
+    $navall = db('admin_navs')->where(['status'=>1,'group_id'=>1])->field('id,group_id,title,url')->order('id')->select();
     foreach ($navall as $k=>&$v){
       $navall[$k]['one'] = db('admin_navs')->where(['group_id'=>$v['id']])->field('id,group_id,title,url')->select();
       if ($navall[$k]['one']) {

@@ -24,7 +24,7 @@ class Meeting extends Common
     $m = new M();
     $m->where(['id'=>$id])->setInc('preview');
     $meet = $m->where(['id'=>$id])->find();
-    $expo['photo'] = explode(',',$meet['photo']);
+    $meet['photo'] = explode(',',$meet['photo']);
     $this->assign('me' , $meet);
     return $this->fetch();
   }

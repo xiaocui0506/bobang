@@ -9,9 +9,12 @@ class Index extends Common
     {
       $_SERVER['REDIRECT_URL'] = 'index/index';
 
-
-
-      return $this->fetch();
+      $navall = \cache('nav_type');
+      if (!$navall){
+        cache('nav_type',NavAll(),360);
+        $navall = cache('nav_type');
+      }
+      return $this->fetch('',['navall'=>$navall]);
 
     }
 

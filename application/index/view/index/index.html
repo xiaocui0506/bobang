@@ -130,20 +130,13 @@
 {include file="public/login" /}
 <div class="renav">
     <ul>
-        <li class="lsnav" data-id="0"><a href="#"data-id="0"><span>1F</span>建筑与工程建设</a></li>
-        <li data-id="1"><a href="#" data-id="1"><span>2F</span>工业材料与产品</a></li>
-        <li data-id="2"><a href="#"><span>3F</span>机械装备与设备</a></li>
-        <li><a href="#"><span>4F</span>轻工文体织造业</a></li>
-        <li><a href="#"><span>5F</span>高新科技与产业</a></li>
-        <li><a href="#"><span>6F</span>数码电子与电器</a></li>
-        <li><a href="#"><span>7F</span>地产家居装饰业</a></li>
-        <li><a href="#"><span>8F</span>商务与生活服务</a></li>
-        <li><a href="#"><span>9F</span>农林牧渔副食品</a></li>
-        <li><a href="#"><span>10F</span>卫生健康与医械</a></li>
+        {volist name='navall' id='v'}
+        <li data-id="{$key}" {if condition="$key eq 0"}class="lsnav"{/if} ><a href="#"data-id="{$key}"><span>{$key+1}F</span>{$v.title}</a></li>
+        {/volist}
     </ul>
 </div>
 <div class="renav11">
-    <div class="f1" name="f1">
+    <div class="f1" name="f0">
         <div class="F1LeftNav">
             <div class="F1LeftNav1">
                 <span>1F</span>
@@ -221,7 +214,7 @@
             </figure>
         </div>
     </div>
-    <div class="f1" name="f2" id="f2">
+    <div class="f1" name="f1" id="f1">
         <div class="F1LeftNav">
             <div class="F1LeftNav1">
                 <span>2F</span>
@@ -299,7 +292,7 @@
             </figure>
         </div>
     </div>
-    <div class="f1" name="f3" id="f3">
+    <div class="f1" name="f2" id="f2">
         <div class="F1LeftNav">
             <div class="F1LeftNav1">
                 <span>3F</span>
@@ -387,7 +380,7 @@
     var arr_postion=['717','1297','1877','2457','3037','3617','4197','4777','5357','5937'];
     oneClick = 0;
     $(".renav li").click(function(){
-        $(this).addClass("lsnav").siblings("li").removeClass("lsnav");
+        $(this).addClass('lsnav').siblings("li").removeClass("lsnav");
         var index=$(this).index();
         var ll=$('.renav11').scrollTop();
         var index_index=$(this).attr('data-id');
@@ -419,30 +412,30 @@
     });
     $(window).scroll(function(){
         if($(window).scrollTop()>717){
-            $(".renav li").eq(0).addClass("lsnav").siblings("li").removeClass("lsnav");
-        }else{
-            $(".renav li").eq(0).removeClass("lsnav");
-        }
-    });
-    $(window).scroll(function(){
-        if($(window).scrollTop()>1297){
             $(".renav li").eq(1).addClass("lsnav").siblings("li").removeClass("lsnav");
         }else{
             $(".renav li").eq(1).removeClass("lsnav");
         }
     });
     $(window).scroll(function(){
-        if($(window).scrollTop()>1877){
+        if($(window).scrollTop()>1297){
             $(".renav li").eq(2).addClass("lsnav").siblings("li").removeClass("lsnav");
         }else{
             $(".renav li").eq(2).removeClass("lsnav");
         }
     });
     $(window).scroll(function(){
-        if($(window).scrollTop()>2457){
+        if($(window).scrollTop()>1877){
             $(".renav li").eq(3).addClass("lsnav").siblings("li").removeClass("lsnav");
         }else{
             $(".renav li").eq(3).removeClass("lsnav");
+        }
+    });
+    $(window).scroll(function(){
+        if($(window).scrollTop()>2457){
+            $(".renav li").eq(4).addClass("lsnav").siblings("li").removeClass("lsnav");
+        }else{
+            $(".renav li").eq(4).removeClass("lsnav");
         }
     });
 </script>

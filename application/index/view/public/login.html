@@ -3,48 +3,27 @@
         <div class="leftnav1-1">
             <div class="heinav">
                 <ul>
-                    <li><a href="#">建筑与工程建设<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">工业材料与产品<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">机械装备与设备<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">轻工文体织造业<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">高新科技与产业<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">数码电子与电器<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">地产家居装饰业<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">商务与生活服务<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">农林牧渔副食品<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
-                    <li><a href="#">卫生健康与医械<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
+                    {volist name='navall' id='v'}
+                    <li><a href="#">{$v['title']}<img src="__IND__/img/qianwang_03.png" alt=""></a></li>
+                    {/volist}
                 </ul>
             </div>
             <div class="xuanze">
-                <div class="zongfenlei">
-                    <div class="zongfenlei_three">
-                        <div>
-                            <h4>工程建设</h4>
-                            <a href="#">工程建设</a>
-                            <a href="#">工程建设</a>
-                            <a href="#">工程建设</a>
-                            <a href="#">工程建设</a>
-                            <a href="#">工程建设</a>
-                            <a href="#">工程建设</a>
+                {volist name='navall' id='v'}
+                    <div class="zongfenlei">
+                        <div class="zongfenlei_three">
+                            {volist name='v.one' id='vs'}
+                                <div>
+                                    <h4>{$vs.title}</h4>
+                                        {volist name='vs.two' id='vss'}
+                                             <a href="#">{$vss.title}</a>
+                                        {/volist}
+                                </div>
+                            {/volist}
                         </div>
+                        <div class="zongfenlei_two"></div>
                     </div>
-                    <div class="zongfenlei_two"></div>
-                </div>
-                <div class="zongfenlei">
-                    2
-                </div>
-                <div class="zongfenlei">
-                    3
-                </div>
-                <div class="zongfenlei">
-                    4
-                </div>
-                <div class="zongfenlei">
-                    5
-                </div>
-                <div class="zongfenlei">
-                    6
-                </div>
+                {/volist}
             </div>
         </div>
         <div class="leftnav1-2">

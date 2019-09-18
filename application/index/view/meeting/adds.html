@@ -14,11 +14,11 @@
             <form action="" method="post" id="FormData">
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">会议标题</span>
-                    <input type="text" class="inp1">
+                    <input type="text" class="inp1" name="meet_title">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">会议类型</span>
-                    <select class="inp2">
+                    <select class="inp2" name="meet_type">
                         {volist name='meeting' id='v'}
                          <option value ="{$key}">{$v}</option>
                         {/volist}
@@ -26,43 +26,43 @@
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">主办单位</span>
-                    <input type="text" class="inp1">
+                    <input type="text" class="inp1" name="sponsor">
                 </div>
                 <div class="outer">
                     <span><img src="__IND__/images/bitian_03.png" alt="">会议地点</span>
-                    <select name="province" id="province" class="inp2">
+                    <select name="meet_addr_p" id="province" class="inp2">
                         <option value="请选择">省</option>
                     </select>
-                    <select name="city" id="city" class="inp2">
+                    <select name="meet_addr_c" id="city" class="inp2">
                         <option value="请选择">市</option>
                     </select>
-                    <select name="town" id="town" class="inp2">
+                    <select name="meet_addr_t" id="town" class="inp2">
                         <option value="请选择">区</option>
                     </select>
-                    <input type="text" placeholder="自填详细地址...">
+                    <input type="text" placeholder="自填详细地址..." name="meet_addr_xq">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">成立时间</span>
-                    <input type="date">
+                    <input type="date" name="meet_date_s">
                     <span>至</span>
-                    <input type="date">
+                    <input type="date" name="meet_date_e">
 
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">举办届数</span>
-                    <input type="text" class="inp3">
+                    <input type="text" class="inp3" name="hold_num">
                     <span><img src="__IND__/images/bitian_03.png" alt="">举办周期</span>
-                    <input type="text" class="inp3">
+                    <input type="text" class="inp3" name="hold_date">
                 </div>
                 <div class="outer">
                     <span><img src="__IND__/images/bitian_03.png" alt="">推送地区</span>
-                    <select name="province" id="province1" class="inp2">
+                    <select name="push_addr_p" id="province1" class="inp2">
                         <option value="请选择">省</option>
                     </select>
-                    <select name="city" id="city1" class="inp2">
+                    <select name="push_addr_c" id="city1" class="inp2">
                         <option value="请选择">市</option>
                     </select>
-                    <select name="town" id="town1" class="inp2">
+                    <select name="push_addr_t" id="town1" class="inp2">
                         <option value="请选择">区</option>
                     </select>
                 </div>
@@ -86,20 +86,15 @@
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">推送时长</span>
-                    <select class="inp2">
-                        <option value ="">1</option>
-                        <option value ="">2</option>
-                        <option value ="">3</option>
-                    </select>
+                    <input type="text" class="inp2" name="push_time">
                 </div>
                 <div>
                     <span><img src="__IND__/images/bitian_03.png" alt="">联系姓名</span>
-                    <input type="text" class="inp3">
+                    <input type="text" class="inp3" name="contacts">
                     <span><img src="__IND__/images/bitian_03.png" alt="">联系电话</span>
-                    <input type="text" class="inp2">
+                    <input type="text" class="inp2" name="phone">
                     <span>座机</span>
-                    <input type="text" class="inp4" placeholder="区号">
-                    <input type="text" class="inp3" placeholder="号码">
+                    <input type="text" class="inp2" placeholder="号码" name="landline">
                 </div>
                 <div id="feedback" style="display: none"></div>
                 <div class="tpimg">
@@ -115,10 +110,10 @@
                 </div>
                 <div>
                     <span>会议概况</span>
-                    <textarea placeholder="如企业概括,客户资源,转让要求等"></textarea>
+                    <textarea placeholder="如企业概括,客户资源,转让要求等" name="abstract"></textarea>
                 </div>
                 <div class="formbut">
-                    <input type="submit" value="确认发布" class="formbut2">
+                    <input type="button" value="确认发布" class="formbut2" id="btn">
                 </div>
             </form>
         </div>
@@ -184,6 +179,7 @@
             dataType:'json',
             data:$("#FormData").serialize(),
             success:function(result){
+                console.log(result);result;
                 //回调函数
                 if (result.code == 1){
                     layer.msg(result.msg+',等待审核',{
