@@ -28,7 +28,7 @@ class Tobuy extends Model
         'pro_name|产品名称' => 'require',
         'enroll_deadline|报名截止时间' => 'require',
         'tobuy_deadline|求购截止时间' => 'require',
-        'push_time|推送时长' => 'require|between:1,6',
+//        'push_time|推送时长' => 'require|between:1,6',
         'tobuy_addr_p|求购地址' => 'require',
         'tobuy_addr_c|求购地址' => 'require',
         'tobuy_addr_t|求购地址' => 'require',
@@ -43,6 +43,7 @@ class Tobuy extends Model
       ]);
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):0;
+        $post_data['pro_name'] = json_encode($post_data['pro_name']);
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
         $res = $this->save($post_data);

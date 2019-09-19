@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
-
 use app\index\controller\Common;
+use base\share\Smstool;
 
 class Index extends Common
 {
@@ -14,11 +14,33 @@ class Index extends Common
         cache('nav_type',NavAll(),360);
         $navall = cache('nav_type');
       }
-      return $this->fetch('',['navall'=>$navall]);
+
+      //网址推荐
+      $reco_web['isreco'] = db('reco')->where(['isreco'=>1])->limit(18)->select();
+      //
+      $reco_web['a'] = db('reco')->where(['type'=>1])->limit(18)->select();
+      //
+      $reco_web['b'] = db('reco')->where(['type'=>2])->limit(18)->select();
+      //
+      $reco_web['c'] = db('reco')->where(['type'=>3])->limit(18)->select();
+
+      return $this->fetch('',['navall'=>$navall,'reco_web'=>$reco_web]);
 
     }
 
+  public function smscode(){
+      if ($this->request->isPost()){
+        $tel = input('post.tel/d');
+        if ($tel){
+          $num = rand(100000,999999);
+          session($tel,$num);
+          $sm = new Smstool();
+          return $sm->sendSms($tel,$num);
+        }
+      }
 
+
+  }
 
 
 

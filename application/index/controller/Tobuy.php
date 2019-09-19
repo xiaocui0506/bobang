@@ -29,9 +29,16 @@ class Tobuy extends Common
     $t->where(['id'=>$id])->setInc('perview');
 
     $tobuy = $t->where(['id'=>$id])->find();
-    $timediff = strtotime($tobuy['push_time']) - time();
-    $days = intval($timediff/86400);
+    $timediff = strtotime($tobuy['tobuy_deadline']) - time();
 
+    $abc = json_decode($tobuy['pro_name'],true);
+    $bbb= array();
+    for($i=0;$i<ceil(count($abc));$i++)
+    {
+      $bbb[] = array_slice($abc, $i * 6 ,6);
+    }
+    $tobuy['pro_name'] = array_filter($bbb);
+    $days = intval($timediff/86400);
     $this->assign('days' , $days);
     $this->assign('tobuy' , $tobuy);
     return $this->fetch('index');

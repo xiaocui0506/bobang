@@ -224,11 +224,53 @@
         }
         index_index++;
     }
+    $(".tpimg1").click(function(){
+        $(".tp1").click();
+    })
+    $(".tpimg2").click(function(){
+        $(".tp2").click();
+    })
+    $(".tpimg3").click(function(){
+        $(".tp3").click();
+    })
+    $(".tpimg4").click(function(){
+        $(".tp4").click();
+    })
+
+
+    /*图片上传*/
+    //响应文件添加成功事件
+    function upimg(obj,t)
+    {
+        if( obj.value == "" ) {
+            return;
+        }
+        var formdata = new FormData();
+        formdata.append("img" , $(obj)[0].files[0]);//获取文件法二
+        // console.log(formdata);
+        $.ajax({
+            type : 'post',
+            url : "{:url('Makeover/imgs')}", //接口
+            data : formdata,
+            cache : false,
+            processData : false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+            contentType : false, // 不设置Content-type请求头
+            success : function(response){
+                if (response.code == 1){
+                    $html = '<input type="hidden" name="img[]" value="'+response.data.url+'">';
+                    $('#feedback').append($html);
+                    $('.tpimg'+t).attr('src',response.data.urs);
+                }
+
+            },
+            error : function(){ }
+        });
+    }
 
     /*用户提交数据*/
     $('#btn').click(function () {
         $.ajax({
-            url:"{:url('Tendering/add')}",
+            url:"{:url('Tobuy/add')}",
             type:'post',
             dataType:'json',
             data:$("#FormData").serialize(),

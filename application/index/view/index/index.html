@@ -27,102 +27,35 @@
 <div class="wztjin">
     <span>网站推荐：</span>
     <div>
-        <a href="">人民网</a>
-        <a href="">新华网</a>
-        <a href="">央视网</a>
-        <a href="">中国网</a>
-        <a href="">国际在线</a>
-        <a href="">光明网</a>
-        <a href="">中国日报网</a>
-        <a href="">中国经济网</a>
-        <a href="">央广网</a>
-        <a href="">求是网</a>
-        <a href="">中青网</a>
-        <a href="">网信网</a>
-        <a href="">中国青年报</a>
-        <a href="">网易</a>
-        <a href="">腾讯新闻</a>
-        <a href="">新浪网</a>
-        <a href="">搜狐网</a>
-        <a href="">今日头条</a>
+        {volist name='reco_web.isreco' id='v'}
+        <a href="{$v.url}" target="_blank">{$v.title}</a>
+        {/volist}
+
     </div>
     <span style="float: right;margin-right:10px;color:#ed1f29;" class="geduo">更多推荐 <img src="__IND__/img/jiantou.jpg" alt=""style="margin-left: 10px;"></span>
     <div class="xiala" style="display: none;">
         <div style="width:95%;padding:0px 2.5%;" class="ass">
             <span>权威网站推荐:</span>
             <ul>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
+                {volist name='reco_web.a' id='v'}
+                <li><a href="{$v.url}" target="_blank">{$v.title}</a></li>
+                {/volist}
             </ul>
         </div>
         <div style="width:95%;padding:0px 2.5%;" class="ass">
             <span>视频网站推荐:</span>
             <ul>
-                <li><a href="#">优酷网</a></li>
-                <li><a href="#">土豆网</a></li>
-                <li><a href="#">火山视频网</a></li>
-                <li><a href="#">抖音网</a></li>
+                {volist name='reco_web.b' id='v'}
+                <li><a href="{$v.url}" target="_blank">{$v.title}</a></li>
+                {/volist}
             </ul>
         </div>
         <div style="width:95%;padding:0px 2.5%;" class="ass">
             <span>权威网站推荐:</span>
             <ul>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
-                <li><a href="#">新华网</a></li>
-                <li><a href="#">央视网</a></li>
-                <li><a href="#">中国在线</a></li>
+                {volist name='reco_web.c' id='v'}
+                <li><a href="{$v.url}" target="_blank">{$v.title}</a></li>
+                {/volist}
             </ul>
         </div>
     </div>

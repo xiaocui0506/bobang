@@ -101,11 +101,28 @@
             <div class="TiMu">
                 <h4>{$tobuy.title}</h4>
 
-                    {:htmlspecialchars_decode($tobuy['pro_name'])}
+                <ul>
+                    <li>招标产品名称</li>
+                    <li>招标类型</li>
+                    <li>型号规范</li>
+                    <li>数量</li>
+                    <li>单位</li>
+                    <li>预算价</li>
+                </ul>
+                {volist name='tobuy.pro_name' id='v'}
+                <ul>
+                    <li>{$v[0]}</li>
+                    <li>{php}echo GetConfigName('ToType',$v[1]){/php}</li>
+                    <li>{$v[2]}</li>
+                    <li>{$v[3]}</li>
+                    <li>{$v[4]}</li>
+                    <li>{$v[5]}</li>
+                </ul>
+                {/volist}
             </div>
             <div class="qiugouyy">
-                <div><p>求购截止时间</p><span> {$tobuy['push_time']}  </span>（剩{$days}天）</div>
-                <div><p>求购方地址</p><span>广东省广州市黄埔区开发到大道8号广州三泰机械工程有限公司二楼201招标办公</span></div>
+                <div><p>求购截止时间</p><span> {$tobuy['tobuy_deadline']}  </span>（剩{$days}天）</div>
+                <div><p>求购方地址</p><span>{php}echo GetRegionName($tobuy['tobuy_addr_p'].','.$tobuy['tobuy_addr_c'].','.$tobuy['tobuy_addr_t']){/php}-{$tobuy['tobuy_addr_xq']}</span></div>
                 <div><p>联系人：</p><span>{$tobuy.contacts}</span> <p>手机：</p> <span>{$tobuy.phone}</span>{if condition="$tobuy['landline']"}<p>电话：</p><span>{$tobuy.landline}</span>{/if}</div>
             </div>
             <div class="qiugouyy1">
