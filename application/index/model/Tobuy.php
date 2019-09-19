@@ -16,18 +16,30 @@ class Tobuy extends Model
 
   public function add(){
     $post_data = input('post.');
+    if (!array_key_exists('img',$post_data)){
+      $post_data['photo'] = '';
+    }else{
+      $post_data['photo'] = implode(',',$post_data['img']);
+    }
     try{
       $validate = new \think\Validate;
       $validate->rule([
         'title|标题' => 'require|chsDash|max:100',
         'pro_name|产品名称' => 'require',
+        'enroll_deadline|报名截止时间' => 'require',
+        'tobuy_deadline|求购截止时间' => 'require',
         'push_time|推送时长' => 'require|between:1,6',
-        'tobuy_addr|求购地址' => 'require',
+        'tobuy_addr_p|求购地址' => 'require',
+        'tobuy_addr_c|求购地址' => 'require',
+        'tobuy_addr_t|求购地址' => 'require',
+        'tobuy_addr_xq|地址详情' => 'require',
+        'abstract|求购正文' => 'require',
         'contacts|联系人' => 'require',
         'phone|手机号' => 'require|/^[1]([3-9])[0-9]{9}$/',
         'push_indu|推送行业' => 'require',
-        'push_addr|推送地区' => 'require',
-
+        'push_addr_p|推送地区' => 'require',
+        'push_addr_c|推送地区' => 'require',
+        'push_addr_t|推送地区' => 'require',
       ]);
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):0;

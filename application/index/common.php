@@ -52,9 +52,11 @@ if(!function_exists('NavAll')){
       if ($navall[$k]['one']) {
         foreach ($v['one'] as $kk => &$vv) {
           $navall[$k]['one'][$kk]['two'] = db('admin_navs')->where(['group_id' => $vv['id']])->field('id,group_id,title,url')->select();
-        }
-        foreach ($navall[$k]['one'][$kk]['two'] as $kkk => &$vvv) {
-          $navall[$k]['one'][$kk]['two'][$kkk]['three'] = db('admin_navs')->where(['group_id' => $vvv['id']])->field('id,group_id,title,url')->select();
+          if ($navall[$k]['one'][$kk]['two']) {
+            foreach ($navall[$k]['one'][$kk]['two'] as $kkk => &$vvv) {
+              $navall[$k]['one'][$kk]['two'][$kkk]['three'] = db('admin_navs')->where(['group_id' => $vvv['id']])->field('id,group_id,title,url')->select();
+            }
+          }
         }
       }
     }

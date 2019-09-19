@@ -137,9 +137,11 @@
                             <option value ="{$v.id}">---二级：{$v.title}</option>
                             {volist name='v.two' id='v'}
                             <option value ="{$v.id}">------三级：{$v.title}</option>
-                            {volist name='v.three' id='v'}
-                            <option value ="{$v.id}">---------四级：{$v.title}</option>
-                            {/volist}
+                            {notempty name="v.three"}
+                                {volist name='v.three' id='v'}
+                                <option value ="{$v.id}">-----------四级：{$v.title}</option>
+                                {/volist}
+                            {/notempty}
                             {/volist}
                             {/volist}
                             {/volist}

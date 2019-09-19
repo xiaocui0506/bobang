@@ -19,6 +19,10 @@ class Index extends Common
     }
 
 
+
+
+
+
     public function adds(){
 
       return $this->fetch();

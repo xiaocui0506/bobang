@@ -113,9 +113,12 @@ class Navs extends Safe
         if ($post_data['fs']>0 && $post_data['fs']>1) {
           if ($post_data['fs'] = $v['id']) {
             $html .= '<option value="' . $v['id'] . '"  selected  >' . $v['title'] . '</option>';
+          }else{
+            $html.= '<option value="'.$v['id'].'"    >'.$v['title'].'</option>';
           }
+        }else{
+          $html.= '<option value="'.$v['id'].'"    >'.$v['title'].'</option>';
         }
-        $html.= '<option value="'.$v['id'].'"    >'.$v['title'].'</option>';
       }
       if ($html)
         return ['status'=>1,'data'=>$html,'msg'=>'成功'];

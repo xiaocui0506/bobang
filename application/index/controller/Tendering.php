@@ -44,7 +44,6 @@ class Tendering extends Common
 
   public function adds(){
 
-
     $navall = \cache('nav_type');
     if (!$navall){
       cache('nav_type',NavAll(),360);
@@ -56,6 +55,9 @@ class Tendering extends Common
 
     return $this->fetch();
   }
+
+
+
 
   /* 招标 添加数据*/
   public function add(){

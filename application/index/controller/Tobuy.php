@@ -37,6 +37,21 @@ class Tobuy extends Common
     return $this->fetch('index');
   }
 
+
+  public function adds(){
+
+    $navall = \cache('nav_type');
+    if (!$navall){
+      cache('nav_type',NavAll(),360);
+      $navall = cache('nav_type');
+    }
+    $this->assign('navall', $navall); // 推送行业
+
+    $this->assign('totype',config('ToType'));
+
+    return $this->fetch();
+  }
+
   public function add(){
     $t = new \app\index\model\Tobuy();
     return $t->add();

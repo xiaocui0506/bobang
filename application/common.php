@@ -93,6 +93,26 @@ if (!function_exists('GetConfigName')){
   }
 }
 
+if (!function_exists('getStrTime')) {
+  function getStrTime()
+  {
+    $no = date("H", time());
+    if ($no > 0 && $no <= 6) {
+      return "凌晨好";
+    }
+    if ($no > 6 && $no < 12) {
+      return "上午好";
+    }
+    if ($no >= 12 && $no <= 18) {
+      return "下午好";
+    }
+    if ($no > 18 && $no <= 24) {
+      return "晚上好";
+    }
+    return "您好";
+  }
+
+}
 /**
  * base64 图片解码
  * @param  string $base64_image_content base64图片（字符串）

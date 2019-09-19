@@ -55,9 +55,15 @@
         </div>
         <div class="leftnav1-3">
             <div class="leftnav1-3-1">
+                {if !$user}
                 <a href="#"><img src="__IND__/images/index_03.jpg" alt=""></a>
-                <div class="leftnavl">登录</div>
-                <div class="leftnavr">注册</div>
+                <div class="leftnavl"><a href="{:url('login/login')}">登录</a></div>
+                <div class="leftnavr"><a href="{:url('login/reg')}">注册</a></div>
+                {else/}
+                <a href="#"><img src="__IND__/images/index_03.jpg" alt="" style=" margin-left: 10px;"></a>
+                <div class="leftnavl" style="width: 94%;margin-top: -63px;color: #333;">{$user.user_name} , {$istime}</div>
+                <div class="leftnavr" style="width: 140px;margin-top: -33px;color: #4c5cda;">上网赚积分换广告</div>
+                {/if}
                 <ul>
                     <li><a href="#">会员中心</a></li>
                     <li><a href="{:url('index/adds')}">发布信息</a></li>
