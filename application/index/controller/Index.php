@@ -16,7 +16,7 @@ class Index extends Common
       }
 
       //网址推荐
-      $reco_web['isreco'] = db('reco')->where(['isreco'=>1])->limit(18)->select();
+      $reco_web['isreco'] = db('reco')->where(['isreco'=>1,'type'=>['in','1,2,3']])->limit(18)->select();
       //
       $reco_web['a'] = db('reco')->where(['type'=>1])->limit(18)->select();
       //
