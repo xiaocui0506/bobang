@@ -30,7 +30,7 @@ class Index extends Common
 
   public function smscode(){
       if ($this->request->isPost()){
-        $tel = input('post.tel/d');
+        $tel = input('post.tel/s');
         if ($tel){
           $num = rand(100000,999999);
           session($tel,$num);

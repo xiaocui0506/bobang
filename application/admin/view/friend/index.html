@@ -25,8 +25,8 @@
 </div>
 <div class="x-body">
     <xblock>
-<!--                <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>-->
-                <button class="layui-btn" onclick="x_admin_show('网站推荐添加','/admin/Reco/addedit')"><i class="layui-icon"></i>添加</button>
+        <!--                <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>-->
+        <button class="layui-btn" onclick="x_admin_show('友情链接添加','/admin/Friend/addedit')"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：{$count} 条</span>
     </xblock>
     <table class="layui-table">
@@ -36,7 +36,7 @@
             <th>网站链接</th>
             <th>网站类型</th>
             <th>是否推荐</th>
-<!--            <th>状态</th>-->
+            <!--            <th>状态</th>-->
             <th>操作</th>
         </tr>
         </thead>
@@ -59,9 +59,9 @@
                         {$vo['isreco'] ? '<span class="label label-success radius">推荐</span>' : '<span class="label radius">不推荐</span>'}
                     </td>
                     <td class="td-manage">
-<!--                        <a title="查看"  onclick="member_stop({$vo.id},{$vo.status})" href="javascript:;">-->
-<!--                            <i class="layui-icon">&#xe63c;</i>-->
-<!--                        </a>-->
+                        <!--                        <a title="查看"  onclick="member_stop({$vo.id},{$vo.status})" href="javascript:;">-->
+                        <!--                            <i class="layui-icon">&#xe63c;</i>-->
+                        <!--                        </a>-->
                         <a title="删除" onclick="member_del(this,{$vo['id']})" href="javascript:;">
                             <i class="layui-icon">&#xe640;</i>
                         </a>

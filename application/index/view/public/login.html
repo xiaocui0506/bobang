@@ -1,3 +1,19 @@
+<style>
+    .leftnav1-3-1 figure {
+        width: 72px;
+        float: left;
+        text-align: center;
+        margin-top: 18px;
+    }
+    .leftnav1-3-1 figure>a {
+        display: block;
+        width: 36px;
+        height: 36px;
+        border: 1px solid #ff7113;
+        border-radius: 50px;
+        margin-left: 16px;
+    }
+</style>
 <div class="leftnav">
     <div class="leftnav1">
         <div class="leftnav1-1">
@@ -64,15 +80,20 @@
                 <div class="leftnavl" style="width: 94%;margin-top: -63px;color: #333;">{$user.user_name} , {$istime}</div>
                 <div class="leftnavr" style="width: 140px;margin-top: -33px;color: #4c5cda;">上网赚积分换广告</div>
                 {/if}
-                <ul>
-                    <li><a href="#">会员中心</a></li>
-                    <li><a href="{:url('index/adds')}">发布信息</a></li>
-                    <li><a href="#">商户后台</a></li>
-                </ul>
+<!--                <ul>-->
+<!--                    <li><a href="#">会员中心</a></li>-->
+<!--                    <li><a href="{:url('index/adds')}">发布信息</a></li>-->
+<!--                    <li><a href="#">商户后台</a></li>-->
+<!--                </ul>-->
                 <figure>
+                    <a href="#"><img src="__IND__/img/fabu.png" alt=""></a>
+                    <figcaption>免费发布</figcaption>
+                </figure>
+                <figure style="float:right;">
                     <a href="#"><img src="__IND__/img/vip.png" alt=""></a>
                     <figcaption>购买vip</figcaption>
                 </figure>
+
                 <figure style="float:right;">
                     <a href="#"><img src="__IND__/img/fabu.png" alt=""></a>
                     <figcaption>管理发布</figcaption>

@@ -16,26 +16,9 @@
     <div class="footer1">
         <p>友情链接： <a href="">友链合作>></a></p>
         <ul>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-            <li><a href="#">智能建筑</a></li>
-<!--            <li><a href="#">智能建筑</a></li>-->
-<!--            <li><a href="#">智能建筑</a></li>-->
-<!--            <li><a href="#">电动调节阀</a></li>-->
-<!--            <li><a href="#">电子元器件采购网</a></li>-->
-<!--            <li><a href="#">智能建筑</a></li>-->
-<!--            <li><a href="#">电动调节阀</a></li>-->
-<!--            <li><a href="#">电子元器件采购网</a></li>-->
-<!--            <li><a href="#">智能建筑</a></li>-->
-<!--            <li><a href="#">电动调节阀</a></li>-->
-<!--            <li><a href="#">电子元器件采购网</a></li>-->
+            {volist name='friend' id='v'}
+                <li><a href="{$v.url}" target="_blank">{$v.title}</a></li>
+            {/volist}
         </ul>
         <div class="footer1-1">
             <ul>
