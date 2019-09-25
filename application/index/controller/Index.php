@@ -38,9 +38,18 @@ class Index extends Common
           return $sm->sendSms($tel,$num);
         }
       }
-
-
   }
+
+
+
+  /* 商品的二级页面*/
+    public function lists($id){
+
+        /* 面包屑链接*/
+        $res = IsChoice($id);
+
+        return $this->fetch('',['res'=>$res]);
+    }
 
 
 

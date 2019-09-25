@@ -62,9 +62,41 @@ if(!function_exists('NavAll')){
     }
     return $navall;
   }
-
 }
 
+
+/*  判断用户选择的是二级或三级*/
+if (!function_exists('IsChoice')){
+
+    function IsChoice($id){
+
+        if (!$id) {return false;}
+        $group_id_2 = db('admin_navs')->where(['id'=>$id])->value('group_id_2');
+        $res = db('admin_navs')->where(['id'=>$id])->find();
+        if ($group_id_2 == 0 && !$group_id_2){
+            $position = db('admin_navs')->where(['id'=>$res['group_id']])->value('title').'>'.$res['title'];
+//            用户选择的二级栏目
+            $pid = $res['id'];
+        }else{
+            $position = db('admin_navs')->where(['id'=>$res['group_id_1']])->value('title').'>'.db('admin_navs')->where(['id'=>$res['group_id_2']])->value('title');
+            $pid = $res['group_id_2'];
+        }
+            if ($pid){
+                $ress = db('admin_navs')->where(['id'=>$pid])->field('id')->select();
+                foreach ($ress as $k=>$v){
+                    $ress[$k]['one'] = db('admin_navs')->where(['group_id'=>$pid])->field('id,title')->select();
+                    if ($ress[$k]['one']){
+                        foreach ($ress[$k]['one'] as $kk=>$vb){
+                            $ress[$k]['one'][$kk]['two'] = db('admin_navs')->where(['group_id'=>$vb['id']])->field('id,title')->select();
+                        }
+                    }
+                }
+            }
+
+
+        return ['a'=>$position,'b'=>$ress];
+    }
+}
 
 /**
  * 从二维数组中取出自己要的KEY值

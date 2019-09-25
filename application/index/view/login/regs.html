@@ -11,7 +11,7 @@
         .HuiYuan1-1>form>div {
             width: 100%;
             overflow: hidden;
-            margin-top: 45px;
+            margin-top: 24px;
         }
         .HuiYuan1-1 {
             width:400px;
@@ -27,7 +27,7 @@
             color:#838486;
         }
         .HuiYuan1-2>div{
-            margin-top:30px;
+            margin-top:8px;
         }
         .m-middle11{
             width: 300px;
@@ -87,7 +87,10 @@
                     <input type="password" class="hyinp1" placeholder="请再次输入你的密码" name="o_password">
                 </div>
                 <div>
-                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile">
+                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile"><span style="float: right;margin-top: -35px;color: red;cursor: pointer;">获取手机验证码</span>
+                </div>
+                <div>
+                    <input type="text" class="hyinp1" placeholder="手机验证码 6位数字" name="code" id="code" >
                 </div>
                 <div id="mpanel1" style="margin-top:20px;"></div>
                 <input type="hidden" name="yanz" id="yanz" value="0">
@@ -180,7 +183,6 @@
 
     });
 
-
 </script>
 <script>
     var m1 = new MyModal.modal(function() {
@@ -194,6 +196,9 @@
         }
         if ($('#yanz').val() != 1){
             layer.msg('请拉动验证条进行验证..');return;
+        }
+        if ($('#code').val() != ''){
+            layer.msg('手机验证码不能为空..');return;
         }
         $.ajax({
             url:"{:url('login/reg_s')}",

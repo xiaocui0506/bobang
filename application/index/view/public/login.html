@@ -30,9 +30,9 @@
                         <div class="zongfenlei_three">
                             {volist name='v.one' id='vs'}
                                 <div>
-                                    <h4>{$vs.title}</h4>
+                                   <h4><a href="{:url('index/lists',['id'=>$vs['id']])}" style="font-size: 16px;font-style: oblique">{$vs.title}：</a></h4>
                                         {volist name='vs.two' id='vss'}
-                                             <a href="#">{$vss.title}</a>
+                                             <a href="{:url('index/lists',['id'=>$vss['id']])}">{$vss.title}</a>
                                         {/volist}
                                 </div>
                             {/volist}
@@ -90,14 +90,15 @@
                     <figcaption>免费发布</figcaption>
                 </figure>
                 <figure style="float:right;">
-                    <a href="#"><img src="__IND__/img/vip.png" alt=""></a>
-                    <figcaption>购买vip</figcaption>
-                </figure>
-
-                <figure style="float:right;">
                     <a href="#"><img src="__IND__/img/fabu.png" alt=""></a>
                     <figcaption>管理发布</figcaption>
                 </figure>
+                <figure style="float:right;">
+                    <a href="#"><img src="__IND__/img/vip.png" alt=""></a>
+                    <figcaption>会员中心</figcaption>
+                </figure>
+
+
             </div>
             <span><h4>网站公告</h4><a href="#">更多></a></span>
             <ul>

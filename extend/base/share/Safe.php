@@ -11,13 +11,12 @@ class  Safe extends Controller {
     parent::__construct();
           $this->user = session('user');
           $this->uId = session('user_id');
-
           $this->assign('title','都会帮');
           $this->assign('user',$this->user);
+
         if (!$this->user && !$this->uId){
             header('location: /admin/login');exit();
           }
-
 
         /* 后台导航*/
       $this->assign('nav',$this->Nav());

@@ -12,11 +12,15 @@
             </div>
             <div class="dingbu1-2">
                 <span><img src="__IND__/images/index_03.jpg" alt=""></span>
-
                 <ul>
+                    {if !$user}
                     <li><a href="{:url('login/login')}">会员登录</a></li>
                     <li><a href="{:url('login/reg')}">免费注册</a></li>
                     <li><a href="#">忘记密码</a></li>
+                    {else/}
+<!--                    <li><a href="{:url('login/login')}">会员登录</a></li>-->
+                    <li><a href="##">{$user.user_name}</a></li>
+                    {/if}
                     <li><a href="#">消息中心</a></li>
                 </ul>
 
