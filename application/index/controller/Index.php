@@ -91,6 +91,18 @@ class Index extends Common
     }
 
 
+    public function ceshi(){;
+        $wsdl='http://222.143.21.205:8091/wsscservices_test/services/wsscWebService?wsdl';
+
+        $client = new \SoapClient($wsdl);
+        print "提供的方法\n";
+        print_r($client->__getFunctions());
+        print "相关的数据结构\n";
+        print_r($client->__getTypes());
+        print "\n\n";
+
+    }
+
 
 
 }
