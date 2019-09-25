@@ -66,7 +66,9 @@ class Controller
 
         // 控制器初始化
         $this->initialize();
-      $this->assign('friend', db('reco')->where(['type'=>5])->order('id desc')->limit(10)->select());
+
+        $this->assign('friend', db('reco')->where(['type'=>5])->order('id desc')->limit(10)->select());
+        $this->assign('title','都会帮');
 
         // 前置操作方法 即将废弃
         foreach ((array) $this->beforeActionList as $method => $options) {

@@ -12,6 +12,7 @@ class Wsdl extends Controller
 
     public function setUp()
     {
+        echo  md5('7223ff8080814a1353ac014a1394961100497223');die();
         $client = $this->getSoapClientHandler();
         print "提供的方法\n";
         print_r($client->__getFunctions());
@@ -107,10 +108,14 @@ class Wsdl extends Controller
      *  @description getEncPass
      */
     public function getEncPass(){
-        $encpass = file_get_contents('http://192.168.1.211:8081/test/md5Hash/getMd5Hash?userName=7223&password=ff8080814a1353ac014a139496110049');
-        $rs = json_decode($encpass,true);
-        if ($rs['code'] == 1){
-            return $rs['data'];
+        try {
+            $encpass = file_get_contents('http://192.168.1.211:8081/test/md5Hash/getMd5Hash?userName=7223&password=ff8080814a1353ac014a139496110049');
+            $rs = json_decode($encpass, true);
+            if ($rs['code'] == 1) {
+                return $rs['data'];
+            }
+        }catch (\Exception $e){
+            return $e->getMessage();
         }
     }
 }
