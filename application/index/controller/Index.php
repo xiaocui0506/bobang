@@ -47,11 +47,33 @@ class Index extends Common
 
         /* 面包屑链接*/
         $res = IsChoice($id);
-
-        return $this->fetch('',['res'=>$res]);
+        /*当前地区展示*/
+        $pid = db('region')->where(['id'=>session('regionid')])->value('pid');
+        $reds = db('region')->where(['id'=>$pid])->field('id,pid')->find();
+        if ($reds['pid'] == 1){
+//        说明用户选择了市级
+            $ids = session('regionid');
+        }else{
+           $ids = $reds['id'];
+        }
+        $resd = db('region')->where(['pid'=>$ids])->field('id,pid,name')->select();
+        return $this->fetch('',['res'=>$res,'resd'=>$resd]);
     }
 
 
+    /*地区选择页面*/
+    public function region(){
+        $this->assign('region',Regions());
+        return $this->fetch();
+    }
+
+    public function resd(){
+        if ($this->request->isPost()){
+            $id = input('post.id/d');
+            if (!$id){return false;}
+            session('regionid',$id);
+        }
+    }
 
 
     public function adds(){
@@ -98,20 +120,5 @@ class Index extends Common
         //header("Location:http://yz.kuai8.com.cn/download.apk");
 
     }
-
-
-    public function ceshi(){;
-        $wsdl='http://222.143.21.205:8091/wsscservices_test/services/wsscWebService?wsdl';
-
-        $client = new \SoapClient($wsdl);
-        print "提供的方法\n";
-        print_r($client->__getFunctions());
-        print "相关的数据结构\n";
-        print_r($client->__getTypes());
-        print "\n\n";
-
-    }
-
-
 
 }

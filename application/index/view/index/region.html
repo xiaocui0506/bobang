@@ -1,0 +1,73 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<link rel="stylesheet" href="__IND__/css/diqu.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong" style="padding:10px 5px 40px 5px;width:1188px;overflow: hidden;">
+        <p style="color:#ff2222;font-size:12px;">
+            <!-- <span style="display:inline-block;width:20px;height:20px;border-radius:50%;line-height:20px;color:#333;background:#f4f841;text-align: center;">!</span> -->
+            发布信息请遵守国家法律和社会功德，禁止发布反动，色情，暴力，毒品，枪支，
+            赌博等文字或图片，不得发布夸大与不实的宣传和带有煽动性的言论和信息，违反规定封号或删除信息，<a href="">【发布须知】</a>
+        </p>
+        <div style="width:100%;line-height:100px;text-align: center;">
+            <h4 style="font-size:26px;">请选择地区</h4>
+        </div>
+        <div class="diqu">
+            <ul>
+                {volist name='region' id='v'}
+                <li>{$v.name}</li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="diqu1">
+            {volist name='region' id='v'}
+            <div style="display:none;">
+                <ul>
+                    {volist name='v.cityList' id='v'}
+                        <h4><a onclick="region(1,{$v['id']})">{$v.name}</a></h4>
+                        {volist name='v.areaList' id='v'}
+                            <li><a onclick="region(2,{$v['id']})">{$v.name}</a></li>
+                        {/volist}
+
+                    {/volist}
+                </ul>
+            </div>
+            {/volist}
+        </div>
+<!--        <div style="width:100%;float: left;text-align: center;" class="ssda">-->
+<!--            <button type="button">确定</button>-->
+<!--        </div>-->
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".diqu li").eq(0).addClass("act");
+    $(".diqu1>div").eq(0).show();
+    $(".diqu li").click(function(){
+        $(this).addClass("act").siblings("li").removeClass("act")
+        var index=$(this).index();
+        $(".diqu1>div").css("display","none").eq($(this).index()).show();
+    })
+    $(".diqu1 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    })
+
+    function region(s,id) {
+        // if (s == 2){layer.alert('请选择市,可去详情页面筛选');return false;}
+        if (!id){layer.alert('请选择区域');return false;}
+        $.post("{:url('index/resd')}",{id:id},function (msg) {
+            window.location.href = "{:url('/')}";
+        });
+    }
+
+</script>
+{/block}

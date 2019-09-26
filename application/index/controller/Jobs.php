@@ -12,8 +12,13 @@ class Jobs extends Common
 {
     //
   public function index(){
+      $map['status'] = 1;
+      $map['isdel'] = 1;
+      if (session('regionid')){
+//          $map['push_addr_c|push_addr_t'] = session('regionid');
+      }
     $j = new J();
-    $jobs = $j->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
+    $jobs = $j->where($map)->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
     $this->assign('jobs' , $jobs);
     $this->assign('page' , $jobs->render());

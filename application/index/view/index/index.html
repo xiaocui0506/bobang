@@ -69,31 +69,17 @@
     </ul>
 </div>
 <div class="renav11">
-    <div class="f1" name="f0">
+    {volist name='navall' id='v'}
+    <div class="f1" name="f{$key}">
         <div class="F1LeftNav">
             <div class="F1LeftNav1">
-                <span>1F</span>
-                建筑与工程建设
+                <span>{$key+1}F</span>
+                {$v.title}
             </div>
             <ul>
-                <li><a href="">房屋建筑施工</a></li>
-                <li><a href="">道路交通施工</a></li>
-                <li><a href="">市政建设工程施工</a></li>
-                <li><a href="">水利工程建设施工</a></li>
-                <li><a href="">市政建设工程施工</a></li>
-                <li><a href="">水利工程建设施工</a></li>
-                <li><a href="">市政建设工程施工</a></li>
-                <li><a href="">水利工程建设施工</a></li>
-                <li><a href="">市政建设工程施工</a></li>
-                <li><a href="">水利工程建设施工</a></li>
-                <li><a href="">房屋建筑施工</a></li>
-                <li><a href="">道路交通施工</a></li>
-                <li><a href="">房屋建筑施工</a></li>
-                <li><a href="">道路交通施工</a></li>
-                <li><a href="">房屋建筑施工</a></li>
-                <li><a href="">道路交通施工</a></li>
-                <li><a href="">房屋建筑施工</a></li>
-                <li><a href="">房屋建筑施工</a></li>
+                {volist name='v.one' id='vs'}
+                 <li><a href="{:url('index/lists',['id'=>$vs['id']])}">{$vs.title}</a></li>
+                {/volist}
             </ul>
         </div>
         <div class="F1Right">
@@ -147,6 +133,7 @@
             </figure>
         </div>
     </div>
+    {/volist}
 <!--    <div class="f1" name="f1" id="f1">-->
 <!--        <div class="F1LeftNav">-->
 <!--            <div class="F1LeftNav1">-->

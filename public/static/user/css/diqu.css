@@ -1,0 +1,55 @@
+.diqu{
+	width:150px;
+	overflow: hidden;
+	float: left;
+	margin-left:30px;
+}
+.diqu li{
+	width:130px;
+	line-height:45px;
+	text-align: left;
+	float: right;
+	padding-left:20px;
+	border-bottom:1px dashed #999;
+}
+.diqu1{
+	width:920px;
+	float: right;
+}
+.diqu1 div{
+	width: 100%;
+	
+}
+.diqu1 div>ul>h4>a{
+	display: inline-block;
+	width:100%;
+	font-size:14px;
+	color:#999;
+}
+.diqu1 div>ul{
+	overflow: hidden;
+	border-bottom:1px dashed #999;
+}
+.ssda button{
+	width: 177px;
+    margin: 0 auto;
+    height: 41px;
+    margin-top: 50px;
+	border:none;
+	background:#ff2222;
+	color:#fff;
+}
+.diqu1 div>ul>li>a{
+	float: left;
+	margin-right:10px;
+	line-height:30px;
+	font-size:14px;
+	color:#999;
+}
+.act{
+	background:#027bd6;
+	color:#fff;
+}
+.diqu1 div{
+	display:none;
+}

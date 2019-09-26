@@ -10,9 +10,13 @@ class Meeting extends Common
 {
     //
   public function index(){
-
+      $map['status'] = 1;
+      $map['isdel'] = 1;
+      if (session('regionid')){
+          $map['push_addr_c|push_addr_t'] = session('regionid');
+      }
     $m = new M();
-    $meet = $m->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
+    $meet = $m->where($map)->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
     $this->assign('meet' , $meet);
     $this->assign('page' , $meet->render());

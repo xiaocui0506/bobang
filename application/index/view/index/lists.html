@@ -1,6 +1,18 @@
 {extend name="public/header" /}
 {block name="content"}
 <link rel="stylesheet" href="__IND__/css/gongsi.css">
+<style>
+    .yea2 ul {
+        float: left;
+        width: 1095px;
+        display: flex;
+         justify-content: end;
+        align-items: center;
+    }
+    .yea2 li {
+        padding: 0px 11px;
+    }
+</style>
 {include file="public/top" /}
 <div class="zhuTi">
     <div class="zhuTiTop">
@@ -34,14 +46,10 @@
         <div class="yea2">
             <p>地区：</p>
             <ul class="aa2">
-                <li class="lan"><a href="#">全市</a></li>
-                <li><a href="#">房屋建设施工</a></li>
-                <li><a href="#">道路交通施工</a></li>
-                <li><a href="#">市政建设工程施工</a></li>
-                <li><a href="#">水利工程建设施工</a></li>
-                <li><a href="#">电力工程建设施工</a></li>
-                <li><a href="#">治金工程建设施工</a></li>
-                <li><a href="#">能源石化工程施工</a></li>
+                <li><a href="#">全市</a></li>
+                {volist name='resd' id='v'}
+                <li {if $v['id'] == session('regionid')}class="lan"{/if}><a href="#" >{$v['name']}</a></li>
+                {/volist}
             </ul>
             <p style="color:#ec3901;margin-left:0;margin-right:5px;" class="Ggduo1">更多<img src="__IND__/images/xiajint_03.png" ></p>
         </div>

@@ -8,9 +8,14 @@ class Unused extends Common
 {
     //
   public function index(){
+      $map['status'] = 1;
+      $map['isdel'] = 1;
+      if (session('regionid')){
+          $map['push_addr_c|push_addr_t'] = session('regionid');
+      }
     $u = new \app\index\model\Unused();
 
-    $unused = $u->where(['status'=>1,'isdel'=>1])->order('id desc')->paginate(8,false,['type'=> '\base\share\Page','var_page' => 'p']);
+    $unused = $u->where($map)->order('id desc')->paginate(8,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
     $this->assign('unused',$unused);
     $this->assign('page' , $unused->render());

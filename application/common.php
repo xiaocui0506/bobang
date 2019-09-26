@@ -83,6 +83,12 @@ if (!function_exists('GetRegionName')){
     return substr($names,0,-1);
   }
 }
+
+if (!function_exists('GetRegionOneName')){
+    function GetRegionOneName($id){
+        return db('region')->where(['id'=>$id])->value('name');
+    }
+}
 /**
  *  分类
  * @param string $id 对应的外键
@@ -192,4 +198,27 @@ if (!function_exists('Bright')){
     }
     return $arr;
   }
+}
+
+
+if (!function_exists("Regions")){
+
+    //首页导航  --
+     function Regions()
+     {
+         if (cache('region')) {
+             return cache('region');
+         }
+         $navall = db('region')->where(['pid' => 1])->field('id,name')->select();
+         foreach ($navall as $k => &$v) {
+             $navall[$k]['cityList'] = db('region')->where(['pid' => $v['id']])->field('id,name')->select();
+             if ($navall[$k]['cityList']) {
+                 foreach ($v['cityList'] as $kk => &$vv) {
+                     $navall[$k]['cityList'][$kk]['areaList'] = db('region')->where(['pid' => $vv['id']])->field('id,name')->select();
+                 }
+             }
+         }
+         cache('region', $navall, 360);
+         return cache('region');
+     }
 }

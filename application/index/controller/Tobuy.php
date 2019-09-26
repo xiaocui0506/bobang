@@ -13,12 +13,18 @@ class Tobuy extends Common
     //
   public function index(){
 
+      $map['status'] = 1;
+      $map['isdel'] = 1;
+      if (session('regionid')){
+          $map['push_addr_c|push_addr_t'] = session('regionid');
+      }
     $t = new T();
 
-    $tobuy = $t->where(['status'=>1,'isdel'=>1])->select();
+    $tobuy = $t->where($map)->paginate(8,false,['type'=> '\base\share\Page','var_page' => 'p']);
 
     $this->assign('tobuy' , $tobuy);
 
+      $this->assign('page' , $tobuy->render());
     return $this->fetch('lists');
   }
 

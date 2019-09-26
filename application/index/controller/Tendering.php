@@ -12,10 +12,15 @@ class Tendering extends Common
   public function index(){
 
     /* 企业招标列表信息*/
+      $map['status'] = 1;
+      $map['isdel'] = 1;
+      if (session('regionid')){
+          $map['push_addr_c|push_addr_t'] = session('regionid');
+      }
     $t = new T();
-    $tend = db('tendering')->where(['status'=>1,'isdel'=>1])->select();
-//var_dump($tend);
+    $tend = $t->where($map)->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
     $this->assign('tend' , $tend);
+      $this->assign('page' , $tend->render());
 
     return $this->fetch('list');
   }

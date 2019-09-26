@@ -2,8 +2,8 @@
     <div class="dingbu">
         <div class="dingbu1">
             <div class="dingbu1-1">
-                <span>新乡市</span>
-                <span>【<a href="#">切换城市</a>】</span>
+                <span>{php}echo GetRegionOneName(session('regionid')){/php}</span>
+                <span>【<a href="{:url('index/region')}">切换城市</a>】</span>
                 <ul>
                     <li><a href="#">设为主页</a></li>
                     <li><a href="#">加入收藏</a></li>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="dingbu2">
-        <a href="#">
+        <a href="/">
             <img src="__IND__/images/index_07.jpg" alt="">
         </a>
         {if condition="!strpos($_SERVER['REDIRECT_URL'], 'login')" }
