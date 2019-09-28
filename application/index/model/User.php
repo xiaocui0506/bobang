@@ -29,7 +29,7 @@ class User extends Model
 //        $sms = cookie($post_data['phone']);// 获取用户是否有验证码
 //      if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
 //      if ($sms != $post_data['pcode']) jsonResponse(-1, '', '短信验证码不正确');
-        $res = $this->where(['user_name' => $post_data['user_name']])->find();
+        $res = $this->where(['mobile' => $post_data['user_name']])->find();
         if ($res) {
           if ($res['password'] != password_hash_tp($post_data['password'])) {jsonResponse(-1, '', '密码错误');}
 
@@ -59,23 +59,12 @@ class User extends Model
         'user_name|用户名' =>'require|unique:user',
         'mobile|手机号' =>'require|/^[1]([3-9])[0-9]{9}$/|max:11',
         'password|密码' =>'require|alphaDash|length:6,20|confirm:o_password',
+        'code|手机验证码' =>'require|number|max:6',
       ]);
       if ($validate->check($post_data)) {
-//        $sms = cookie($post_data['phone']);// 获取用户是否有验证码
-//      if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
-//      if ($sms != $post_data['pcode']) jsonResponse(-1, '', '短信验证码不正确');
-//        $res = $this->where(['mobile' => $post_data['phone']])->find();
-//        if ($res) {
-//          if ($res->data['password'] != password_hash_tp($post_data['pass'])) jsonResponse(-1, '', '密码错误');
-//          $login_token = password_hash_tp('kuai8' . uniqid());
-//          $user = new \app\api\model\User;
-//          $bool = $user->save(['login_token' => $login_token], ['id' => $res->data['id']]);
-//          if ($bool) {
-//            jsonResponse(1, $login_token, '登录成功');
-//          }
-//        } else {
-//          jsonResponse(-1, '', '无用户信息');
-//        }
+            $sms = cookie($post_data['mobile']);// 获取用户是否有验证码
+          if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
+          if ($sms != $post_data['pcode']) jsonResponse(-1, '', '短信验证码不正确');
           $post_data['mw_password'] = $post_data['password'];
           $post_data['password'] = password_hash_tp($post_data['password']);
           $post_data['login_time'] = time();

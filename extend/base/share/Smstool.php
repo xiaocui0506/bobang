@@ -22,7 +22,7 @@ class Smstool
           curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
           curl_setopt($curl, CURLOPT_FAILONERROR, false);
           curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($curl, CURLOPT_HEADER, true);
+          curl_setopt($curl, CURLOPT_HEADER, false);
           if (1 == strpos("$" . $host, "https://")) {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);

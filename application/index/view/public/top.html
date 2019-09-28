@@ -2,7 +2,7 @@
     <div class="dingbu">
         <div class="dingbu1">
             <div class="dingbu1-1">
-                <span>{php}echo GetRegionOneName(session('regionid')){/php}</span>
+                <span>{php}echo GetRegionOneName(session('regionid')){/php} </span>
                 <span>【<a href="{:url('index/region')}">切换城市</a>】</span>
                 <ul>
                     <li><a href="#">设为主页</a></li>
@@ -20,6 +20,7 @@
                     {else/}
 <!--                    <li><a href="{:url('login/login')}">会员登录</a></li>-->
                     <li><a href="##">{$user.user_name}</a></li>
+                    <li><a href="{:url('index/quit')}">退出</a></li>
                     {/if}
                     <li><a href="#">消息中心</a></li>
                 </ul>

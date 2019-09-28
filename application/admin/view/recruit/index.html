@@ -57,9 +57,9 @@
                     <td>{$vo.title}</td>
                     <td>{$vo.pos_name}</td>
                     <td><?php echo GetConfigName('work_na',$vo['work_na']) ?>/{$vo.number_peo}人/<?php echo GetConfigName('salary',$vo['salary']) ?></td>
-                    <td><?php echo GetRegionName($vo['work_addr']) ?>,{$vo.work_addr_xq}</td>
+                    <td><?php echo GetRegionName($vo['work_addr_p'].','.$vo['work_addr_c'].','.$vo['work_addr_t']) ?>,{$vo.work_addr_xq}</td>
                     <td><?php echo GetConfigName('education',$vo['educ']) ?>/<?php echo GetConfigName('hands',$vo['exper']) ?>/{$vo['age'] ? $vo['age'] : '不限'}/{$vo['gender'] ? $vo['gender'] : '不限'}</td>
-                    <td>{$vo.push_addr}</td>
+                    <td><?php echo GetRegionName($vo['push_addr_p'].','.$vo['push_addr_c'].','.$vo['push_addr_t']) ?></td>
                     <td><?php echo GetAdminNavs($vo['push_indu']) ?></td>
                     <td>{$vo.push_time}</td>
                     <td>{$vo.contacts}</td>

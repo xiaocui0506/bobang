@@ -9,7 +9,7 @@ class  Safe extends Controller {
     // 设备变更后，应当重新登录，这里记录后面判断
   public function __construct(){
     parent::__construct();
-          $this->user = session('user');
+          $this->user = session('adminuser');
           $this->uId = session('user_id');
           $this->assign('title','都会帮');
           $this->assign('user',$this->user);

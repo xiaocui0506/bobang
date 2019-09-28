@@ -1,0 +1,63 @@
+{extend name="public/usertop" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<div class="nav">
+    {include file='public/userlist'/}
+    <div class="navright">
+        <div class="navRightbotter">
+            <div class="navRightcenter1 navRightbotter1">
+                <p style="border-bottom: 1px solid #0066CC;height: 44px;">我的资料</p>
+            </div>
+            <div style="width:90%;padding-left:5%;padding-bottom:5%;">
+                <div class="zhuTiform">
+                    <form action="" method="">
+                        <div class="tpimg">
+                            <span><img src="__IND__/images/bitian_03.png" alt="">头像</span>
+                            <img src="__IND__/images/toutou_03.jpg" alt="" class="tpimg1">
+                            <input type="file" class="tp1">
+                        </div>
+                        <div>
+                            <span><img src="__IND__/images/bitian_03.png" alt="">会员昵称</span>
+                            <input type="text" class="inp2">
+                        </div>
+                        <div>
+                            <span><img src="__IND__/images/bitian_03.png" alt="">性别</span>
+                            <input type="radio" name="aas">
+                            <span>男</span>
+                            <input type="radio" name="aas">
+                            <span>女</span>
+                        </div>
+                        <div>
+                            <span><img src="__IND__/images/bitian_03.png" alt="">真实姓名</span>
+                            <input type="text" class="inp2">
+                        </div>
+                        <div>
+                            <span><img src="__IND__/images/bitian_03.png" alt="">联系地址</span>
+                            <input type="text" class="inp1">
+                        </div>
+                        <div>
+                            <span><img src="__IND__/images/bitian_03.png" alt="">手机号码</span>
+                            <input type="text" class="inp2">
+                            <a href="#" style="color:#26b2dc;font-size:14px;">修改</a>
+                        </div>
+                        <div>
+                            <span style="width: 64px;"><img src="__IND__/images/bitian_03.png" alt="">邮箱</span>
+                            <input type="text" class="inp2">
+                        </div>
+                        <div class="formbut">
+                            <input type="submit" value="保存" class="formbut2">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".tpimg1").click(function(){
+        $(".tp1").click();
+    })
+</script>
+{/block}

@@ -58,8 +58,8 @@
                     <td>{$vo.bidding_name}</td>
                     <td>{$vo.enroll_deadline}</td>
                     <td>{$vo.bidding_deadline}</td>
-                    <td><?php echo GetRegionName($vo['bidding_address']) ?></td>
-                    <td>{$vo.bidding_address_xq}</td>
+                    <td><?php echo GetRegionName($vo['bidding_addr_p'].','.$vo['bidding_addr_c'].','.$vo['bidding_addr_t']) ?></td>
+                    <td>{$vo.bidding_addr_xq}</td>
                     <td>{$vo.contacts}</td>
                     <td><if condition="$vo.landline">
                         {$vo.landline}/{$vo.phone}
@@ -67,7 +67,7 @@
                         {$vo.phone}
                     </if></td>
                     <!--            <td>{$vo.bidding_text|mb_substr=0,15,'utf-8'}...</td>-->
-                    <td><?php echo GetRegionName($vo['push_area']) ?></td>
+                    <td><?php echo GetRegionName($vo['push_addr_p'].','.$vo['push_addr_c'].','.$vo['push_addr_t']) ?></td>
                     <td><?php echo GetAdminNavs($vo['push_indu']) ?></td>
                     <td> <if condition="$vo.see_level eq 1 || $vo.see_level eq 0">
                         完全开放

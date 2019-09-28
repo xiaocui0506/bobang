@@ -1,0 +1,151 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg"></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong">
+        <h4>购买广告位 <span style="font-size:14px;color:red;font-weight: 100;">您购买的广告位只出现在您发布所在当前城市的购买页面处显示、其他城市不予显示，请直左上角显示的城市是否符合，请悉知</span></h4>
+        <p style="font-size:14px;color:red;margin-top:20px;">发布提示：不是本行业的商家请勿在此发布广告，网站会根据您的营业执照经营范国进行比对，发布板块和您的经营范围不一致的，我们有权根提您的经营范进行发布板块移动或作下架处理，谢谢配合</p>
+        <div class="zhuTiform">
+            <form action="" method="post" id="FormData">
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">图片标题</span>
+                    <input type="text" class="inp1">
+                    <p style="font-size:14px;color:red;font-weight: 100;">仅支持中文，请勿使用外文和数字以及网址电话号码</p>
+                </div>
+                <div id="feedback" style="display: none"></div>
+                <div class="tpimg">
+                    <span><img src="__IND__/images/bitian_03.png" alt="">产品缩略图</span>
+                    <img src="__IND__/images/tijianji_03.jpg" alt="" class="tpimg1">
+                    <p style="font-size:14px;color:#ccc;">图片只允许使用企业logo,企业场景图和相关的产品图片</p>
+                    <input type="file"  class="tpimg11 tp1" id="up-img-file" onchange="upimg(this,1)">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt=""></span>
+                    <input type="radio" name="a" checked>
+                    <span>本站自动链接</span>
+                    <input type="radio" name="a"style="margin-left:50px;">
+                    <span>官网链接</span>
+                    <input type="text" class="inp2" placeholder="例如:https://www.baidu.com">
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">选择购买天数</span>
+                    <input type="radio" name="aas1" checked>
+                    <span>90</span>
+                    <input type="radio" name="aas1">
+                    <span>120</span>
+                    <input type="radio" name="aas1">
+                    <span>150</span>
+                    <input type="radio" name="aas1">
+                    <span>180</span>
+                    <input type="radio" name="aas1">
+                    <span>210</span>
+                    <input type="radio" name="aas1">
+                    <span>240</span>
+                    <input type="radio" name="aas1">
+                    <span>270</span>
+                    <input type="radio" name="aas1">
+                    <span>300</span>
+                    <input type="radio" name="aas1">
+                    <span>330</span>
+                    <input type="radio" name="aas1">
+                    <span>360</span>
+                </div>
+                <div>
+                    <span><img src="__IND__/images/bitian_03.png" alt="">选择付款方式</span>
+                    <input type="radio" name="aas" checked>
+                    <span>微信支付</span>
+                    <input type="radio" name="aas">
+                    <span>支付宝支付</span>
+                    <input type="radio" name="aas">
+                    <span>网站余额支付</span>
+                    <input type="radio" name="aas">
+                    <span>积分兑换</span>
+                    <input type="radio" name="aas">
+                    <span>公对公支付</span>
+                </div>
+                <div style="margin-top:20px;display: flex;justify-content: center;">
+                    <input type="checkbox" style="margin-right:10px;height: 20px;margin-top: 17px;">
+                    <p style="color:#7a7a7a; margin-top: 7px; font-size:14px;">
+                        我已阅读并知晓网站发布规则并对发布的内容完全承担一切责任
+                        <a href="">[查看发布须知]</a>
+                    </p>
+                </div>
+                <div class="formbut">
+                    <input type="button" value="确认发布" class="formbut2" id="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".dingbu3 li").click(function() {
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function() {
+        $(".tp1").click();
+    });
+
+    /*图片上传*/
+    //响应文件添加成功事件
+    function upimg(obj,t)
+    {
+        if( obj.value == "" ) {
+            return;
+        }
+        var formdata = new FormData();
+        //<input type="file" name="img" value="" />
+        formdata.append("img" , $(obj)[0].files[0]);//获取文件法二
+        console.log(formdata);
+        $.ajax({
+            type : 'post',
+            url : "{:url('Makeover/imgs')}", //接口
+            data : formdata,
+            cache : false,
+            processData : false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+            contentType : false, // 不设置Content-type请求头
+            success : function(response){
+                if (response.code == 1){
+                    $html = '<input type="hidden" name="img" value="'+response.data.url+'">';
+                    $('#feedback').append($html);
+                    $('.tpimg'+t).attr('src',response.data.urs);
+                }
+
+            },
+            error : function(){ }
+        });
+    }
+
+    $('#btn').click(function () {
+        $.ajax({
+            url:"{:url('index/buyadd')}",
+            type:'post',
+            dataType:'json',
+            data:$("#FormData").serialize(),
+            success:function(result){
+                //回调函数
+                if (result.code == 1){
+                    layer.msg(result.msg+',等待审核',{
+                        time:2000,
+                        end:function () {
+                            location.reload();
+                        }
+                    });
+
+                } else {
+                    layer.msg(result.msg,{time:2000});
+                }
+
+            }
+        });
+    });
+
+
+</script>
+{/block}

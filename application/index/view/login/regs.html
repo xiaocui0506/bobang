@@ -87,7 +87,9 @@
                     <input type="password" class="hyinp1" placeholder="请再次输入你的密码" name="o_password">
                 </div>
                 <div>
-                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile"><span style="float: right;margin-top: -35px;color: red;cursor: pointer;">获取手机验证码</span>
+                    <input type="text" class="hyinp1" placeholder="+86|请输入手机号码" name="mobile" id="mobile">
+<!--                    <span  id="codes">获取手机验证码</span>-->
+                    <input  onclick="settime()"  style="float: right;margin-top: -37px;color: red;cursor: pointer;width: 30%;margin-right: 7px;" value="获取手机验证码" id="codes">
                 </div>
                 <div>
                     <input type="text" class="hyinp1" placeholder="手机验证码 6位数字" name="code" id="code" >
@@ -183,6 +185,40 @@
 
     });
 
+    var countdown=180;
+    function settime() {
+        var mobile = $('#mobile').val();
+        if (mobile) {
+            var codes = $('#codes');
+            if (countdown == 0) {
+                codes.attr("disabled",false);
+                codes.val('免费获取验证码');
+                countdown = 180;
+            } else {
+                codes.attr("disabled",true);
+                codes.val('重新发送' + countdown);
+                countdown--;
+                setTimeout(function () {
+                    settime(codes);
+                    // mobilecode(mobile)
+                }, 1000)
+            }
+        }else{
+            layer.alert('请输入手机号');return false;
+        }
+    }
+    function mobilecode(val) {
+        if (val != ''){
+            $.post("{:url('index/smscode')}",{tel:val},function (msg) {
+                if (msg.code == 1){
+                    layer.alert(msg.msg);return false;
+                }else{
+                    layer.alert(msg.msg);return false;
+                }
+            });
+        }
+    }
+
 </script>
 <script>
     var m1 = new MyModal.modal(function() {
@@ -197,7 +233,7 @@
         if ($('#yanz').val() != 1){
             layer.msg('请拉动验证条进行验证..');return;
         }
-        if ($('#code').val() != ''){
+        if ($('#code').val() == ''){
             layer.msg('手机验证码不能为空..');return;
         }
         $.ajax({

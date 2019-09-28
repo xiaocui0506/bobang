@@ -2,6 +2,7 @@
 namespace app\index\controller;
 use app\index\controller\Common;
 use base\share\Smstool;
+use think\Session;
 
 class Index extends Common
 {
@@ -33,9 +34,16 @@ class Index extends Common
         $tel = input('post.tel/s');
         if ($tel){
           $num = rand(100000,999999);
-          session($tel,$num);
+          cookie($tel,$num,180);
           $sm = new Smstool();
-          return $sm->sendSms($tel,$num);
+          $rl = json_decode($sm->sendSms($tel,$num));
+          if ($rl['ReturnStatus'] == 'Success' && $rl['Message'] == 'ok'){
+              jsonResponse(1,'','发送成功');
+          }else{
+              jsonResponse(0,'','发送失败');
+          }
+        }else{
+            jsonResponse(0,'','请填写手机号');
         }
       }
   }
@@ -77,9 +85,40 @@ class Index extends Common
 
 
     public function adds(){
-
       return $this->fetch();
     }
+
+
+    /*网站公告*/
+    public function notice($id){
+        db('notice')->where(['id'=>$id])->setInc('view');
+        $this->assign('noti',db('notice')->where(['id'=>$id])->find());
+        return $this->fetch();
+    }
+
+
+
+    /* 用户准备购买广告位页面*/
+    public function buy(){
+        return $this->fetch();
+    }
+    public function buyadd(){
+        if ($this->request->isPost()){
+            $post_data = input('post.');
+            var_dump($post_data);
+        }
+    }
+
+
+    /**
+     * @return object 用户退出
+     */
+    public function quit()
+    {
+        \session(null);
+        header('location: /index');exit();
+    }
+
 
 
     /**

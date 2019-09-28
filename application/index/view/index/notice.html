@@ -1,0 +1,36 @@
+{extend name="public/header" /}
+{block name="content"}
+<link rel="stylesheet" href="__IND__/css/gongsi.css">
+<link rel="stylesheet" href="__IND__/css/zhbifabu.css">
+{include file="public/top" /}
+<div class="zhuTi">
+    <div class="zhuTiTop">
+        <a href="#"><img src="__IND__/images/guanggao_03.jpg" ></a>
+    </div>
+    {include file="public/itemize" /}
+    <div class="zhuTiZhong" style="padding:10px 5px;width:1188px;">
+        <h4 style="text-align: center">{$noti.title}</h4>
+        <div class="zhuTiBot" style="border-bottom:1px solid #999;padding:18px 0;">
+            <ul style="margin-left: 38%;">
+                <li><a href="#">网站公告</a></li>
+                <li><a href="#">{$noti.createtime|date='Y年m月d日'}</a></li>
+                <li><a href="#">浏览量：{$noti.view}</a></li>
+            </ul>
+        </div>
+        <div style="margin-left: 8%;">
+            {:htmlspecialchars_decode($noti.describe)}
+        </div>
+
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    $(".dingbu3 li").click(function(){
+        $(this).addClass("yynav").siblings("li").removeClass("yynav");
+    });
+    $(".tpimg1").click(function(){
+        $(".tpimg11").click();
+    });
+</script>
+{/block}

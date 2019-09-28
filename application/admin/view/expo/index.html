@@ -59,11 +59,11 @@
                     <td>{$vo.expo_title}</td>
                     <td><?php echo GetConfigName('expoType',$vo['expo_type']) ?></td>
                     <td>{$vo.sponsor}</td>
-                    <td><?php echo GetRegionName($vo['expo_address']) ?>,{$vo.expo_address_xq}</td>
-                    <td>{$vo.expo_date}</td>
+                    <td><?php echo GetRegionName($vo['expo_addr_p'].','.$vo['expo_addr_c'].','.$vo['expo_addr_t']) ?>,{$vo.expo_addr_xq}</td>
+                    <td>{$vo.expo_date_s}</td>
                     <td>{$vo.hold_num}届/{$vo.hold_date}周</td>
                     <td><?php echo GetAdminNavs($vo['push_indu']) ?></td>
-                    <td><?php echo GetRegionName($vo['push_address']) ?></td>
+                    <td><?php echo GetRegionName($vo['push_addr_p'].','.$vo['push_addr_c'].','.$vo['push_addr_t']) ?></td>
                     <td>{$vo.push_time}</td>
                     <td><if $vo.status neq 1><span class="label label-danger radius">未审核</span><else/><span class="label label-success radius">已审核</span></if></td>
                     <td>{$vo.create_time|date = "Y-m-d H:i:s"}</td>

@@ -69,7 +69,7 @@
                         <else/>
                         {$vo.phone}
                     </if></td>
-                    <td><?php echo GetRegionName($vo['push_address']) ?></td>
+                    <td><?php echo GetRegionName($vo['push_addr_p'].','.$vo['push_addr_c'].','.$vo['push_addr_t']) ?></td>
                     <td><?php echo GetAdminNavs($vo['push_indu']) ?></td>
                     <td>{$vo['push_time']}</td>
                     <td class="td-status">

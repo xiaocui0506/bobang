@@ -89,7 +89,7 @@
                     <figcaption>管理发布</figcaption>
                 </figure>
                 <figure style="float:right;">
-                    <a href="#"><img src="__IND__/img/vip.png" alt=""></a>
+                    <a href="{:url('User/index')}"><img src="__IND__/img/vip.png" alt=""></a>
                     <figcaption>会员中心</figcaption>
                 </figure>
 
@@ -97,13 +97,9 @@
             </div>
             <span><h4>网站公告</h4><a href="#">更多></a></span>
             <ul>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
-                <li><a href="#">2019年端午节放假通知 <span>14：00</span></a></li>
+                {volist name='notice' id='v'}
+                <li><a href="{:url('index/notice',['id'=>$v['id']])}">{$v.title} <span>{$v.createtime|date='H:i'}</span></a></li>
+                {/volist}
             </ul>
         </div>
     </div>

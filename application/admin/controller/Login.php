@@ -24,7 +24,7 @@ class Login extends Controller
           if (md5($post_data['password']) != $user['password']){
             jsonResponse(-1,'','密码不正确');
           }else{
-            session('user',$user);
+            session('adminuser',$user);
             session('user_id',$user['id']);
             jsonResponse(1,'','登录成功');
           }
