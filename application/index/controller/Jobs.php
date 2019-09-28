@@ -26,6 +26,11 @@ class Jobs extends Common
     return $this->fetch();
   }
 
+
+  public function lists(){
+      var_dump(111);
+  }
+
   /*添加求职页面展示*/
   public function adds(){
 
