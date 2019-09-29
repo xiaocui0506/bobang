@@ -46,6 +46,7 @@ class Login extends Controller
 
   /*个人认证*/
   public function percert(){
+      var_dump(session('user_id'));
     return $this->fetch();
   }
 

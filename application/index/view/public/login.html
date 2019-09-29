@@ -75,11 +75,22 @@
                 <a href="#"><img src="__IND__/images/index_03.jpg" alt=""></a>
                 <div class="leftnavl"><a href="{:url('login/login')}">登录</a></div>
                 <div class="leftnavr"><a href="{:url('login/reg')}">注册</a></div>
+                <figure>
+                    <a onclick="layer.alert('请先登录后，在进行发布信息')"><img src="__IND__/img/fabu.png" alt=""></a>
+                    <figcaption>免费发布</figcaption>
+                </figure>
+                <figure style="float:right;">
+                    <a onclick="layer.alert('请先登录后，在查看发布信息')"><img src="__IND__/img/fabu.png" alt=""></a>
+                    <figcaption>管理发布</figcaption>
+                </figure>
+                <figure style="float:right;">
+                    <a onclick="layer.alert('请先登录后，在查看会员中心')"><img src="__IND__/img/vip.png" alt=""></a>
+                    <figcaption>会员中心</figcaption>
+                </figure>
                 {else/}
                 <a href="#"><img src="__IND__/images/index_03.jpg" alt="" style=" margin-left: 10px;"></a>
                 <div class="leftnavl" style="width: 94%;margin-top: -63px;color: #333;">{$user.user_name} , {$istime}</div>
                 <div class="leftnavr" style="width: 140px;margin-top: -33px;color: #4c5cda;">上网赚积分换广告</div>
-                {/if}
                 <figure>
                     <a href="{:url('index/adds')}"><img src="__IND__/img/fabu.png" alt=""></a>
                     <figcaption>免费发布</figcaption>
@@ -92,8 +103,7 @@
                     <a href="{:url('User/index')}"><img src="__IND__/img/vip.png" alt=""></a>
                     <figcaption>会员中心</figcaption>
                 </figure>
-
-
+                {/if}
             </div>
             <span><h4>网站公告</h4><a href="#">更多></a></span>
             <ul>

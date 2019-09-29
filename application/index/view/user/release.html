@@ -5,7 +5,7 @@
     <div class="navright">
         <div class="navRightbotter">
             <div class="navRightcenter1 navRightbotter1">
-                <p>我的发布</p>
+                <p>我的发布 -- {$t_name}</p>
                 <ul>
                     <li class="landi">有效</li>
                     <li>过期</li>
@@ -14,28 +14,59 @@
                 </ul>
 <!--                <a href="#">查看更多>></a>/-->
             </div>
+            {volist name='res' id='v'}
             <div class="navRightcenter2">
-                <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
+                {notempty name="v.photo"}
+                <img src="/public/uploads/{php}echo CfPhoto($v['photo']){/php}" alt="">
+                {/notempty}
                 <div class="navRightcenter21">
-                    <h3><a href="">承接跨海大桥、海底隧道、高速公路、机场建设</a></h3>
-                    <p>企业注册所在地:广东省广州市黄埔区，可服务范围:全国，热线电话:13903069498,网址:www.gzsantai.cn,第三方担保交易平台：www.taobao.com/santai.cn  经营范围:我公司承接电动单双梁桥式、门式起重机工程建筑，主要产品有:电动葫芦，防爆电动葫芦，电动葫芦....</p>
-                    <span>发布时间：2019年3月12日</span>
+                    <h3><a href="">{$v.title}</a></h3>
+                    <p>{$v.text|mb_substr=0,150,'utf-8'}...</p>
+                    <span>发布时间：{$v.create_time|date="Y年m月d日"}</span>
                     <a href="#">编辑</a>
-                    <a href="#">删除</a>
+                    <a onclick="del({$v.id})">删除</a>
                 </div>
             </div>
-            <div class="navRightcenter2">
-                <img src="__IND__/images/huiyuanxixi_02.jpg" alt="">
-                <div class="navRightcenter21">
-                    <h3><a href="">承接跨海大桥、海底隧道、高速公路、机场建设</a></h3>
-                    <p>企业注册所在地:广东省广州市黄埔区，可服务范围:全国，热线电话:13903069498,网址:www.gzsantai.cn,第三方担保交易平台：www.taobao.com/santai.cn  经营范围:我公司承接电动单双梁桥式、门式起重机工程建筑，主要产品有:电动葫芦，防爆电动葫芦，电动葫芦....</p>
-                    <span>发布时间：2019年3月12日</span>
-                    <a href="#">编辑</a>
-                    <a href="#">删除</a>
-                </div>
+            {/volist}
+<!--            <div class="navRightcenter2">-->
+<!--                <div class="navRightcenter21">-->
+<!--                    <h3><a href="">承接跨海大桥、海底隧道、高速公路、机场建设</a></h3>-->
+<!--                    <p>企业注册所在地:广东省广州市黄埔区，可服务范围:全国，热线电话:13903069498,网址:www.gzsantai.cn,第三方担保交易平台：www.taobao.com/santai.cn  经营范围:我公司承接电动单双梁桥式、门式起重机工程建筑，主要产品有:电动葫芦，防爆电动葫芦，电动葫芦....</p>-->
+<!--                    <span>发布时间：2019年3月12日</span>-->
+<!--                    <a href="#">编辑</a>-->
+<!--                    <a href="#">删除</a>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+        <div class="page">
+            <div>
+                {$page|raw}
             </div>
         </div>
 
+
     </div>
 </div>
+{/block}
+{block name="script"}
+    <script>
+    /*用户-删除*/
+        var t_con = "{$t_con}";
+        function del(id){
+            layer.confirm('确认要删除吗？',function(index){
+            //发异步删除数据
+                $.post("{:url('User/del')}",{t:t_con,id:id},function (msg) {
+                    if (msg.status == 1){
+                        layer.msg(msg.msg,{icon:1,time:1000},function () {
+                            location.replace(location.href);
+                        });
+                        } else{
+                            layer.msg(msg.msg,{icon:2,time:1000});
+                        }
+                });
+
+            // layer.msg('已删除!',{icon:1,time:1000});
+            });
+        }
+    </script>
 {/block}

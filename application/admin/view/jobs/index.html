@@ -58,7 +58,7 @@
                     <td>{$vo.job_title}</td>
                     <td><?php echo GetConfigName('gender',$vo['gender']) ?></td>
                     <td>{$vo.birth_date}</td>
-                    <td><?php echo GetRegionName($vo['current']) ?></td>
+                    <td><?php echo GetRegionName($vo['current_p'].','.$vo['current_c'].','.$vo['current_t']) ?></td>
                     <td><?php echo GetConfigName('education',$vo['education']) ?></td>
                     <td><?php echo GetConfigName('hands',$vo['hands']) ?></td>
                     <td>{$vo.contacts}</td>
@@ -68,7 +68,7 @@
                         {$vo.phone}
                     </if></td>
                     <td><?php echo GetConfigName('salary',$vo['salary']) ?>K</td>
-                    <td><?php echo GetRegionName($vo['job_area']) ?></td>
+                    <td><?php echo GetRegionName($vo['push_addr_p'].','.$vo['push_addr_c'].','.$vo['push_addr_t']) ?></td>
                     <td><?php echo GetAdminNavs($vo['push_indu']) ?></td>
                     <td> <if condition="$vo.see_level eq 1 || $vo.see_level eq 0">
                         完全开放

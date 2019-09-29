@@ -15,7 +15,7 @@ class Jobs extends Common
       $map['status'] = 1;
       $map['isdel'] = 1;
       if (session('regionid')){
-//          $map['push_addr_c|push_addr_t'] = session('regionid');
+          $map['push_addr_c|push_addr_t'] = session('regionid');
       }
     $j = new J();
     $jobs = $j->where($map)->order('id desc')->paginate(2,false,['type'=> '\base\share\Page','var_page' => 'p']);
@@ -27,8 +27,12 @@ class Jobs extends Common
   }
 
 
-  public function lists(){
-      var_dump(111);
+  public function lists($id){
+      $j = new J();
+      $j->where(['id'=>$id])->setInc('preview');
+      $jobs = $j->where(['id'=>$id])->find();
+      $this->assign('j',$jobs);
+      return $this->fetch();
   }
 
   /*添加求职页面展示*/

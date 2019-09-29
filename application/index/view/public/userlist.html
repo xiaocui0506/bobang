@@ -1,13 +1,12 @@
 <div class="navleft">
     <ul>
         <h4>我的发布</h4>
-        <li>招标发布<span>({$tendering})</span></li>
-        <li>求购发布<span>({$tobuy})</span></li>
-        <li>展会发布<span>({$expo})</span></li>
-<!--        <li>招标发布<span>({$tendering})</span></li>-->
-        <li>会议发布<span>({$meeting})</span></li>
-        <li>招聘发布<span>({$recruit})</span></li>
-        <li>求职发布<span>({$jobs})</span></li>
+        <li><a href="{:url('user/release',['t'=>'te'])}">招标发布</a><span>({$tendering})</span></li>
+        <li><a href="{:url('user/release',['t'=>'t'])}">求购发布</a><span>({$tobuy})</span></li>
+        <li><a href="{:url('user/release',['t'=>'e'])}">展会发布</a><span>({$expo})</span></li>
+        <li><a href="{:url('user/release',['t'=>'m'])}">会议发布</a><span>({$meeting})</span></li>
+        <li><a href="{:url('user/release',['t'=>'r'])}">招聘发布</a><span>({$recruit})</span></li>
+        <li><a href="{:url('user/release',['t'=>'j'])}">求职发布</a><span>({$jobs})</span></li>
     </ul>
     <ul>
         <h4>会员中心</h4>

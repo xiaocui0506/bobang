@@ -63,14 +63,14 @@ class User extends Model
       ]);
       if ($validate->check($post_data)) {
             $sms = cookie($post_data['mobile']);// 获取用户是否有验证码
-          if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
-          if ($sms != $post_data['pcode']) jsonResponse(-1, '', '短信验证码不正确');
+//          if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
+//          if ($sms != $post_data['code']) jsonResponse(-1, '', '短信验证码不正确');
           $post_data['mw_password'] = $post_data['password'];
           $post_data['password'] = password_hash_tp($post_data['password']);
           $post_data['login_time'] = time();
           $post_data['create_time'] = time();
           $bool = $this->allowField(true)->save($post_data);
-          if ($bool){jsonResponse(1, $this->id, '注册成功');session('user_id',$this->id);}
+          if ($bool){session('user_id',$this->id);jsonResponse(1, $this->id, '注册成功');}
           else {jsonResponse(-1, '', '注册失败');}
       } else {
         jsonResponse(-1, '', $validate->getError());

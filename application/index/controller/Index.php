@@ -33,12 +33,14 @@ class Index extends Common
       if ($this->request->isPost()){
         $tel = input('post.tel/s');
         if ($tel){
+            $user = new \app\index\model\User();
+            if ($user->where(['mobile'=>$tel])->value('id'))jsonResponse(0,'','手机号存在，请更换或申诉..');
           $num = rand(100000,999999);
           cookie($tel,$num,180);
           $sm = new Smstool();
-          $rl = json_decode($sm->sendSms($tel,$num));
+          $rl = json_decode($sm->sendSms($tel,$num),true);
           if ($rl['ReturnStatus'] == 'Success' && $rl['Message'] == 'ok'){
-              jsonResponse(1,'','发送成功');
+              jsonResponse(1,$tel,'发送成功');
           }else{
               jsonResponse(0,'','发送失败');
           }
@@ -85,7 +87,10 @@ class Index extends Common
 
 
     public function adds(){
-      return $this->fetch();
+        if (\session('user_id')){
+            return $this->fetch();
+        }
+
     }
 
 

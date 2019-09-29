@@ -16,23 +16,34 @@ class Jobs extends Model
     $post_data = input('post.');
     try{
       if ($post_data['town']>0 || $post_data['town']){
-        $current = $post_data['province'].','.$post_data['city'].','.$post_data['town'];
+          $post_data['current_p'] = $post_data['province'];
+          $post_data['current_c'] = $post_data['city'];
+          $post_data['current_t'] = $post_data['town'];
       }elseif($post_data['city']>0 || $post_data['city']){
-        $current = $post_data['province'].','.$post_data['city'];
+          $post_data['current_p'] = $post_data['province'];
+          $post_data['current_c'] = $post_data['city'];
       }else{
         jsonResponse(-1,'','请填写现居地地址');
       }
       if ($post_data['town1']>0 || $post_data['town1']){
-        $household = $post_data['province1'].','.$post_data['city1'].','.$post_data['town1'];
+          $post_data['household_p'] = $post_data['province1'];
+          $post_data['household_c'] = $post_data['city1'];
+          $post_data['household_t'] = $post_data['town1'];
+
       }elseif($post_data['city1']>0 || $post_data['city1']){
-        $household = $post_data['province1'].','.$post_data['city1'];
+          $post_data['household_p'] = $post_data['province1'];
+          $post_data['household_c'] = $post_data['city1'];
       }else{
         jsonResponse(-1,'','请填写户籍所在地址');
       }
       if ($post_data['town2']>0 || $post_data['town2']){
         $job_area = $post_data['province2'].','.$post_data['city2'].','.$post_data['town2'];
+          $post_data['push_addr_p'] = $post_data['province2'];
+          $post_data['push_addr_c'] = $post_data['city2'];
+          $post_data['push_addr_t'] = $post_data['town2'];
       }elseif($post_data['city2']>0 || $post_data['city2']){
-        $job_area = $post_data['province2'].','.$post_data['city2'];
+          $post_data['push_addr_p'] = $post_data['province2'];
+          $post_data['push_addr_c'] = $post_data['city2'];
       }else{
         jsonResponse(-1,'','请填写求职地区');
       }
@@ -65,8 +76,6 @@ class Jobs extends Model
       ]);
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):0;
-        $post_data['current'] =  $current;
-        $post_data['household'] =  $household;
         $post_data['job_area'] =  $job_area;
         $post_data['birth_date'] =  $birth_date;
         $post_data['photo'] =  $img;

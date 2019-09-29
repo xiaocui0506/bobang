@@ -13,7 +13,7 @@ class Smstool
           array_push($headers, "Authorization:APPCODE " . $appcode);
 //          $querys = "content=【都会帮网】你的验证码是：".$code."，3分钟内有效！&mobile=$mobile";
           $querys = "content=【都会帮网】你的验证码是：".$code."，3分钟内有效！&mobile=".$mobile;
-
+            file_put_contents('./abc.txt',$querys);
           $bodys = "";
           $url = $host . $path . "?" . $querys;
           $curl = curl_init();

@@ -101,7 +101,7 @@ city1.on("change",function(){
 
 
 for(var i=0;i<provinceList.length;i++){
-    addEle(province3,provinceList[i].name);
+    addEle(province3,provinceList[i].name,provinceList[i].id);
 }
 function addEle(ele,value,id){
     var optionStr="";
@@ -117,7 +117,7 @@ var provinceText,cityText,cityItem;
 province3.on("change",function(){
     provinceText=$(this).val();
     $.each(provinceList,function(i,item){
-        if(provinceText == item.name){
+        if(provinceText == item.id){
             cityItem=i;
             return cityItem
         }
@@ -139,7 +139,7 @@ city3.on("change",function(){
         }
     });
     $.each(provinceList[cityItem].cityList,function(i,item){
-        if(cityText == item.name){
+        if(cityText == item.id){
             for(var n=0;n<item.areaList.length;n++){
                 addEle(town3,item.areaList[n].name,item.areaList[n].id)
             }

@@ -119,6 +119,64 @@ function filter_value($arrData, $key, $im = false)
     return $im ? implode(',', $re) : $re;
 }
 
+/**
+ * 用户选择查看类型返回全称
+ * @param $t
+ * @return string
+ */
+if (!function_exists('FullName')){
+    function FullName($t)
+    {
+        $a['a'] = true;
+        $a['b'] = true;
+        $a['c'] = true;
+        switch ($t){
+            case 'te':
+                $a['a'] = 'tendering';
+                $a['c'] = '招标发布列表';
+                $a['b'] = 'id,bidding_name as title,bidding_text as text,create_time';
+                break;
+            case 't':
+                $a['a'] = 'tobuy';
+                $a['c'] = '求购发布列表';
+                $a['b'] = 'id,title ,abstract as text,create_time,photo';
+                break;
+            case 'e':
+                $a['a'] = 'expo';
+                $a['c'] = '展会发布列表';
+                $a['b'] = 'id,expo_title as title ,abstract as text,create_time,photo';
+                break;
+            case 'm':
+                $a['a'] = 'meeting';
+                $a['c'] = '会议发布列表';
+                $a['b'] = 'id,meet_title as title ,abstract as text,create_time,photo';
+                break;
+            case 'r':
+                $a['a'] = 'recruit';
+                $a['c'] = '招聘发布列表';
+                $a['b'] = 'id,title ,brief as text,create_time';
+                break;
+            case 'j':
+                $a['a'] = 'jobs';
+                $a['c'] = '求职发布列表';
+                $a['b'] = 'id,job_title as title ,self_intr as text,create_time,photo';
+                break;
+            default:
+                $a['a'] = false;
+                $a['b'] = false;
+        }
+        return $a;
+    }
+}
+
+if (!function_exists('CfPhoto')){
+    function CfPhoto($photo){
+        $aaa = explode(',',$photo);
+         return $aaa[0];
+    }
+}
+
+
 
 /**
  * 统一密码加密方式，如需变动直接修改此处
