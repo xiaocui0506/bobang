@@ -8,6 +8,7 @@ class User extends Common
 {
     public function __construct()
     {
+        parent::__construct();
         if (!session('user_id')){
             header('location: /index');exit();
         }
@@ -15,6 +16,7 @@ class User extends Common
 
     //个人中心
     public function index(){
+
         return $this->fetch();
     }
 
