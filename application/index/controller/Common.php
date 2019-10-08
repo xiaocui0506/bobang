@@ -15,6 +15,7 @@ class Common extends Controller
     public function __construct()
     {
       parent::__construct();
+
       $this->user_id = session('user_id');
       /*判断用户是否登录*/
       $user = User::where(['id'=>$this->user_id])->field('user_name')->find();
