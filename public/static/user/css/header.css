@@ -71,12 +71,15 @@ header{
 }
 .dingbu1-2>ul>li{
 	float: left;
-	width: 75px;
+        width: auto;
 	height: 15px;
 	line-height:14px;
 	text-align: center;
 	border-right:2px solid #676768;
 	margin-top:13px;
+        font-size:12px;
+	color:#333333;
+        padding: 0px 11px;
 }
 .dingbu1-2>ul>li:last-child{  
 	border-right:none;
@@ -145,7 +148,7 @@ header{
 	margin: 0 auto;
 	overflow: hidden;
 }
-.dingbu3>div>ul>li{
+.dingbu3>div>ul>a>li{
 	width:120px;
 	float: left;
 	line-height:42px;
@@ -160,6 +163,6 @@ header{
 .yynav{
 	background:#fff;
 }
-.yynav>a{
+.yynav{
 	color:#1969be !important;
 }

@@ -204,7 +204,6 @@
 	width:1198px;
 	padding:10px 5px;
 	border:1px solid #dcdcdc;
-	background:red;
 	display: none;
 	z-index: 9999;
 }
@@ -212,7 +211,6 @@
 	width:1198px;
 	padding:10px 5px;
 	border:1px solid #dcdcdc;
-	background:red;
 	display: none;
 }
 .lan{
@@ -232,7 +230,7 @@
 	width: 190px;
 	height: 140px;
 	float: left;
-	margin-left:9px;
+	margin: 8px 4.5px;
 	margin-top:10px;
 	overflow: hidden;
 	text-align: center;

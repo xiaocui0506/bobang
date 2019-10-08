@@ -1,4 +1,4 @@
-.qiuGou{
+﻿.qiuGou{
 	width: 1200px;
 	margin:0 auto;
 	overflow: hidden;
@@ -431,6 +431,7 @@
 	margin: 0 auto;
 	background:#ffffe6;
 	padding:20px 10px;
+        margin-bottom: 10px;
 }
 .mianze p{
 	font-size: 14px;
@@ -451,10 +452,10 @@
 	
 }
 .tuwengg>figure{
-	width: 190px;
+    width: 190px;
     height: 140px;
     float: left;
-    margin-right: 6px;
+    margin: 0px 3px;
 
 }
 .tuwengg>figure>a>img{

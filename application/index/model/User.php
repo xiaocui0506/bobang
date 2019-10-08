@@ -63,8 +63,8 @@ class User extends Model
       ]);
       if ($validate->check($post_data)) {
             $sms = cookie($post_data['mobile']);// 获取用户是否有验证码
-          if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
-          if ($sms != $post_data['code']) jsonResponse(-1, '', '短信验证码不正确');
+//          if (!$sms) jsonResponse(-1, '', '请获取短信验证码');
+//          if ($sms != $post_data['code']) jsonResponse(-1, '', '短信验证码不正确');
           $post_data['mw_password'] = $post_data['password'];
           $post_data['password'] = password_hash_tp($post_data['password']);
           $post_data['login_time'] = time();

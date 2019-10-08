@@ -26,6 +26,8 @@ class Common extends Controller
       $this->assign('notice', db('notice')->field('id,title,createtime')->order('id desc')->limit(7)->select());
 
       $this->assign('istime',getStrTime());
+
+
       if ($this->user_id){
 //          招标
           $this->assign('tendering',db('tendering')->where(['user_id'=>$this->user_id])->count());
