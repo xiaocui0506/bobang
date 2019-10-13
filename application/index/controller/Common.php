@@ -28,6 +28,17 @@ class Common extends Controller
 
       $this->assign('istime',getStrTime());
 
+      /*内页展示头部广告图*/
+        $instop = db('instop')->where(['type'=>1,'city'=>session('regionid')])->value('img');
+        $this->assign('instop',$instop);
+
+        /*内页展示底部广告图*/
+        var_dump($_SERVER);
+        $where = 'type = 2 AND city = '.session('regionid') .' AND (fl = 0 or fl = 2)'  ;
+        $instop = db('instop')->where($where)->order('id desc')->limit(12)-> fetchSql(true)
+            ->select();
+        echo $instop;
+        $this->assign('instop',$instop);
 
       if ($this->user_id){
 //          招标

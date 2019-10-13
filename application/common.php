@@ -151,7 +151,6 @@ if (!function_exists('uploads')) {
     if ($file) {
       $info = $file->move('public/uploads');
       if ($info) {
-
         // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
 //      echo $info->getSaveName();
         return str_replace('\\', '/', $info->getSaveName());

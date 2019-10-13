@@ -6,13 +6,13 @@ use think\Controller;
 
 class Wsdl extends Controller
 {
+
     //
     public $apiurl = 'http://222.143.21.205:8091/wsscservices_test/services/wsscWebService?wsdl';
     private static $soapClientHandler;
 
     public function setUp()
     {
-        echo  md5('7223ff8080814a1353ac014a1394961100497223');die();
         $client = $this->getSoapClientHandler();
         print "提供的方法\n";
         print_r($client->__getFunctions());
@@ -20,6 +20,20 @@ class Wsdl extends Controller
         print_r($client->__getTypes());
         print "\n\n";
     }
+
+    /*测试数据*/
+    public function index(){
+        $abc=array("red","green","blue","yellow","brown");
+        for($i=0;$i<ceil(count($abc));$i++)
+        {
+            echo  $i;
+            $bbb[] = array_slice($abc, $i * 6 ,6);
+        }
+        var_dump($bbb);
+
+    }
+
+    /*结束*/
 
     /**
      * xxxxUserInfo方法

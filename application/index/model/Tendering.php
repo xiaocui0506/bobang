@@ -37,6 +37,7 @@ class Tendering extends Model
       if ($validate->check($post_data)) {
         $post_data['user_id'] = session("?user_id")?session("user_id"):1;
         $post_data['create_time'] = time();
+        $post_data['status'] = 0;
         $post_data['bidding_pro'] = json_encode($post_data['bidding_pro']);
         $post_data['see_level'] = !isset($post_data['see_level'])?$post_data['see_level']:1;
         $res = $this->allowField(true)->save($post_data);

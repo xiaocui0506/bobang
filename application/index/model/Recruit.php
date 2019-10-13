@@ -41,6 +41,7 @@ class Recruit extends Model
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
         $post_data['bright'] = implode(',',array_filter($post_data['bright']));
+          $post_data['status'] = 0;
         $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');

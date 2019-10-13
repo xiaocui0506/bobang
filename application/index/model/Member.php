@@ -34,6 +34,7 @@ class Member extends Model
         $post_data['user_id'] = session("?user_id")?session("user_id"):0;
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
+          $post_data['status'] = 0;
         $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');

@@ -25,8 +25,7 @@ if (!function_exists('modify')){
 //用户修改某个数据
 if (!function_exists('del')){
   function del($db,$id,$isimg = 0){
-    if ($db){
-      if ($id ){
+    if ($db && $id){
         if ($isimg){
           $img = $db::where(['id'=>$id])->value('img');
           if ($img) {
@@ -41,14 +40,13 @@ if (!function_exists('del')){
         }else{
           jsonResponse(-1,0,'删除失败');
         }
-      }else{
-        jsonResponse(-1,0,'缺少参数');
-      }
     }else{
       jsonResponse(-1,0,'缺少重要数据');
     }
   }
 }
+
+
 
 
 

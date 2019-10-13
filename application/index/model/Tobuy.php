@@ -46,7 +46,8 @@ class Tobuy extends Model
         $post_data['pro_name'] = json_encode($post_data['pro_name']);
         $post_data['create_time'] = time();
         $post_data['update_time'] = time();
-        $res = $this->save($post_data);
+        $post_data['status'] = 0;
+        $res = $this->allowField(true)->save($post_data);
         if ($res)
           jsonResponse(1,$this->id,'成功');
         else
